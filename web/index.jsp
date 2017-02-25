@@ -10,19 +10,20 @@
 <html>
 <head>
 
-  <meta charset="utf-8">
+ <%-- <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="">--%>
 
   <title> LenguagueXS </title>
 
   <!-- Bootstrap Core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom Fonts -->
+  <!-- Custom ICONS -->
   <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Custom Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -41,7 +42,7 @@
 </head>
 
 <body id="page-top" class="index">
-<jsp:useBean id="service" class="com.languaguexsapp.services.LenguaguexsService"/>
+<jsp:useBean id="service" class="com.languaguexsapp.services.LanguagexsService"/>
 <!-- Navigation -->
 <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
   <div class="container">
@@ -50,7 +51,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
       </button>
-      <a class="navbar-brand page-scroll" href="#page-top">Languaguexs</a>
+      <a class="navbar-brand page-scroll" href="#page-top">LanguagueXS</a> <%--logo representativo--%>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -83,13 +84,13 @@
 
 <!-- Header -->
 <header>
-  <div class="container">
-    <div class="intro-text">
-      <div class="intro-lead-in">¡PRUEBA RATIOVOICES!</div>
-      <div class="intro-heading">Una nota alta para tu vida ;)</div>
-      <a href="#services" class="page-scroll btn btn-xl">¿Qué me espera?</a>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">¡Axpresate con LanguaguesXS!</div>
+            <div class="intro-heading">Enseñar y aprende idiomas</div>
+            <a href="#services" class="page-scroll btn btn-xl">¿Qué me espera?</a>
+        </div>
     </div>
-  </div>
 </header>
 
 <!-- Services Section -->
@@ -97,8 +98,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-heading">¡Amantes de la música ya no buscarán más!</h2>
-        <h3 class="section-subheading text-muted">RATIOVOICES es la primera plataforma Web de aprendizaje y enseñanza de instrumentos musicales</h3>
+        <h2 class="section-heading">¡Tenemos lo necesario para que aprendaz!</h2>
+        <h3 class="section-subheading text-muted">LanguagueXS es una plataforma Web de aprendizaje y enseñanza de idiomas</h3>
       </div>
     </div>
     <div class="row text-center">
@@ -108,15 +109,15 @@
                         <i class="fa fa-search fa-stack-1x fa-inverse"></i>
                     </span>
         <h4 class="service-heading">Busca y Contacta</h4>
-        <p class="text-muted">RATIOVOICES te permite buscar a los profesores del instrumento deseado, solo escríbelo, selecciona el mejor que te parezca, realiza el pago virtual y ya estarás dentro. ¡Fácil!</p>
+        <p class="text-muted">LanguagueXS te permite buscar a los profesores deseado, solo escríbelo, selecciona el mejor que te parezca, realiza el pago virtual y ya estarás dentro.</p>
       </div>
       <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-book fa-stack-1x fa-inverse"></i>
                     </span>
-        <h4 class="service-heading">Postula y Crece</h4>
-        <p class="text-muted">Si ya conoces tu instrumento al derecho y al revéz, puedes ser el maestro de muchos con RATIOVOICES. ¡Postear es fácil y rápido!.</p>
+        <h4 class="service-heading">Enseña y Aprende</h4>
+        <p class="text-muted">Si tienes los conocimientos necesarios para enseñar y las ganas de aprender, entonces estas en el lugar correcto!.</p>
       </div>
       <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -124,7 +125,7 @@
                         <i class="fa fa-money fa-stack-1x fa-inverse"></i>
                     </span>
         <h4 class="service-heading">Has dinero</h4>
-        <p class="text-muted">Pensando en ustedes, RATIOVOICES esta diseñado para que puedas obtener ingresos por tus enseñanzas sin complejas transacciones ni acuerdos.</p>
+        <p class="text-muted">Puedas obtener ingresos por tus enseñanzas sin complejas transacciones ni acuerdos.</p>
       </div>
     </div>
   </div>
@@ -136,7 +137,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading">TOUR</h2>
-        <h3 class="section-subheading text-muted">Revisa aquí la experiencia RATIOVOICES</h3>
+        <h3 class="section-subheading text-muted">Revisa aquí la experiencia LanguagueXS</h3>
       </div>
     </div>
     <div class="row">
@@ -194,7 +195,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading">TESTIMONIOS</h2>
-        <h3 class="section-subheading text-muted">¡Grandes Figuras ya usan nuestra Plataforma!</h3>
+        <h3 class="section-subheading text-muted">¡MUCHOS USUARIOS HABLAN POR NOSOTROS!</h3>
       </div>
     </div>
     <div class="row">
@@ -206,11 +207,11 @@
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4>CHARLIE PARRA</h4>
-                <h4 class="subheading">Guitarrista DIFONÍA</h4>
+                <h4>CELIA QUIÑONES</h4>
+                <h4 class="subheading">Es una ingeniera industrial</h4>
               </div>
               <div class="timeline-body">
-                <p class="text-muted">"¡Brutal! Unos clicks aquí y allá y todo listo para la siguiente clase"</p>
+                <p class="text-muted">"Aprendio con nosotros y ahora es capaz de estar intercomunicado con mucha gente del exterior"</p>
               </div>
             </div>
           </li>
