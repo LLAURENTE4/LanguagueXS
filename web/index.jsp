@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 
 <head>
@@ -62,10 +62,10 @@
           <a class="page-scroll" href="#about">About</a>
         </li>
         <li>
-          <a class="page-scroll" href="#team">Team</a>
+          <a class="page-scroll" href="#team">Register</a>
         </li>
         <li>
-          <a class="page-scroll" href="#contact">Contact</a>
+          <a class="page-scroll" href="#contact">Login</a>
         </li>
       </ul>
     </div>
