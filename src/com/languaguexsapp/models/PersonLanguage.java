@@ -65,21 +65,18 @@ public class PersonLanguage {
     }
 
     public static PersonLanguage build(ResultSet resultSet, PeopleEntity peopleEntity, LanguagesEntity languagesEntity, LevelsEntity levelsEntity) {
-        /*
+
         try {
             return new PersonLanguage(resultSet.getInt("person_language_id"),
-                                    peopleEntity.findById(resultSet.getInt("person_id"),
-                                    languagesEntity.findById(resultSet.getInt("language_id"),
-                                    levelsEntity.findById(resultSet.getInt("level_id"),
+                                    peopleEntity.findById(resultSet.getInt("person_id")),
+                                    languagesEntity.findById(resultSet.getInt("language_id")),
+                                    levelsEntity.findById(resultSet.getInt("level_id")),
                                     resultSet.getFloat("price")
             );
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
-        */
-        return null;
-
     }
 
 }

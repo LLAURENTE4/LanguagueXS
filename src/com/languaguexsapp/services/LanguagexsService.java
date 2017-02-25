@@ -1,7 +1,6 @@
 package com.languaguexsapp.services;
 
-import com.languaguexsapp.models.Language;
-import com.languaguexsapp.models.LanguagesEntity;
+import com.languaguexsapp.models.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -12,6 +11,8 @@ import java.util.List;
 public class LanguagexsService {
     private Connection connection;
     private LanguagesEntity languagesEntity;
+    private StatusEntity statusEntity;
+    private LevelsEntity levelsEntity;
 
     public LanguagexsService() {
     }
@@ -37,8 +38,37 @@ public class LanguagexsService {
         }
         return languagesEntity;
     }
+
+    protected StatusEntity getStatusEntity() {
+        if(connection != null) {
+            if(statusEntity == null) {
+                statusEntity = new StatusEntity();
+                statusEntity.setConnection(getConnection());
+            }
+        }
+        return statusEntity;
+    }
+
+    protected LevelsEntity getLevelsEntity() {
+        if(connection != null) {
+            if(levelsEntity == null) {
+                levelsEntity = new LevelsEntity();
+                levelsEntity.setConnection(getConnection());
+            }
+        }
+        return levelsEntity;
+    }
+
     protected void setLanguagesEntity(LanguagesEntity languagesEntity) {
         this.languagesEntity = languagesEntity;
+    }
+
+    public void setStatusEntity(StatusEntity statusEntity) {
+        this.statusEntity = statusEntity;
+    }
+
+    public void setLevelsEntity(LevelsEntity levelsEntity) {
+        this.levelsEntity = levelsEntity;
     }
 
     public List<Language> findAllLanguages() {
@@ -48,4 +78,21 @@ public class LanguagexsService {
     public Language findLanguageById(int id) {
         return getLanguagesEntity().findById(id);
     }
+
+    public List<Status> findAllStatus() {
+        return getStatusEntity().findAll();
+    }
+
+    public Status findStatusById(int id) {
+        return getStatusEntity().findById(id);
+    }
+
+    public List<Level> findAllLevels() {
+        return getLevelsEntity().findAll();
+    }
+
+    public Level findLevelById(int id) {
+        return getLevelsEntity().findById(id);
+    }
+
 }
