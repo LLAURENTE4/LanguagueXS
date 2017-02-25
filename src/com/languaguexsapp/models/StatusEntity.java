@@ -8,42 +8,42 @@ import java.util.List;
 /**
  * Created by Frank on 25/02/2017.
  */
-public class StatesEntity extends BaseEntity{
-    public StatesEntity() {
+public class StatusEntity extends BaseEntity{
+    public StatusEntity() {
         super("status");
     }
 
-    public List<State> findAll() {
+    public List<Status> findAll() {
         String statement = getDefaultStatement() + getTableName();
         return findByCriteria(statement);
     }
 
-    private List<State> findByCriteria(String sql) {
-        List<State> states = new ArrayList<>();
+    private List<Status> findByCriteria(String sql) {
+        List<Status> statuses = new ArrayList<>();
         try {
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
             while(rs.next()) {
-                State state = State.build(rs);
-                states.add(state);
+                Status status = Status.build(rs);
+                statuses.add(status);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return states;
+        return statuses;
     }
 
-    public State findById(int id) {
+    public Status findById(int id) {
         String statement = "SELECT * FROM status WHERE status_id = " +
                 String.valueOf(id);
-        List<State> states = findByCriteria(statement);
-        return states != null ? states.get(0) : null;
+        List<Status> statuses = findByCriteria(statement);
+        return statuses != null ? statuses.get(0) : null;
     }
 
-    public State findByName(String name) {
+    public Status findByName(String name) {
         String statement = "SELECT * FROM status WHERE description = '" +
                 name + "'";
-        List<State> states = findByCriteria(statement);
-        return states != null ? states.get(0) : null;
+        List<Status> statuses = findByCriteria(statement);
+        return statuses != null ? statuses.get(0) : null;
     }
 
     private int updateByCriteria(String sql) {
@@ -54,5 +54,4 @@ public class StatesEntity extends BaseEntity{
         }
         return 0;
     }
-
 }

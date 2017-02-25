@@ -16,9 +16,9 @@ public class Person {
     private String password;
     private Date dateRegistration;
     private String type;
-    private State state;
+    private Status status;
 
-    public Person(int id, String nameFirst, String nameLast, String email, String user, String password, Date dateRegistration, String type, State state) {
+    public Person(int id, String nameFirst, String nameLast, String email, String user, String password, Date dateRegistration, String type, Status status) {
         this.id = id;
         this.nameFirst = nameFirst;
         this.nameLast = nameLast;
@@ -27,7 +27,7 @@ public class Person {
         this.password = password;
         this.dateRegistration = dateRegistration;
         this.type = type;
-        this.state = state;
+        this.status = status;
     }
 
     public Person() {
@@ -97,15 +97,15 @@ public class Person {
         this.type = type;
     }
 
-    public State getState() {
-        return state;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void setStatus(Status state) {
+        this.status = status;
     }
 
-    public static Person build(ResultSet resultSet, StatesEntity statesEntity) {
+    public static Person build(ResultSet resultSet, StatusEntity statesEntity) {
         try {
             return new Person(resultSet.getInt("person_id"),resultSet.getString("first_name"),
                              resultSet.getString("last_name"),resultSet.getString("email"),

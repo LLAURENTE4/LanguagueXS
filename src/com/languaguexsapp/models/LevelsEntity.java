@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class LevelsEntity extends BaseEntity{
     public LevelsEntity() {
-        super("level");
+        super("levels");
     }
 
     public List<Level> findAll() {
@@ -33,14 +33,14 @@ public class LevelsEntity extends BaseEntity{
     }
 
     public Level findById(int id) {
-        String statement = "SELECT * FROM level WHERE level_id = " +
+        String statement = "SELECT * FROM levels WHERE level_id = " +
                 String.valueOf(id);
         List<Level> levels = findByCriteria(statement);
         return levels != null ? levels.get(0) : null;
     }
 
     public Level findByName(String name) {
-        String statement = "SELECT * FROM level WHERE description = '" +
+        String statement = "SELECT * FROM levels WHERE description = '" +
                 name + "'";
         List<Level> levels = findByCriteria(statement);
         return levels != null ? levels.get(0) : null;

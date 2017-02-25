@@ -15,6 +15,6 @@ public class Lesson {
     Date dateEnd;
     int studentQualification;
     int teacherQualification;
-    State state;
+    Status state;
 
 }
