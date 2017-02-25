@@ -1,7 +1,7 @@
-insert into status(status_id,description) values(1,'Active'); -- Status person
-insert into status(status_id,description) values(2,'Inactive'); -- Status person
-insert into status(status_id,description) values(3,'Pending'); -- Status class
-insert into status(status_id,description) values(4,'Finalized'); -- Status class
+insert into status(status_id,description) values(1,'Active'); -- State person
+insert into status(status_id,description) values(2,'Inactive'); -- State person
+insert into status(status_id,description) values(3,'Pending'); -- State class
+insert into status(status_id,description) values(4,'Finalized'); -- State class
 
 
 insert into level(level_id,description) values(1,'Basic');

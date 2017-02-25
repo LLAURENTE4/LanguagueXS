@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class LanguagesEntity  extends BaseEntity{
     public LanguagesEntity() {
-        super("languages");
+        super("language");
     }
 
     public List<Language> findAll() {
