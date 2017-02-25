@@ -9,10 +9,10 @@ import java.util.List;
  * Created by Frank on 25/02/2017.
  */
 public class PeopleEntity extends BaseEntity{
-    private StatesEntity statesEntity;
+    private StatusEntity statusEntity;
 
     public PeopleEntity() {
-        super("person");
+        super("people");
     }
 
     public List<Person> findAll() {
@@ -25,7 +25,7 @@ public class PeopleEntity extends BaseEntity{
         try {
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
             while(rs.next()) {
-                Person person = Person.build(rs,getStatesEntity());
+                Person person = Person.build(rs,getStatusEntity());
                 people.add(person);
             }
         } catch (SQLException e) {
@@ -41,11 +41,11 @@ public class PeopleEntity extends BaseEntity{
         return people != null ? people.get(0) : null;
     }
 
-    public StatesEntity getStatesEntity() {
-        return statesEntity;
+    public StatusEntity getStatusEntity() {
+        return statusEntity;
     }
 
-    public void setStatesEntity(StatesEntity statesEntity) {
-        this.statesEntity = statesEntity;
+    public void setStatusEntity(StatusEntity statesEntity) {
+        this.statusEntity = statesEntity;
     }
 }

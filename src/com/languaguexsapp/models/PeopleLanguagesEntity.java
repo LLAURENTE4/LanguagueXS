@@ -14,7 +14,7 @@ public class PeopleLanguagesEntity extends BaseEntity{
     private LevelsEntity levelsEntity;
 
     public PeopleLanguagesEntity() {
-        super("person_language");
+        super("people_languages");
     }
 
     public List<PersonLanguage> findAll() {
@@ -37,7 +37,7 @@ public class PeopleLanguagesEntity extends BaseEntity{
     }
 
     public PersonLanguage findById(int id) {
-        String statement = "SELECT * FROM person_language WHERE person_language_id = " +
+        String statement = "SELECT * FROM people_languages WHERE person_language_id = " +
                 String.valueOf(id);
         List<PersonLanguage> peoplelanguages = findByCriteria(statement);
         return peoplelanguages != null ? peoplelanguages.get(0) : null;

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class LanguagesEntity  extends BaseEntity{
     public LanguagesEntity() {
-        super("language");
+        super("languages");
     }
 
     public List<Language> findAll() {
@@ -33,14 +33,14 @@ public class LanguagesEntity  extends BaseEntity{
     }
 
     public Language findById(int id) {
-        String statement = "SELECT * FROM language WHERE language_id = " +
+        String statement = "SELECT * FROM languages WHERE language_id = " +
                 String.valueOf(id);
         List<Language> languages = findByCriteria(statement);
         return languages != null ? languages.get(0) : null;
     }
 
     public Language findByName(String name) {
-        String statement = "SELECT * FROM language WHERE language_name = '" +
+        String statement = "SELECT * FROM languages WHERE language_name = '" +
                 name + "'";
         List<Language> languages = findByCriteria(statement);
         return languages != null ? languages.get(0) : null;
@@ -62,13 +62,13 @@ public class LanguagesEntity  extends BaseEntity{
     }
 
     public boolean update(Language language) {
-        String sql = "UPDATE language SET language_name = '" + language.getName() +
+        String sql = "UPDATE languages SET language_name = '" + language.getName() +
                 "' WHERE language_id = " + String.valueOf(language.getId());
         return updateByCriteria(sql) > 0;
     }
 
     public boolean delete(int id) {
-        String sql = "DELETE FROM language WHERE language_id = " + String.valueOf(id);
+        String sql = "DELETE FROM languages WHERE language_id = " + String.valueOf(id);
         return updateByCriteria(sql) > 0;
     }
 

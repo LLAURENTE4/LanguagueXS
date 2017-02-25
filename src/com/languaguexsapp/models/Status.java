@@ -6,16 +6,16 @@ import java.sql.SQLException;
 /**
  * Created by Frank on 25/02/2017.
  */
-public class State {
+public class Status {
     private int id;
     private String name;
 
-    public State(int id, String name) {
+    public Status(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public State() {
+    public Status() {
     }
 
     public int getId() {
@@ -33,9 +33,9 @@ public class State {
     public void setName(String name) {
         this.name = name;
     }
-    public static State build(ResultSet resultSet) {
+    public static Status build(ResultSet resultSet) {
         try {
-            return new State(resultSet.getInt("status_id"),resultSet.getString("description"));
+            return new Status(resultSet.getInt("status_id"),resultSet.getString("description"));
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
