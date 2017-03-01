@@ -1,6 +1,7 @@
 package com.languaguexsapp.models;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * Created by laurente on 25/02/2017.
