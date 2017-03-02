@@ -15,17 +15,17 @@ public class PeopleEntity extends BaseEntity{
         super("people");
     }
 
-    public List<Person> findAll() {
+    public List<People> findAll() {
         String statement = getDefaultStatement() + getTableName();
         return findByCriteria(statement);
     }
 
-    private List<Person> findByCriteria(String sql) {
-        List<Person> people = new ArrayList<>();
+    private List<People> findByCriteria(String sql) {
+        List<People> people = new ArrayList<>();
         try {
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
             while(rs.next()) {
-                Person person = Person.build(rs,getStatusEntity());
+                People person = People.build(rs,getStatusEntity());
                 people.add(person);
             }
         } catch (SQLException e) {
@@ -34,10 +34,10 @@ public class PeopleEntity extends BaseEntity{
         return people;
     }
 
-    public Person findById(int id) {
+    public People findById(int id) {
         String statement = "SELECT * FROM person WHERE person_id = " +
                 String.valueOf(id);
-        List<Person> people = findByCriteria(statement);
+        List<People> people = findByCriteria(statement);
         return people != null ? people.get(0) : null;
     }
 

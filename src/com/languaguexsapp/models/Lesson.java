@@ -1,36 +1,40 @@
 package com.languaguexsapp.models;
 
-import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
  * Created by Frank on 25/02/2017.
  */
-public class Lesson implements Serializable{
+public class Lesson {
     private int id;
-    private String name;
-    private Person personStudent;
-    private Person personTeacher;
+    // private String name;
+    private People personStudent;
+    // private People personTeacher;
+    //    private  PeopleLanguagesEntity peopleLanguagesEntity;
+    private  PersonLanguage personLanguage;
     private Date dateStart;
+
+
     private Date dateEnd;
     private int studentQualification;
     private int teacherQualification;
     private Status status;
-    private Skill skill;
 
-    public Lesson(int id, String name, Person personStudent, Person personTeacher, Date dateStart, Date dateEnd, int studentQualification, int teacherQualification, Status status, Skill skill) {
-        this.setId(id);
-        this.setName(name);
-        this.setPersonStudent(personStudent);
-        this.setPersonTeacher(personTeacher);
-        this.setDateStart(dateStart);
-        this.setDateEnd(dateEnd);
-        this.setStudentQualification(studentQualification);
-        this.setTeacherQualification(teacherQualification);
-        this.setStatus(status);
-        this.setSkill(skill);
+
+    public Lesson(int id, People personStudent, PersonLanguage personLanguage, Date dateStart, Date dateEnd, int studentQualification, int teacherQualification, Status status) {
+        this.id = id;
+        //   this.name = name;
+        this.personStudent = personStudent;
+        //this.personTeacher = personTeacher;
+        this.personLanguage = personLanguage;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.studentQualification = studentQualification;
+        this.teacherQualification = teacherQualification;
+        this.status = status;
     }
-    public Lesson() {}
 
     public int getId() {
         return id;
@@ -40,28 +44,30 @@ public class Lesson implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public Person getPersonStudent() {
+    public People getPersonStudent() {
         return personStudent;
     }
 
-    public void setPersonStudent(Person personStudent) {
+    public void setPersonStudent(People personStudent) {
         this.personStudent = personStudent;
     }
-
+/*
     public Person getPersonTeacher() {
         return personTeacher;
     }
 
     public void setPersonTeacher(Person personTeacher) {
         this.personTeacher = personTeacher;
+    }
+*/
+    public PersonLanguage getPersonLanguage() {
+        return personLanguage;
+    }
+
+    public void setPersonLanguage(PersonLanguage personLanguage) {
+        this.personLanguage = personLanguage;
     }
 
     public Date getDateStart() {
@@ -100,16 +106,27 @@ public class Lesson implements Serializable{
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setState(Status status) {
         this.status = status;
     }
 
-    public Skill getSkill() {
-        return skill;
+    public static Lesson build(ResultSet resultSet,PeopleEntity peopleEntity, PeopleLanguagesEntity peopleLanguagesEntity,StatusEntity status ) {
+        try {
+            return new Lesson(resultSet.getInt("lesson_id"),
+                    peopleEntity.findById(   resultSet.getInt("person_id_student")),
+               //     peopleEntity.findById(    resultSet.getInt("person_id_teacher")),
+                    peopleLanguagesEntity.findById( resultSet.getInt("person_language_id")),
+                    resultSet.getDate("start_date"),
+                    resultSet.getDate("end_date"),
+                    resultSet.getInt("qualification_student"),
+                    resultSet.getInt("qualification_teacher"),
+                    status.findById( resultSet.getInt("status_id") ));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
-    public void setSkill(Skill skill) {
-        this.skill = skill;
-    }
 
 }
