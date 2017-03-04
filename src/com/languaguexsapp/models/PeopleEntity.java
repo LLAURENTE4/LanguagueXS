@@ -51,7 +51,7 @@ public class PeopleEntity extends BaseEntity{
 
     public Person create(int id, String first_name, String last_name, String email, String username, String password, Date registration_date, int status_id) {
         String sql = "INSERT INTO people(id, first_name, last_name,email,user_name,password,registration_date,status_id) " +
-                "VALUES('" + id + "', '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ username   +"','"+ password   +"','"+ registration_date   +"'" +
+                "VALUES('" + String.valueOf( id) + "', '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ username   +"','"+ password   +"','"+ registration_date   +"'" +
                 ","+ String.valueOf( status_id )  +")";
         return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,username,password, registration_date, getStatusEntity().findById(status_id)) : null;
     }

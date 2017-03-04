@@ -51,16 +51,19 @@ public class SkillsEntity extends BaseEntity{
         return 0;
     }
 
-    public Skill create(Integer personId,Integer languageId, Integer levelId,Double price )
+    public Skill create(int id,int personId,int languageId, int levelId,Double price )
     {
-        String sql = "INSERT INTO skills(person_id, language_id,level_id, price) " +
-                "VALUES(" + personId + ","+languageId+","+levelId+","+ price +")";
-        return updateByCriteria(sql) > 0 ? new Skill(1,personId,languageId,levelId,price) : null;
+        String sql = "INSERT INTO skill(id,person_id, language_id,level_id, price) " +
+                "VALUES(" + String.valueOf(id) + "," + String.valueOf( personId) + ","+ String.valueOf( languageId) +","+String.valueOf( levelId)
+                +","+ String.valueOf( price) +")";
+        return updateByCriteria(sql) > 0 ? new Skill(id,getPeopleEntity().findById(personId),getLanguagesEntity().findById( languageId),
+              getLevelsEntity().findById(  levelId),price) : null;
     }
 
-    public boolean update(skills region) {
-        String sql = "UPDATE skills SET region_name = '" + region.getName() +
-                "' WHERE region_id = " + String.valueOf(region.getId());
+    public boolean update(Skill skill) {
+        String sql = "UPDATE skill SET language_id = '" + String.valueOf( skill.getId()) +
+                "',level_id=" + String.valueOf( skill.getLevel()) + ",price=" + String.valueOf( skill.getPrice())
+                + "WHERE region_id = " + String.valueOf(skill.getId());
         return updateByCriteria(sql) > 0;
     }
 
@@ -68,18 +71,6 @@ public class SkillsEntity extends BaseEntity{
         String sql = "DELETE FROM skills WHERE region_id = " + String.valueOf(id);
         return updateByCriteria(sql) > 0;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     public PeopleEntity getPeopleEntity() {
         return peopleEntity;
