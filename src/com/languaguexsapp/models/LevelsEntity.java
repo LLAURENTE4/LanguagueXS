@@ -51,5 +51,21 @@ public class LevelsEntity extends BaseEntity{
         }
         return 0;
     }
+    public Level create(int id, String name) {
+        String sql = "INSERT INTO levels(id, description) " +
+                "VALUES(" + String.valueOf(id) + ", '" + name + "')";
+        return updateByCriteria(sql) > 0 ? new Level(id, name) : null;
+    }
+
+    public boolean update(Level level) {
+        String sql = "UPDATE levels SET description = '" + level.getName() +
+                "' WHERE id = " + String.valueOf(level.getId());
+        return updateByCriteria(sql) > 0;
+    }
+
+    public boolean delete(int id) {
+        String sql = "DELETE FROM levels WHERE id = " + String.valueOf(id);
+        return updateByCriteria(sql) > 0;
+    }
 
 }
