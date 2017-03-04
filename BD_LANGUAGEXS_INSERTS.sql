@@ -19,7 +19,7 @@ now(),1,1); -- type_person 1: teacher , 2: student
 insert into people(person_id,first_name,last_name,email,user,password,registration_date,
 type_person,status_id) values (2,'Llaurente','Llaurente','llaurente@utp.edu.pe','llaurente','llaurente',
 now(),1,1); -- type_person 1: teacher , 2: student
-insert into people(person_id,first_name,last_name,email,user,password,registration_date,
+insert into people(person_id,first_name,las t_name,email,user,password,registration_date,
 type_person,status_id) values (3,'Frank','Frank','Frank@utp.edu.pe','frank','frank',
 now(),2,1); -- type_person 1: teacher , 2: student
 insert into people(person_id,first_name,last_name,email,user,password,registration_date,

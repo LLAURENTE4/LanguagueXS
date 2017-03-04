@@ -10,8 +10,8 @@ import java.util.Date;
 public class Lesson {
     private int id;
     // private String name;
-    private People personStudent;
-    // private People personTeacher;
+    private Person personStudent;
+    // private Person personTeacher;
     //    private  PeopleLanguagesEntity peopleLanguagesEntity;
     private  PersonLanguage personLanguage;
     private Date dateStart;
@@ -23,7 +23,7 @@ public class Lesson {
     private Status status;
 
 
-    public Lesson(int id, People personStudent, PersonLanguage personLanguage, Date dateStart, Date dateEnd, int studentQualification, int teacherQualification, Status status) {
+    public Lesson(int id, Person personStudent, PersonLanguage personLanguage, Date dateStart, Date dateEnd, int studentQualification, int teacherQualification, Status status) {
         this.id = id;
         //   this.name = name;
         this.personStudent = personStudent;
@@ -46,11 +46,11 @@ public class Lesson {
 
 
 
-    public People getPersonStudent() {
+    public Person getPersonStudent() {
         return personStudent;
     }
 
-    public void setPersonStudent(People personStudent) {
+    public void setPersonStudent(Person personStudent) {
         this.personStudent = personStudent;
     }
 /*

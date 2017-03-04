@@ -5,18 +5,17 @@ import java.sql.SQLException;
 /**
  * Created by j.quezada.vergaray on 02-Mar-17.
  */
-public class People {
+public class Person {
     private int id;
     private String nameFirst;
     private String nameLast;
     private String email;
     private String user;
     private String password;
-    private Date dateRegistration;
-    private String type;
+    private Date   dateRegistration;
     private Status status;
 
-    public People(int id, String nameFirst, String nameLast, String email, String user, String password, Date dateRegistration, String type, Status status) {
+    public Person(int id, String nameFirst, String nameLast, String email, String user, String password, Date dateRegistration, Status status) {
         this.id = id;
         this.nameFirst = nameFirst;
         this.nameLast = nameLast;
@@ -24,11 +23,10 @@ public class People {
         this.user = user;
         this.password = password;
         this.dateRegistration = dateRegistration;
-        this.type = type;
         this.status = status;
     }
 
-    public People() {
+    public Person() {
     }
 
     public int getId() {
@@ -87,14 +85,6 @@ public class People {
         this.dateRegistration = dateRegistration;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -103,9 +93,9 @@ public class People {
         this.status = status;
     }
 
-    public static People build(ResultSet resultSet, StatusEntity statesEntity) {
+    public static Person build(ResultSet resultSet, StatusEntity statesEntity) {
         try {
-            return new People(resultSet.getInt("person_id"),resultSet.getString("first_name"),
+            return new Person(resultSet.getInt("person_id"),resultSet.getString("first_name"),
                     resultSet.getString("last_name"),resultSet.getString("email"),
                     resultSet.getString("user"),resultSet.getString("password"),
                     resultSet.getDate("registration_date"),resultSet.getString("type_person"),
