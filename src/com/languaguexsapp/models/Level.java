@@ -3,20 +3,17 @@ package com.languaguexsapp.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by Frank on 25/02/2017.
- */
-public class Levels {
+public class Level {
     private int id;
     private String name;
 
 
-    public Levels(int id, String name) {
+    public Level(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Levels() {
+    public Level() {
     }
 
     public int getId() {
@@ -35,9 +32,9 @@ public class Levels {
         this.name = name;
     }
 
-    public static Levels build(ResultSet resultSet) {
+    public static Level build(ResultSet resultSet) {
         try {
-            return new Levels(resultSet.getInt("level_id"),
+            return new Level(resultSet.getInt("id"),
                     resultSet.getString("description")
                     );
         } catch (SQLException e) {

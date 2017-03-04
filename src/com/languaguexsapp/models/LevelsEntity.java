@@ -5,9 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Frank on 25/02/2017.
- */
 public class LevelsEntity extends BaseEntity{
     public LevelsEntity() {
         super("levels");
@@ -33,7 +30,7 @@ public class LevelsEntity extends BaseEntity{
     }
 
     public Level findById(int id) {
-        String statement = "SELECT * FROM levels WHERE level_id = " +
+        String statement = "SELECT * FROM levels WHERE id = " +
                 String.valueOf(id);
         List<Level> levels = findByCriteria(statement);
         return levels != null ? levels.get(0) : null;
