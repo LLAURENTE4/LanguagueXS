@@ -72,6 +72,7 @@ public class LessonsEntity extends BaseEntity{
         String sql = "DELETE FROM products WHERE id = " + String.valueOf(id);
         return updateByCriteria(sql) > 0;
     }
+    
 
 
     public SkillsEntity getSkillsEntity() {
