@@ -40,6 +40,47 @@ public class SkillsEntity extends BaseEntity{
     }
 
 
+
+
+    private int updateByCriteria(String sql) {
+        try {
+            return getConnection().createStatement().executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public Skill create(Integer personId,Integer languageId, Integer levelId,Double price )
+    {
+        String sql = "INSERT INTO skills(person_id, language_id,level_id, price) " +
+                "VALUES(" + personId + ","+languageId+","+levelId+","+ price +")";
+        return updateByCriteria(sql) > 0 ? new Skill(1,personId,languageId,levelId,price) : null;
+    }
+
+    public boolean update(skills region) {
+        String sql = "UPDATE skills SET region_name = '" + region.getName() +
+                "' WHERE region_id = " + String.valueOf(region.getId());
+        return updateByCriteria(sql) > 0;
+    }
+
+    public boolean delete(int id) {
+        String sql = "DELETE FROM skills WHERE region_id = " + String.valueOf(id);
+        return updateByCriteria(sql) > 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public PeopleEntity getPeopleEntity() {
         return peopleEntity;
     }
