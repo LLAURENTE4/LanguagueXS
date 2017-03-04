@@ -4,36 +4,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-/**
- * Created by Frank on 25/02/2017.
- */
 public class Lesson {
     private int id;
-    // private String name;
-    private Person personStudent;
-    // private Person personTeacher;
-    //    private  PeopleLanguagesEntity peopleLanguagesEntity;
-    private  PersonLanguage personLanguage;
+    private Skill skill;
     private Date dateStart;
-
-
     private Date dateEnd;
-    private int studentQualification;
-    private int teacherQualification;
     private Status status;
 
-
-    public Lesson(int id, Person personStudent, PersonLanguage personLanguage, Date dateStart, Date dateEnd, int studentQualification, int teacherQualification, Status status) {
+    public Lesson(int id, Skill skill, Date dateStart, Date dateEnd, Status status) {
         this.id = id;
-        //   this.name = name;
-        this.personStudent = personStudent;
-        //this.personTeacher = personTeacher;
-        this.personLanguage = personLanguage;
+        this.skill = skill;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
-        this.studentQualification = studentQualification;
-        this.teacherQualification = teacherQualification;
         this.status = status;
+    }
+
+    public Lesson() {
     }
 
     public int getId() {
@@ -44,30 +30,12 @@ public class Lesson {
         this.id = id;
     }
 
-
-
-    public Person getPersonStudent() {
-        return personStudent;
+    public Skill getSkill() {
+        return skill;
     }
 
-    public void setPersonStudent(Person personStudent) {
-        this.personStudent = personStudent;
-    }
-/*
-    public Person getPersonTeacher() {
-        return personTeacher;
-    }
-
-    public void setPersonTeacher(Person personTeacher) {
-        this.personTeacher = personTeacher;
-    }
-*/
-    public PersonLanguage getPersonLanguage() {
-        return personLanguage;
-    }
-
-    public void setPersonLanguage(PersonLanguage personLanguage) {
-        this.personLanguage = personLanguage;
+    public void setSkill(Skill skill) {
+        this.skill = skill;
     }
 
     public Date getDateStart() {
@@ -86,47 +54,28 @@ public class Lesson {
         this.dateEnd = dateEnd;
     }
 
-    public int getStudentQualification() {
-        return studentQualification;
-    }
-
-    public void setStudentQualification(int studentQualification) {
-        this.studentQualification = studentQualification;
-    }
-
-    public int getTeacherQualification() {
-        return teacherQualification;
-    }
-
-    public void setTeacherQualification(int teacherQualification) {
-        this.teacherQualification = teacherQualification;
-    }
-
     public Status getStatus() {
         return status;
     }
 
-    public void setState(Status status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public static Lesson build(ResultSet resultSet,PeopleEntity peopleEntity, PeopleLanguagesEntity peopleLanguagesEntity,StatusEntity status ) {
+    public static Lesson build(ResultSet resultSet, SkillsEntity skillsEntity, StatusEntity statusEntity ) {
         try {
-            return new Lesson(resultSet.getInt("lesson_id"),
-                    peopleEntity.findById(   resultSet.getInt("person_id_student")),
-               //     peopleEntity.findById(    resultSet.getInt("person_id_teacher")),
-                    peopleLanguagesEntity.findById( resultSet.getInt("person_language_id")),
+            return new Lesson(
+                    resultSet.getInt("id"),
+                    skillsEntity.findById( resultSet.getInt("skill_id")),
                     resultSet.getDate("start_date"),
                     resultSet.getDate("end_date"),
-                    resultSet.getInt("qualification_student"),
-                    resultSet.getInt("qualification_teacher"),
-                    status.findById( resultSet.getInt("status_id") ));
+                    statusEntity.findById( resultSet.getInt("status_id"))
+            );
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
 
     }
-
 
 }
