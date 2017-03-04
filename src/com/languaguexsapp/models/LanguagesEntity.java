@@ -5,9 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Frank on 25/02/2017.
- */
 public class LanguagesEntity  extends BaseEntity{
     public LanguagesEntity() {
         super("languages");
@@ -33,15 +30,14 @@ public class LanguagesEntity  extends BaseEntity{
     }
 
     public Language findById(int id) {
-        String statement = "SELECT * FROM languages WHERE language_id = " +
+        String statement = "SELECT * FROM languages WHERE id = " +
                 String.valueOf(id);
         List<Language> languages = findByCriteria(statement);
         return languages != null ? languages.get(0) : null;
     }
 
     public Language findByName(String name) {
-        String statement = "SELECT * FROM languages WHERE language_name = '" +
-                name + "'";
+        String statement = "SELECT * FROM languages WHERE description = '" +name + "'";
         List<Language> languages = findByCriteria(statement);
         return languages != null ? languages.get(0) : null;
     }
@@ -54,21 +50,20 @@ public class LanguagesEntity  extends BaseEntity{
         }
         return 0;
     }
-
-    public Language create(int id, String name) {
-        String sql = "INSERT INTO languages(language_id, language_name) " +
-                "VALUES(" + String.valueOf(id) + ", '" + name + "')";
+    /*
+    public Language create(String name) {
+        String sql = "INSERT INTO languages(description) VALUES('" + name + "')";
         return updateByCriteria(sql) > 0 ? new Language(id, name) : null;
     }
-
+    */
     public boolean update(Language language) {
-        String sql = "UPDATE languages SET language_name = '" + language.getName() +
-                "' WHERE language_id = " + String.valueOf(language.getId());
+        String sql = "UPDATE languages SET description = '" + language.getName() +
+                "' WHERE id = " + String.valueOf(language.getId());
         return updateByCriteria(sql) > 0;
     }
 
     public boolean delete(int id) {
-        String sql = "DELETE FROM languages WHERE language_id = " + String.valueOf(id);
+        String sql = "DELETE FROM languages WHERE id = " + String.valueOf(id);
         return updateByCriteria(sql) > 0;
     }
 
