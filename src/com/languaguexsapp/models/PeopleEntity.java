@@ -5,9 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Frank on 25/02/2017.
- */
 public class PeopleEntity extends BaseEntity{
     private StatusEntity statusEntity;
 
@@ -35,8 +32,7 @@ public class PeopleEntity extends BaseEntity{
     }
 
     public Person findById(int id) {
-        String statement = "SELECT * FROM person WHERE person_id = " +
-                String.valueOf(id);
+        String statement = "SELECT * FROM people WHERE id = " +String.valueOf(id);
         List<Person> people = findByCriteria(statement);
         return people != null ? people.get(0) : null;
     }

@@ -2,9 +2,7 @@ package com.languaguexsapp.models;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-/**
- * Created by j.quezada.vergaray on 02-Mar-17.
- */
+
 public class Person {
     private int id;
     private String nameFirst;
@@ -95,11 +93,14 @@ public class Person {
 
     public static Person build(ResultSet resultSet, StatusEntity statesEntity) {
         try {
-            return new Person(resultSet.getInt("person_id"),resultSet.getString("first_name"),
-                    resultSet.getString("last_name"),resultSet.getString("email"),
-                    resultSet.getString("user"),resultSet.getString("password"),
-                    resultSet.getDate("registration_date"),resultSet.getString("type_person"),
-                    statesEntity.findById(resultSet.getInt("status_id"))
+            return new Person(  resultSet.getInt("id"),
+                                resultSet.getString("first_name"),
+                                resultSet.getString("last_name"),
+                                resultSet.getString("email"),
+                                resultSet.getString("user"),
+                                resultSet.getString("password"),
+                                resultSet.getDate("registration_date"),
+                                statesEntity.findById(resultSet.getInt("status_id"))
             );
         } catch (SQLException e) {
             e.printStackTrace();
