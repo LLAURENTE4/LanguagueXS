@@ -3,9 +3,6 @@ package com.languaguexsapp.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by Frank on 25/02/2017.
- */
 public class Status {
     private int id;
     private String name;
@@ -36,7 +33,7 @@ public class Status {
 
     public static Status build(ResultSet resultSet) {
         try {
-            return new Status(resultSet.getInt("status_id"),resultSet.getString("description"));
+            return new Status(resultSet.getInt("id"),resultSet.getString("description"));
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

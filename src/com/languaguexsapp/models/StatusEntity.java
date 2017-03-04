@@ -5,9 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Frank on 25/02/2017.
- */
 public class StatusEntity extends BaseEntity{
     public StatusEntity() {
         super("status");
@@ -19,31 +16,31 @@ public class StatusEntity extends BaseEntity{
     }
 
     private List<Status> findByCriteria(String sql) {
-        List<Status> statuses = new ArrayList<>();
+        List<Status> statuss = new ArrayList<>();
         try {
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
             while(rs.next()) {
                 Status status = Status.build(rs);
-                statuses.add(status);
+                statuss.add(status);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return statuses;
+        return statuss;
     }
 
     public Status findById(int id) {
-        String statement = "SELECT * FROM status WHERE status_id = " +
+        String statement = "SELECT * FROM status WHERE id = " +
                 String.valueOf(id);
-        List<Status> statuses = findByCriteria(statement);
-        return statuses != null ? statuses.get(0) : null;
+        List<Status> statuss = findByCriteria(statement);
+        return statuss != null ? statuss.get(0) : null;
     }
 
     public Status findByName(String name) {
         String statement = "SELECT * FROM status WHERE description = '" +
                 name + "'";
-        List<Status> statuses = findByCriteria(statement);
-        return statuses != null ? statuses.get(0) : null;
+        List<Status> statuss = findByCriteria(statement);
+        return statuss != null ? statuss.get(0) : null;
     }
 
     private int updateByCriteria(String sql) {
