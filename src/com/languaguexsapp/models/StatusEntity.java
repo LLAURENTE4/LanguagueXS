@@ -51,4 +51,20 @@ public class StatusEntity extends BaseEntity{
         }
         return 0;
     }
+    public Status create(int id, String name) {
+        String sql = "INSERT INTO status(id, description) " +
+                "VALUES(" + String.valueOf(id) + ", '" + name + "')";
+        return updateByCriteria(sql) > 0 ? new Status(id, name) : null;
+    }
+
+    public boolean update(Status status) {
+        String sql = "UPDATE status SET description = '" + status.getName() +
+                "' WHERE id = " + String.valueOf(status.getId());
+        return updateByCriteria(sql) > 0;
+    }
+
+    public boolean delete(int id) {
+        String sql = "DELETE FROM status WHERE id = " + String.valueOf(id);
+        return updateByCriteria(sql) > 0;
+    }
 }

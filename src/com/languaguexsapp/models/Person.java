@@ -1,7 +1,8 @@
 package com.languaguexsapp.models;
-import java.sql.Date;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class Person {
     private int id;
@@ -10,7 +11,7 @@ public class Person {
     private String email;
     private String user;
     private String password;
-    private Date   dateRegistration;
+    private Date dateRegistration;
     private Status status;
 
     public Person(int id, String nameFirst, String nameLast, String email, String user, String password, Date dateRegistration, Status status) {
