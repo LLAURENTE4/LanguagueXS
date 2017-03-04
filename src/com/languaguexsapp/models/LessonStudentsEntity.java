@@ -48,11 +48,11 @@ public class LessonStudentsEntity  extends BaseEntity{
         }
         return lessonStudents;
     }
-    /*
+
     public LessonStudent findById(int idLesson,int idPerson) {
         String statement = "SELECT * FROM lesson_students WHERE lesson_id = " +String.valueOf(idLesson)+" and person_id="+String.valueOf(idPerson);
         List<LessonStudent> lessonStudents = findByCriteria(statement);
         return lessonStudents != null ? lessonStudents.get(0) : null;
     }
-    */
+
 }

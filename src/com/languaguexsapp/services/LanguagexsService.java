@@ -5,14 +5,15 @@ import com.languaguexsapp.models.*;
 import java.sql.Connection;
 import java.util.List;
 
-/**
- * Created by Frank on 25/02/2017.
- */
 public class LanguagexsService {
     private Connection connection;
     private LanguagesEntity languagesEntity;
-    private StatusEntity statusEntity;
+    private LessonStudentsEntity lessonStudentsEntity;
+    private LessonsEntity lessonsEntity;
     private LevelsEntity levelsEntity;
+    private PeopleEntity peopleEntity;
+    private SkillsEntity skillsEntity;
+    private StatusEntity statusEntity;
 
     public LanguagexsService() {
     }
@@ -39,14 +40,24 @@ public class LanguagexsService {
         return languagesEntity;
     }
 
-    protected StatusEntity getStatusEntity() {
+    protected LessonStudentsEntity getLessonStudentsEntity() {
         if(connection != null) {
-            if(statusEntity == null) {
-                statusEntity = new StatusEntity();
-                statusEntity.setConnection(getConnection());
+            if(lessonStudentsEntity == null) {
+                lessonStudentsEntity = new LessonStudentsEntity();
+                lessonStudentsEntity.setConnection(getConnection());
             }
         }
-        return statusEntity;
+        return lessonStudentsEntity;
+    }
+
+    protected LessonsEntity getLessonsEntity() {
+        if(connection != null) {
+            if(lessonsEntity == null) {
+                lessonsEntity = new LessonsEntity();
+                lessonsEntity.setConnection(getConnection());
+            }
+        }
+        return lessonsEntity;
     }
 
     protected LevelsEntity getLevelsEntity() {
@@ -59,17 +70,66 @@ public class LanguagexsService {
         return levelsEntity;
     }
 
+    protected PeopleEntity getPeopleEntity() {
+        if(connection != null) {
+            if(peopleEntity == null) {
+                peopleEntity = new PeopleEntity();
+                peopleEntity.setConnection(getConnection());
+            }
+        }
+        return peopleEntity;
+    }
+
+    protected SkillsEntity getSkillsEntity() {
+        if(connection != null) {
+            if(skillsEntity == null) {
+                skillsEntity = new SkillsEntity();
+                skillsEntity.setConnection(getConnection());
+            }
+        }
+        return skillsEntity;
+    }
+
+    protected StatusEntity getStatusEntity() {
+        if(connection != null) {
+            if(statusEntity == null) {
+                statusEntity = new StatusEntity();
+                statusEntity.setConnection(getConnection());
+            }
+        }
+        return statusEntity;
+    }
+
+
     protected void setLanguagesEntity(LanguagesEntity languagesEntity) {
         this.languagesEntity = languagesEntity;
     }
 
-    public void setStatusEntity(StatusEntity statusEntity) {
+    protected void setLessonStudentsEntity(LessonStudentsEntity lessonStudentsEntity) {
+        this.lessonStudentsEntity = lessonStudentsEntity;
+    }
+
+    protected void setLessonsEntity(LessonsEntity lessonsEntity) {
+        this.lessonsEntity = lessonsEntity;
+    }
+
+    protected void setLevelsEntity(LevelsEntity levelsEntity) {
+        this.levelsEntity = levelsEntity;
+    }
+
+    protected void setPeopleEntity(PeopleEntity peopleEntity) {
+        this.peopleEntity = peopleEntity;
+    }
+
+    protected void setSkillsEntity(SkillsEntity skillsEntity) {
+        this.skillsEntity = skillsEntity;
+    }
+
+    protected void setStatusEntity(StatusEntity statusEntity) {
         this.statusEntity = statusEntity;
     }
 
-    public void setLevelsEntity(LevelsEntity levelsEntity) {
-        this.levelsEntity = levelsEntity;
-    }
+
 
     public List<Language> findAllLanguages() {
         return getLanguagesEntity().findAll();
@@ -79,12 +139,18 @@ public class LanguagexsService {
         return getLanguagesEntity().findById(id);
     }
 
-    public List<Status> findAllStatus() {
-        return getStatusEntity().findAll();
+    public List<LessonStudent> findAllLessonStudents(){return getLessonStudentsEntity().findAll();}
+
+    public LessonStudent findLessonStudentById(int idLesson,int idPerson) {
+        return getLessonStudentsEntity().findById(idLesson,idPerson);
     }
 
-    public Status findStatusById(int id) {
-        return getStatusEntity().findById(id);
+    public List<Lesson> findAllLessons() {
+        return getLessonsEntity().findAll();
+    }
+
+    public Lesson findLessonById(int id) {
+        return getLessonsEntity().findById(id);
     }
 
     public List<Level> findAllLevels() {
@@ -93,6 +159,30 @@ public class LanguagexsService {
 
     public Level findLevelById(int id) {
         return getLevelsEntity().findById(id);
+    }
+
+    public List<Person> findAllPeople() {
+        return getPeopleEntity().findAll();
+    }
+
+    public Person findPersonById(int id) {
+        return getPeopleEntity().findById(id);
+    }
+
+    public List<Skill> findAllSkills() {
+        return getSkillsEntity().findAll();
+    }
+
+    public Skill findSkillById(int id) {
+        return getSkillsEntity().findById(id);
+    }
+
+    public List<Status> findAllStatus() {
+        return getStatusEntity().findAll();
+    }
+
+    public Status findStatusById(int id) {
+        return getStatusEntity().findById(id);
     }
 
 }
