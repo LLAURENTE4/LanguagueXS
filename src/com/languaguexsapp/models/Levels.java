@@ -6,16 +6,17 @@ import java.sql.SQLException;
 /**
  * Created by Frank on 25/02/2017.
  */
-public class Language {
+public class Levels {
     private int id;
     private String name;
 
-    public Language(int id, String name) {
+
+    public Levels(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Language() {
+    public Levels() {
     }
 
     public int getId() {
@@ -33,14 +34,19 @@ public class Language {
     public void setName(String name) {
         this.name = name;
     }
-    public static Language build(ResultSet resultSet) {
+
+    public static Levels build(ResultSet resultSet) {
         try {
-            return new Language(resultSet.getInt("language_id"),
-                    resultSet.getString("language_name"));
+            return new Levels(resultSet.getInt("level_id"),
+                    resultSet.getString("description")
+                    );
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
 
     }
+
+
+
 }

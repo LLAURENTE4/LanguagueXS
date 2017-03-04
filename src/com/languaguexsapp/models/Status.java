@@ -33,6 +33,7 @@ public class Status {
     public void setName(String name) {
         this.name = name;
     }
+
     public static Status build(ResultSet resultSet) {
         try {
             return new Status(resultSet.getInt("status_id"),resultSet.getString("description"));
