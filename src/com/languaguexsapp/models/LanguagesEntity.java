@@ -42,6 +42,9 @@ public class LanguagesEntity  extends BaseEntity{
         return languages != null ? languages.get(0) : null;
     }
 
+
+
+
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
