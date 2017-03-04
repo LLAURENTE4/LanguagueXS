@@ -33,7 +33,9 @@ public class Status {
 
     public static Status build(ResultSet resultSet) {
         try {
-            return new Status(resultSet.getInt("id"),resultSet.getString("description"));
+            return new Status(
+                    resultSet.getInt("id"),
+                    resultSet.getString("description"));
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
