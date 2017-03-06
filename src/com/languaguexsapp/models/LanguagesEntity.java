@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LanguagesEntity  extends BaseEntity{
+    private GeneralEntity generalEntity;
+
     public LanguagesEntity() {
         super("languages");
     }
@@ -42,9 +44,6 @@ public class LanguagesEntity  extends BaseEntity{
         return languages != null ? languages.get(0) : null;
     }
 
-
-
-
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
@@ -53,12 +52,13 @@ public class LanguagesEntity  extends BaseEntity{
         }
         return 0;
     }
-    /*
+
     public Language create(String name) {
-        String sql = "INSERT INTO languages(description) VALUES('" + name + "')";
+        int id= getGeneralEntity().getIdTable(getTableName());
+        String sql = "INSERT INTO languages(id,description) VALUES("+id+",'" + name + "')";
         return updateByCriteria(sql) > 0 ? new Language(id, name) : null;
     }
-    */
+
     public boolean update(Language language) {
         String sql = "UPDATE languages SET description = '" + language.getName() +
                 "' WHERE id = " + String.valueOf(language.getId());
@@ -70,4 +70,11 @@ public class LanguagesEntity  extends BaseEntity{
         return updateByCriteria(sql) > 0;
     }
 
+    public GeneralEntity getGeneralEntity() {
+        return generalEntity;
+    }
+
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
+    }
 }

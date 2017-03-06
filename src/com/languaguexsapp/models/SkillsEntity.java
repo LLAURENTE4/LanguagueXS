@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SkillsEntity extends BaseEntity{
+    private GeneralEntity generalEntity;
     private PeopleEntity peopleEntity;
     private LanguagesEntity languagesEntity;
     private LevelsEntity levelsEntity;
@@ -39,9 +40,6 @@ public class SkillsEntity extends BaseEntity{
         return skill != null ? skill.get(0) : null;
     }
 
-
-
-
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
@@ -51,8 +49,8 @@ public class SkillsEntity extends BaseEntity{
         return 0;
     }
 
-    public Skill create(int id,int personId,int languageId, int levelId,Double price )
-    {
+    public Skill create(int personId,int languageId, int levelId,Double price ){
+        int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO skill(id,person_id, language_id,level_id, price) " +
                 "VALUES(" + String.valueOf(id) + "," + String.valueOf( personId) + ","+ String.valueOf( languageId) +","+String.valueOf( levelId)
                 +","+ String.valueOf( price) +")";
@@ -61,14 +59,13 @@ public class SkillsEntity extends BaseEntity{
     }
 
     public boolean update(Skill skill) {
-        String sql = "UPDATE skill SET language_id = '" + String.valueOf( skill.getId()) +
-                "',level_id=" + String.valueOf( skill.getLevel()) + ",price=" + String.valueOf( skill.getPrice())
-                + "WHERE region_id = " + String.valueOf(skill.getId());
+        String sql = "UPDATE skills set person_id="+String.valueOf(skill.getPerson().getId())+",language_id="+String.valueOf(skill.getLanguage().getId())+",level_id=" + String.valueOf( skill.getLevel().getId()) + ",price=" + String.valueOf( skill.getPrice())
+                + "WHERE id = " + String.valueOf(skill.getId());
         return updateByCriteria(sql) > 0;
     }
 
     public boolean delete(int id) {
-        String sql = "DELETE FROM skills WHERE region_id = " + String.valueOf(id);
+        String sql = "DELETE FROM skills WHERE id = " + String.valueOf(id);
         return updateByCriteria(sql) > 0;
     }
 
@@ -94,5 +91,13 @@ public class SkillsEntity extends BaseEntity{
 
     public void setLevelsEntity(LevelsEntity levelsEntity) {
         this.levelsEntity = levelsEntity;
+    }
+
+    public GeneralEntity getGeneralEntity() {
+        return generalEntity;
+    }
+
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
     }
 }

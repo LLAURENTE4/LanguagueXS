@@ -2,7 +2,6 @@ package com.languaguexsapp.models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +9,7 @@ import java.util.List;
 public class LessonsEntity extends BaseEntity{
     private SkillsEntity skillsEntity;
     private StatusEntity statusEntity;
+    private GeneralEntity generalEntity;
 
     public LessonsEntity() {
         super("lessons");
@@ -56,20 +56,24 @@ public class LessonsEntity extends BaseEntity{
         return 0;
     }
 
-    public Lesson create(int id, Skill skill, Date start, Date end, Status status) {
+    public Lesson create(int skillId, Date dateStart, Date dateEnd, int statusId) {
+        int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO lessons (id,skill_id,start_date,end_date,status_id) " +
-                "VALUES('"+ String.valueOf(id) + "','" + skill + "','" + start + "','" + end + "','" + status + "')";
-        return updateByCriteria(sql) > 0 ? new Lesson(id, skill,start,end,status) : null;
+                "VALUES("+ String.valueOf(id) + "," + skillId + ",'" + String.valueOf(dateStart) + "','" + String.valueOf(dateEnd) + "'," + statusId + ")";
+        return updateByCriteria(sql) > 0 ? new Lesson(id, getSkillsEntity().findById(skillId),dateStart,dateEnd,getStatusEntity().findById(statusId)) : null;
     }
 
     public boolean update(Lesson lesson) {
-        String sql = "UPDATE lessons SET skill_id = '" + lesson.getSkill() +
-                "' WHERE id = " + String.valueOf(lesson.getId());
+        String sql = "UPDATE lessons SET skill_id = " + String.valueOf(lesson.getSkill().getId()) +
+                                       ",start_date='"+String.valueOf(lesson.getDateStart())+"'"+
+                                       ",end_date='"+String.valueOf(lesson.getDateEnd())+"'"+
+                                       ",status_id="+String.valueOf(lesson.getStatus().getId())+
+                " WHERE id = " + String.valueOf(lesson.getId());
         return updateByCriteria(sql) > 0;
     }
 
     public boolean delete(int id) {
-        String sql = "DELETE FROM products WHERE id = " + String.valueOf(id);
+        String sql = "DELETE FROM lessons WHERE id = " + String.valueOf(id);
         return updateByCriteria(sql) > 0;
     }
     
@@ -89,5 +93,13 @@ public class LessonsEntity extends BaseEntity{
 
     public void setStatusEntity(StatusEntity statusEntity) {
         this.statusEntity = statusEntity;
+    }
+
+    public GeneralEntity getGeneralEntity() {
+        return generalEntity;
+    }
+
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
     }
 }

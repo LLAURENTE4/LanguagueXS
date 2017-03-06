@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 public class PeopleEntity extends BaseEntity{
+    private GeneralEntity generalEntity;
     private StatusEntity statusEntity;
 
     public PeopleEntity() {
@@ -49,22 +50,24 @@ public class PeopleEntity extends BaseEntity{
         return 0;
     }
 
-    public Person create(int id, String first_name, String last_name, String email, String username, String password, Date registration_date, int status_id) {
+    public Person create(String first_name, String last_name, String email, String username, String password, int status_id) {
+        int id= getGeneralEntity().getIdTable(getTableName());
+
         String sql = "INSERT INTO people(id, first_name, last_name,email,user_name,password,registration_date,status_id) " +
-                "VALUES('" + String.valueOf( id) + "', '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ username   +"','"+ password   +"','"+ registration_date   +"'" +
+                "VALUES(" + String.valueOf( id) + ", '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ username   +"','"+ password   +"','"+String.valueOf(getGeneralEntity().getDateCurrent())+"'" +
                 ","+ String.valueOf( status_id )  +")";
-        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,username,password, registration_date, getStatusEntity().findById(status_id)) : null;
+        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,username,password, getGeneralEntity().getDateCurrent(), getStatusEntity().findById(status_id)) : null;
     }
 
     public boolean update(Person person) {
         String sql = "UPDATE people SET first_name = '" + person.getNameFirst() + "',last_name= '" + person.getNameLast() + "',email='" + person.getEmail() + "',"
-                 + "password='" + person.getPassword() + "'"+
-                " WHERE id = '" + person.getId() + "'";
+                 + "user='" + person.getUser() + "',password='" + person.getPassword() + "',status_id="+String.valueOf(person.getStatus() )+
+                " WHERE id = " + String.valueOf(person.getId());
         return updateByCriteria(sql) > 0;
     }
 
-    public boolean delete(String id) {
-        String sql = "DELETE FROM people WHERE id = '" + id + "'";
+    public boolean delete(int id) {
+        String sql = "DELETE FROM people WHERE id = " + String.valueOf(id) ;
         return updateByCriteria(sql) > 0;
     }
 
@@ -74,5 +77,13 @@ public class PeopleEntity extends BaseEntity{
 
     public void setStatusEntity(StatusEntity statesEntity) {
         this.statusEntity = statesEntity;
+    }
+
+    public GeneralEntity getGeneralEntity() {
+        return generalEntity;
+    }
+
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
     }
 }

@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LevelsEntity extends BaseEntity{
+    private GeneralEntity generalEntity;
+
     public LevelsEntity() {
-        super("levels");
+        super("languages");
     }
 
     public List<Level> findAll() {
@@ -51,7 +53,8 @@ public class LevelsEntity extends BaseEntity{
         }
         return 0;
     }
-    public Level create(int id, String name) {
+    public Level create(String name) {
+        int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO levels(id, description) " +
                 "VALUES(" + String.valueOf(id) + ", '" + name + "')";
         return updateByCriteria(sql) > 0 ? new Level(id, name) : null;
@@ -68,4 +71,11 @@ public class LevelsEntity extends BaseEntity{
         return updateByCriteria(sql) > 0;
     }
 
+    public GeneralEntity getGeneralEntity() {
+        return generalEntity;
+    }
+
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
+    }
 }

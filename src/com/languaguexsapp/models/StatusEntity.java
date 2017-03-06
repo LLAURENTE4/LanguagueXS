@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatusEntity extends BaseEntity{
+    private GeneralEntity generalEntity;
     public StatusEntity() {
         super("status");
     }
@@ -51,7 +52,8 @@ public class StatusEntity extends BaseEntity{
         }
         return 0;
     }
-    public Status create(int id, String name) {
+    public Status create(String name) {
+        int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO status(id, description) " +
                 "VALUES(" + String.valueOf(id) + ", '" + name + "')";
         return updateByCriteria(sql) > 0 ? new Status(id, name) : null;
@@ -66,5 +68,13 @@ public class StatusEntity extends BaseEntity{
     public boolean delete(int id) {
         String sql = "DELETE FROM status WHERE id = " + String.valueOf(id);
         return updateByCriteria(sql) > 0;
+    }
+
+    public GeneralEntity getGeneralEntity() {
+        return generalEntity;
+    }
+
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
     }
 }
