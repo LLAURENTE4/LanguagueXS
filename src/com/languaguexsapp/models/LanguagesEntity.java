@@ -39,7 +39,7 @@ public class LanguagesEntity  extends BaseEntity{
     }
 
     public Language findByName(String name) {
-        String statement = "SELECT * FROM languages WHERE description = '" +name + "'";
+        String statement = "SELECT * FROM languages WHERE description = '" +name + "'" ;
         List<Language> languages = findByCriteria(statement);
         return languages != null ? languages.get(0) : null;
     }

@@ -35,7 +35,7 @@ public class LessonsEntity extends BaseEntity{
     }
 
     public Lesson findById(int id) {
-        String statement = "SELECT * FROM lessons WHERE id = " +String.valueOf(id);
+        String statement = "SELECT * FROM lessons WHERE id = " +String.valueOf(id) ;
         List<Lesson> lesson = findByCriteria(statement);
         return lesson != null ? lesson.get(0) : null;
     }

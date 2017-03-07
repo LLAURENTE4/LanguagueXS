@@ -16,6 +16,26 @@ public class PeopleEntity extends BaseEntity{
         super("people");
     }
 
+    private static String DEFAULT_QUERY =
+            "SELECT * FROM users";
+
+    private Person getBy(String condition) {
+        String query = DEFAULT_QUERY + " " + condition;
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(query);
+            if(resultSet == null) return null;
+            if(resultSet.next()) {
+                Person person = Person.build(resultSet,getStatusEntity());
+                return person;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public List<Person> findAll() {
         String statement = getDefaultStatement() + getTableName();
         return findByCriteria(statement);
@@ -70,6 +90,18 @@ public class PeopleEntity extends BaseEntity{
         String sql = "DELETE FROM people WHERE id = " + String.valueOf(id) ;
         return updateByCriteria(sql) > 0;
     }
+
+    public Person getUserbyEmail(String email,String password) {
+        String sql = "WHERE email= '" + email + "' AND password='" + password + "'";
+        return getBy(sql);
+    }
+
+    public Person getUserbyUsername(String username,String password){
+        String sql = "WHERE user= '" + username + "' AND password='" + password + "'";
+        return getBy(sql);
+    }
+
+
 
     public StatusEntity getStatusEntity() {
         return statusEntity;
