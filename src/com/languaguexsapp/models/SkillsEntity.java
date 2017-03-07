@@ -40,6 +40,7 @@ public class SkillsEntity extends BaseEntity{
         return skill != null ? skill.get(0) : null;
     }
 
+
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);

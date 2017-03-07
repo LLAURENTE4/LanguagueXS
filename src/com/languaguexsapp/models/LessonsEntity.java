@@ -41,12 +41,17 @@ public class LessonsEntity extends BaseEntity{
     }
 
     public Lesson findByName(String name) {
-        String statement = "SELECT * FROM languages WHERE description = '" +name + "'";
+        String statement = "SELECT * FROM languages WHERE description = '" +name+"'";
         List<Lesson> lessons = findByCriteria(statement);
         return lessons != null ? lessons.get(0) : null;
     }
 
+    public Lesson findByUserName(String username){
+        String statement = "SELECT * FROM lessons WHERE description = '" +username + "'" + " AND status_id =" + String.valueOf(1);
+        List<Lesson> lessons = findByCriteria(statement);
+        return lessons != null ? lessons.get(0) : null;
 
+    }
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);

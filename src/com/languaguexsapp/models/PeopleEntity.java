@@ -102,7 +102,6 @@ public class PeopleEntity extends BaseEntity{
     }
 
 
-
     public StatusEntity getStatusEntity() {
         return statusEntity;
     }

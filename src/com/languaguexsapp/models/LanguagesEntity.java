@@ -44,6 +44,13 @@ public class LanguagesEntity  extends BaseEntity{
         return languages != null ? languages.get(0) : null;
     }
 
+    public Language getLangaugesByUserName(String username){
+        String statement = "SELECT description FROM people p inner join skills s on p.id = s.person_id " +
+                "inner join languages l on  s.language_id = l.id where user = '" + username + "'";
+        List<Language> languages =  findByCriteria(statement);
+        return languages != null ? languages.get(0) : null;
+    }
+
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
