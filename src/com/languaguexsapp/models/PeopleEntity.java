@@ -17,23 +17,16 @@ public class PeopleEntity extends BaseEntity{
     }
 
     private static String DEFAULT_QUERY =
-            "SELECT * FROM users";
+            "SELECT * FROM people";
 
-    private Person getBy(String condition) {
-        String query = DEFAULT_QUERY + " " + condition;
+    private int getBy(String condition) {
+        String sql = DEFAULT_QUERY + " " + condition;
         try {
-            ResultSet resultSet = getConnection()
-                    .createStatement()
-                    .executeQuery(query);
-            if(resultSet == null) return null;
-            if(resultSet.next()) {
-                Person person = Person.build(resultSet,getStatusEntity());
-                return person;
-            }
+            return getConnection().createStatement().executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return 0;
     }
 
     public List<Person> findAll() {
@@ -91,14 +84,14 @@ public class PeopleEntity extends BaseEntity{
         return updateByCriteria(sql) > 0;
     }
 
-    public Person getUserbyEmail(String email,String password) {
+    public boolean getUserbyEmail(String email,String password) {
         String sql = "WHERE email= '" + email + "' AND password='" + password + "'";
-        return getBy(sql);
+        return getBy(sql) > 0;
     }
 
-    public Person getUserbyUsername(String username,String password){
+    public boolean getUserbyUsername(String username,String password){
         String sql = "WHERE user= '" + username + "' AND password='" + password + "'";
-        return getBy(sql);
+        return getBy(sql) > 0;
     }
 
 
