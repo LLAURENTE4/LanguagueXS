@@ -19,7 +19,7 @@ public class PeopleEntity extends BaseEntity{
     private static String DEFAULT_QUERY =
             "SELECT * FROM people";
 
-    private int getBy(String condition) {
+    private int loginBy(String condition) {
         String sql = DEFAULT_QUERY + " " + condition;
         try {
             return getConnection().createStatement().executeUpdate(sql);
@@ -72,6 +72,30 @@ public class PeopleEntity extends BaseEntity{
         return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,username,password, getGeneralEntity().getDateCurrent(), getStatusEntity().findById(status_id)) : null;
     }
 
+    public Person getValues(String condition_name, String value){
+        String statement = "SELECT p.first_name, p.last_name, l.description FROM people p " +
+                "inner join skills s on p.id = s.person_id " +
+                "inner join languages l on  s.language_id = l.id " +
+                "where " +  condition_name +  " = '" + value + "' and status_id='1'";
+        List<Person> people =  findByCriteria(statement);
+        return people != null ? people.get(0) : null;
+    }
+
+    public Person getValuesbyUsername(String username){
+        String condition = "user";
+        return getValues(condition,username);
+    }
+
+    public Person getValuesbyFirstName(String fn){
+        String condition = "first_name";
+        return getValues(condition,fn);
+    }
+
+    public Person getValuesbyLastName(String ln){
+        String condition = "last_name";
+        return  getValues(condition,ln);
+    }
+
     public boolean update(Person person) {
         String sql = "UPDATE people SET first_name = '" + person.getNameFirst() + "',last_name= '" + person.getNameLast() + "',email='" + person.getEmail() + "',"
                  + "user='" + person.getUser() + "',password='" + person.getPassword() + "',status_id="+String.valueOf(person.getStatus() )+
@@ -84,15 +108,16 @@ public class PeopleEntity extends BaseEntity{
         return updateByCriteria(sql) > 0;
     }
 
-    public boolean getUserbyEmail(String email,String password) {
+    public boolean loginByEmail(String email,String password) {
         String sql = "WHERE email= '" + email + "' AND password='" + password + "'";
-        return getBy(sql) > 0;
+        return loginBy(sql) > 0;
     }
 
-    public boolean getUserbyUsername(String username,String password){
+    public boolean loginByUsername(String username,String password){
         String sql = "WHERE user= '" + username + "' AND password='" + password + "'";
-        return getBy(sql) > 0;
+        return loginBy(sql) > 0;
     }
+
 
 
     public StatusEntity getStatusEntity() {
