@@ -2,7 +2,11 @@ package com.languaguexsapp.services;
 
 import com.languaguexsapp.models.*;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class LanguagexsService {
@@ -16,21 +20,21 @@ public class LanguagexsService {
     private StatusEntity statusEntity;
 
     public LanguagexsService() {
+        try {
+            InitialContext ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource_LanguageXS");
+            connection = ds.getConnection();
+        } catch (NamingException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public LanguagexsService(Connection connection) {
-        this.connection = connection;
-    }
-
-    public Connection getConnection() {
+    private Connection getConnection() {
         return connection;
     }
 
-    public void setConnection(Connection connection) {
-        this.connection = connection;
-    }
 
-    protected LanguagesEntity getLanguagesEntity() {
+    private LanguagesEntity getLanguagesEntity() {
         if(connection != null) {
             if(languagesEntity == null) {
                 languagesEntity = new LanguagesEntity();
@@ -40,7 +44,7 @@ public class LanguagexsService {
         return languagesEntity;
     }
 
-    protected LessonStudentsEntity getLessonStudentsEntity() {
+    private LessonStudentsEntity getLessonStudentsEntity() {
         if(connection != null) {
             if(lessonStudentsEntity == null) {
                 lessonStudentsEntity = new LessonStudentsEntity();
@@ -50,7 +54,7 @@ public class LanguagexsService {
         return lessonStudentsEntity;
     }
 
-    protected LessonsEntity getLessonsEntity() {
+    private LessonsEntity getLessonsEntity() {
         if(connection != null) {
             if(lessonsEntity == null) {
                 lessonsEntity = new LessonsEntity();
@@ -60,7 +64,7 @@ public class LanguagexsService {
         return lessonsEntity;
     }
 
-    protected LevelsEntity getLevelsEntity() {
+    private LevelsEntity getLevelsEntity() {
         if(connection != null) {
             if(levelsEntity == null) {
                 levelsEntity = new LevelsEntity();
@@ -70,7 +74,7 @@ public class LanguagexsService {
         return levelsEntity;
     }
 
-    protected PeopleEntity getPeopleEntity() {
+    private PeopleEntity getPeopleEntity() {
         if(connection != null) {
             if(peopleEntity == null) {
                 peopleEntity = new PeopleEntity();
@@ -80,7 +84,7 @@ public class LanguagexsService {
         return peopleEntity;
     }
 
-    protected SkillsEntity getSkillsEntity() {
+    private SkillsEntity getSkillsEntity() {
         if(connection != null) {
             if(skillsEntity == null) {
                 skillsEntity = new SkillsEntity();
@@ -90,7 +94,7 @@ public class LanguagexsService {
         return skillsEntity;
     }
 
-    protected StatusEntity getStatusEntity() {
+    private StatusEntity getStatusEntity() {
         if(connection != null) {
             if(statusEntity == null) {
                 statusEntity = new StatusEntity();
@@ -101,31 +105,31 @@ public class LanguagexsService {
     }
 
 
-    protected void setLanguagesEntity(LanguagesEntity languagesEntity) {
+    private void setLanguagesEntity(LanguagesEntity languagesEntity) {
         this.languagesEntity = languagesEntity;
     }
 
-    protected void setLessonStudentsEntity(LessonStudentsEntity lessonStudentsEntity) {
+    private void setLessonStudentsEntity(LessonStudentsEntity lessonStudentsEntity) {
         this.lessonStudentsEntity = lessonStudentsEntity;
     }
 
-    protected void setLessonsEntity(LessonsEntity lessonsEntity) {
+    private void setLessonsEntity(LessonsEntity lessonsEntity) {
         this.lessonsEntity = lessonsEntity;
     }
 
-    protected void setLevelsEntity(LevelsEntity levelsEntity) {
+    private void setLevelsEntity(LevelsEntity levelsEntity) {
         this.levelsEntity = levelsEntity;
     }
 
-    protected void setPeopleEntity(PeopleEntity peopleEntity) {
+    private void setPeopleEntity(PeopleEntity peopleEntity) {
         this.peopleEntity = peopleEntity;
     }
 
-    protected void setSkillsEntity(SkillsEntity skillsEntity) {
+    private void setSkillsEntity(SkillsEntity skillsEntity) {
         this.skillsEntity = skillsEntity;
     }
 
-    protected void setStatusEntity(StatusEntity statusEntity) {
+    private void setStatusEntity(StatusEntity statusEntity) {
         this.statusEntity = statusEntity;
     }
 
