@@ -189,4 +189,15 @@ public class LanguagexsService {
         return getStatusEntity().findById(id);
     }
 
+    public String loginPerson(String email,String password){
+        Person person=getPeopleEntity().findByEmail(email);
+
+        if( password.equals(person.getPassword())  &&  person.getStatus().getId() == 0 &&  person.getId() > 0 ){
+            return "Correcto";
+        }else{
+            return "Incorrecto";
+        }
+
+    }
+
 }

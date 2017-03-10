@@ -44,8 +44,7 @@ CREATE TABLE people (
   id int(11) NOT NULL,
   first_name varchar(150) NOT NULL,
   last_name varchar(150) NOT NULL,
-  email varchar(150) DEFAULT NULL,
-  user varchar(20) NOT NULL,
+  email varchar(150) NOT NULL,
   password varchar(100) NOT NULL,
   registration_date date DEFAULT NULL,
   status_id int(11) NOT NULL DEFAULT '1',
@@ -54,7 +53,7 @@ CREATE TABLE people (
   CONSTRAINT status_people_fk FOREIGN KEY (status_id) REFERENCES status (id) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ;
 
-INSERT INTO people VALUES (1,'Frank','Cosme Oropeza','fcosmeo@utp.edu.pe','fcosmeo','123456','2017-03-04',1),(2,'Luis','Laurente Areas','llaurentea@utp.edu.pe','llaurentea','123456','2017-03-03',1),(3,'Leonardo','Caycho','lcaycho@utp.edu.pe','lcaycho','123456','2017-03-06',1),(4,'Juan','Quezada','jquezada@utp.edu.pe','jquezada','123456','2017-03-04',1);
+INSERT INTO people VALUES (1,'Frank','Cosme Oropeza','fcosmeo@utp.edu.pe','123456','2017-03-04',1),(2,'Luis','Laurente Areas','llaurentea@utp.edu.pe','123456','2017-03-03',1),(3,'Leonardo','Caycho','lcaycho@utp.edu.pe','123456','2017-03-06',1),(4,'Juan','Quezada','jquezada@utp.edu.pe','123456','2017-03-04',1);
 
 
 DROP TABLE IF EXISTS skills;

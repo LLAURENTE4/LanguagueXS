@@ -16,8 +16,7 @@ public class PeopleEntity extends BaseEntity{
         super("people");
     }
 
-    private static String DEFAULT_QUERY =
-            "SELECT * FROM people";
+    private static String DEFAULT_QUERY ="SELECT * FROM people";
 
     private int loginBy(String condition) {
         String sql = DEFAULT_QUERY + " " + condition;
@@ -27,11 +26,6 @@ public class PeopleEntity extends BaseEntity{
             e.printStackTrace();
         }
         return 0;
-    }
-
-    public List<Person> findAll() {
-        String statement = getDefaultStatement() + getTableName();
-        return findByCriteria(statement);
     }
 
     private List<Person> findByCriteria(String sql) {
@@ -48,12 +42,6 @@ public class PeopleEntity extends BaseEntity{
         return people;
     }
 
-    public Person findById(int id) {
-        String statement = "SELECT id, first_name, last_name,email,user_name,password,registration_date,status_id FROM people p" +
-                " inner join status s on p.status_id=s.id WHERE p.id = " +String.valueOf(id);
-        List<Person> people = findByCriteria(statement);
-        return people != null ? people.get(0) : null;
-    }
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
@@ -63,14 +51,52 @@ public class PeopleEntity extends BaseEntity{
         return 0;
     }
 
-    public Person create(String first_name, String last_name, String email, String username, String password, int status_id) {
+    public List<Person> findAll() {
+        String statement = getDefaultStatement() + getTableName();
+        return findByCriteria(statement);
+    }
+
+    public Person findById(int id) {
+        String statement = "SELECT id, first_name, last_name,email,password,registration_date,status_id FROM people " +
+                " WHERE id = " +String.valueOf(id);
+        List<Person> people = findByCriteria(statement);
+        return people != null ? people.get(0) : null;
+    }
+
+    public Person findByEmail(String email) {
+        String statement = "SELECT id, first_name, last_name,email,password,registration_date,status_id FROM people " +
+                " WHERE email = " +String.valueOf(email);
+        List<Person> people = findByCriteria(statement);
+        return people != null ? people.get(0) : null;
+    }
+
+
+
+    public Person create(String first_name, String last_name, String email, String password, int status_id) {
         int id= getGeneralEntity().getIdTable(getTableName());
 
-        String sql = "INSERT INTO people(id, first_name, last_name,email,user_name,password,registration_date,status_id) " +
-                "VALUES(" + String.valueOf( id) + ", '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ username   +"','"+ password   +"','"+String.valueOf(getGeneralEntity().getDateCurrent())+"'" +
+        String sql = "INSERT INTO people(id, first_name, last_name,email,password,registration_date,status_id) " +
+                "VALUES(" + String.valueOf( id) + ", '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ password   +"','"+String.valueOf(getGeneralEntity().getDateCurrent())+"'" +
                 ","+ String.valueOf( status_id )  +")";
-        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,username,password, getGeneralEntity().getDateCurrent(), getStatusEntity().findById(status_id)) : null;
+        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,password, getGeneralEntity().getDateCurrent(), getStatusEntity().findById(status_id)) : null;
     }
+
+    public boolean update(Person person) {
+        String sql = "UPDATE people SET first_name = '" + person.getNameFirst() + "',"+
+                                      " last_name= '" + person.getNameLast() + "',"+
+                                      " email='" + person.getEmail() + "',"+
+                                      " password='" + person.getPassword() + "',"+
+                                      " status_id="+String.valueOf(person.getStatus() )+
+                                      " WHERE id = " + String.valueOf(person.getId());
+        return updateByCriteria(sql) > 0;
+    }
+
+    public boolean delete(int id) {
+        String sql = "DELETE FROM people WHERE id = " + String.valueOf(id) ;
+        return updateByCriteria(sql) > 0;
+    }
+
+
 
     public Person getValues(String condition_name, String value){
         String statement = "SELECT p.first_name, p.last_name, l.description FROM people p " +
@@ -79,11 +105,6 @@ public class PeopleEntity extends BaseEntity{
                 "where " +  condition_name +  " = '" + value + "' and status_id='1'";
         List<Person> people =  findByCriteria(statement);
         return people != null ? people.get(0) : null;
-    }
-
-    public Person getValuesbyUsername(String username){
-        String condition = "user";
-        return getValues(condition,username);
     }
 
     public Person getValuesbyFirstName(String fn){
@@ -96,28 +117,11 @@ public class PeopleEntity extends BaseEntity{
         return  getValues(condition,ln);
     }
 
-    public boolean update(Person person) {
-        String sql = "UPDATE people SET first_name = '" + person.getNameFirst() + "',last_name= '" + person.getNameLast() + "',email='" + person.getEmail() + "',"
-                 + "user='" + person.getUser() + "',password='" + person.getPassword() + "',status_id="+String.valueOf(person.getStatus() )+
-                " WHERE id = " + String.valueOf(person.getId());
-        return updateByCriteria(sql) > 0;
-    }
-
-    public boolean delete(int id) {
-        String sql = "DELETE FROM people WHERE id = " + String.valueOf(id) ;
-        return updateByCriteria(sql) > 0;
-    }
 
     public boolean loginByEmail(String email,String password) {
         String sql = "WHERE email= '" + email + "' AND password='" + password + "'";
         return loginBy(sql) > 0;
     }
-
-    public boolean loginByUsername(String username,String password){
-        String sql = "WHERE user= '" + username + "' AND password='" + password + "'";
-        return loginBy(sql) > 0;
-    }
-
 
 
     public StatusEntity getStatusEntity() {
@@ -128,11 +132,8 @@ public class PeopleEntity extends BaseEntity{
         this.statusEntity = statesEntity;
     }
 
-    public GeneralEntity getGeneralEntity() {
+    private GeneralEntity getGeneralEntity() {
         return generalEntity;
     }
 
-    public void setGeneralEntity(GeneralEntity generalEntity) {
-        this.generalEntity = generalEntity;
-    }
 }

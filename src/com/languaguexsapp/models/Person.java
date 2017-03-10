@@ -9,17 +9,15 @@ public class Person {
     private String nameFirst;
     private String nameLast;
     private String email;
-    private String user;
     private String password;
     private Date dateRegistration;
     private Status status;
 
-    public Person(int id, String nameFirst, String nameLast, String email, String user, String password, Date dateRegistration, Status status) {
+    public Person(int id, String nameFirst, String nameLast, String email, String password, Date dateRegistration, Status status) {
         this.id = id;
         this.nameFirst = nameFirst;
         this.nameLast = nameLast;
         this.email = email;
-        this.user = user;
         this.password = password;
         this.dateRegistration = dateRegistration;
         this.status = status;
@@ -60,14 +58,6 @@ public class Person {
         this.email = email;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -88,7 +78,7 @@ public class Person {
         return status;
     }
 
-    public void setStatus(Status state) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -98,7 +88,6 @@ public class Person {
                                 resultSet.getString("first_name"),
                                 resultSet.getString("last_name"),
                                 resultSet.getString("email"),
-                                resultSet.getString("user"),
                                 resultSet.getString("password"),
                                 resultSet.getDate("registration_date"),
                                 statesEntity.findById(resultSet.getInt("status_id"))
