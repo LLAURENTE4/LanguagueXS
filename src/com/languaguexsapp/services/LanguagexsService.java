@@ -19,22 +19,15 @@ public class LanguagexsService {
     private SkillsEntity skillsEntity;
     private StatusEntity statusEntity;
 
-    public LanguagexsService() {
-        try {
-            InitialContext ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("jdbc/MySQLDataSource_LanguageXS");
-            connection = ds.getConnection();
-        } catch (NamingException | SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
 
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
 
-    private LanguagesEntity getLanguagesEntity() {
+    public LanguagesEntity getLanguagesEntity() {
         if(connection != null) {
             if(languagesEntity == null) {
                 languagesEntity = new LanguagesEntity();
@@ -44,7 +37,7 @@ public class LanguagexsService {
         return languagesEntity;
     }
 
-    private LessonStudentsEntity getLessonStudentsEntity() {
+    public LessonStudentsEntity getLessonStudentsEntity() {
         if(connection != null) {
             if(lessonStudentsEntity == null) {
                 lessonStudentsEntity = new LessonStudentsEntity();
@@ -54,7 +47,7 @@ public class LanguagexsService {
         return lessonStudentsEntity;
     }
 
-    private LessonsEntity getLessonsEntity() {
+    public LessonsEntity getLessonsEntity() {
         if(connection != null) {
             if(lessonsEntity == null) {
                 lessonsEntity = new LessonsEntity();
@@ -64,7 +57,7 @@ public class LanguagexsService {
         return lessonsEntity;
     }
 
-    private LevelsEntity getLevelsEntity() {
+    public LevelsEntity getLevelsEntity() {
         if(connection != null) {
             if(levelsEntity == null) {
                 levelsEntity = new LevelsEntity();
@@ -74,7 +67,7 @@ public class LanguagexsService {
         return levelsEntity;
     }
 
-    private PeopleEntity getPeopleEntity() {
+    public PeopleEntity getPeopleEntity() {
         if(connection != null) {
             if(peopleEntity == null) {
                 peopleEntity = new PeopleEntity();
@@ -84,7 +77,7 @@ public class LanguagexsService {
         return peopleEntity;
     }
 
-    private SkillsEntity getSkillsEntity() {
+    public SkillsEntity getSkillsEntity() {
         if(connection != null) {
             if(skillsEntity == null) {
                 skillsEntity = new SkillsEntity();
@@ -94,7 +87,7 @@ public class LanguagexsService {
         return skillsEntity;
     }
 
-    private StatusEntity getStatusEntity() {
+    public StatusEntity getStatusEntity() {
         if(connection != null) {
             if(statusEntity == null) {
                 statusEntity = new StatusEntity();
@@ -103,37 +96,6 @@ public class LanguagexsService {
         }
         return statusEntity;
     }
-
-
-    private void setLanguagesEntity(LanguagesEntity languagesEntity) {
-        this.languagesEntity = languagesEntity;
-    }
-
-    private void setLessonStudentsEntity(LessonStudentsEntity lessonStudentsEntity) {
-        this.lessonStudentsEntity = lessonStudentsEntity;
-    }
-
-    private void setLessonsEntity(LessonsEntity lessonsEntity) {
-        this.lessonsEntity = lessonsEntity;
-    }
-
-    private void setLevelsEntity(LevelsEntity levelsEntity) {
-        this.levelsEntity = levelsEntity;
-    }
-
-    private void setPeopleEntity(PeopleEntity peopleEntity) {
-        this.peopleEntity = peopleEntity;
-    }
-
-    private void setSkillsEntity(SkillsEntity skillsEntity) {
-        this.skillsEntity = skillsEntity;
-    }
-
-    private void setStatusEntity(StatusEntity statusEntity) {
-        this.statusEntity = statusEntity;
-    }
-
-
 
     public List<Language> findAllLanguages() {
         return getLanguagesEntity().findAll();

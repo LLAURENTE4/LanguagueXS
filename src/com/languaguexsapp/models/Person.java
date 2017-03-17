@@ -82,7 +82,7 @@ public class Person {
         this.status = status;
     }
 
-    public static Person build(ResultSet resultSet, StatusEntity statesEntity) {
+    public static Person build(ResultSet resultSet, StatusEntity statusEntity) {
         try {
             return new Person(  resultSet.getInt("id"),
                                 resultSet.getString("first_name"),
@@ -90,7 +90,7 @@ public class Person {
                                 resultSet.getString("email"),
                                 resultSet.getString("password"),
                                 resultSet.getDate("registration_date"),
-                                statesEntity.findById(resultSet.getInt("status_id"))
+                                statusEntity.findById(resultSet.getInt("status_id"))
             );
         } catch (SQLException e) {
             e.printStackTrace();
