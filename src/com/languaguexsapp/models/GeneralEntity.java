@@ -21,7 +21,7 @@ public class GeneralEntity extends BaseEntity{
         try {
             CallableStatement cst = getConnection().prepareCall("{call sp_getIdTable (?,?)}");
             cst.setString(1, name);
-            cst.registerOutParameter(2, java.sql.Types.INTEGER);
+            cst.registerOutParameter(2, Types.INTEGER);
 
             return cst.getInt(2)>0 && cst.executeUpdate()>0 ? cst.getInt(2): 0;
         } catch (SQLException e) {
