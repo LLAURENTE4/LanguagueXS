@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PeopleEntity extends BaseEntity{
     private GeneralEntity generalEntity;
-    private StatusEntity statusEntity;
+    //private StatusEntity statusEntity;
 
     public PeopleEntity() {
         super("people");
@@ -33,7 +33,7 @@ public class PeopleEntity extends BaseEntity{
         try {
             ResultSet rs = getConnection().createStatement().executeQuery(sql);
             while(rs.next()) {
-                Person person = Person.build(rs,getStatusEntity());
+                Person person = Person.build(rs/*,getStatusEntity()*/);
                 people.add(person);
             }
         } catch (SQLException e) {
@@ -78,7 +78,7 @@ public class PeopleEntity extends BaseEntity{
         String sql = "INSERT INTO people(id, first_name, last_name,email,password,registration_date,status_id) " +
                 "VALUES(" + String.valueOf( id) + ", '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ password   +"','"+String.valueOf(getGeneralEntity().getDateCurrent())+"'" +
                 ","+ String.valueOf( status_id )  +")";
-        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,password, getGeneralEntity().getDateCurrent(), getStatusEntity().findById(status_id)) : null;
+        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,password, getGeneralEntity().getDateCurrent()/*, getStatusEntity().findById(status_id)*/) : null;
     }
 
     public boolean update(Person person) {
@@ -86,7 +86,7 @@ public class PeopleEntity extends BaseEntity{
                                       " last_name= '" + person.getNameLast() + "',"+
                                       " email='" + person.getEmail() + "',"+
                                       " password='" + person.getPassword() + "',"+
-                                      " status_id="+String.valueOf(person.getStatus() )+
+                                   //   " status_id="+String.valueOf(person.getStatus() )+
                                       " WHERE id = " + String.valueOf(person.getId());
         return updateByCriteria(sql) > 0;
     }
@@ -123,6 +123,7 @@ public class PeopleEntity extends BaseEntity{
         return loginBy(sql) > 0;
     }
 
+/*
 
     public StatusEntity getStatusEntity() {
         return statusEntity;
@@ -131,6 +132,7 @@ public class PeopleEntity extends BaseEntity{
     public void setStatusEntity(StatusEntity statesEntity) {
         this.statusEntity = statesEntity;
     }
+*/
 
     private GeneralEntity getGeneralEntity() {
         return generalEntity;

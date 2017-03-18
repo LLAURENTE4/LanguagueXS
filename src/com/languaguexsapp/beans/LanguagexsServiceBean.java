@@ -1,5 +1,6 @@
 package com.languaguexsapp.beans;
 
+import com.languaguexsapp.models.Level;
 import com.languaguexsapp.models.Person;
 import com.languaguexsapp.services.LanguagexsService;
 
@@ -17,10 +18,10 @@ import java.util.List;
  */
 @ManagedBean(name = "service", eager = true)
 @SessionScoped
-public class LanguajexsServiceBean {
+public class LanguagexsServiceBean {
     private LanguagexsService service;
 
-    public LanguajexsServiceBean() {
+    public LanguagexsServiceBean() {
         try {
             InitialContext ctx = new InitialContext();
             Connection connection = ((DataSource) ctx
@@ -35,6 +36,11 @@ public class LanguajexsServiceBean {
 
     public List<Person> getPeople() { return service.findAllPeople(); }
 
+    public  List<Level> getLevels(){
+        return  service.findAllLevels();
+    }
+
     public String listPeople() { return "success";}
+    public String listLevels() { return "success";}
 
 }

@@ -11,16 +11,16 @@ public class Person {
     private String email;
     private String password;
     private Date dateRegistration;
-    private Status status;
+   // private Status status;
 
-    public Person(int id, String nameFirst, String nameLast, String email, String password, Date dateRegistration, Status status) {
+    public Person(int id, String nameFirst, String nameLast, String email, String password, Date dateRegistration/*, Status status*/) {
         this.id = id;
         this.nameFirst = nameFirst;
         this.nameLast = nameLast;
         this.email = email;
         this.password = password;
         this.dateRegistration = dateRegistration;
-        this.status = status;
+   //     this.status = status;
     }
 
     public Person() {
@@ -74,23 +74,23 @@ public class Person {
         this.dateRegistration = dateRegistration;
     }
 
-    public Status getStatus() {
+    /*public Status getStatus() {
         return status;
     }
 
     public void setStatus(Status status) {
         this.status = status;
-    }
+    }*/
 
-    public static Person build(ResultSet resultSet, StatusEntity statusEntity) {
+    public static Person build(ResultSet resultSet/*, StatusEntity statusEntity*/) {
         try {
             return new Person(  resultSet.getInt("id"),
                                 resultSet.getString("first_name"),
                                 resultSet.getString("last_name"),
                                 resultSet.getString("email"),
                                 resultSet.getString("password"),
-                                resultSet.getDate("registration_date"),
-                                statusEntity.findById(resultSet.getInt("status_id"))
+                                resultSet.getDate("registration_date")/*,
+                       //         statusEntity.findById(resultSet.getInt("status_id"))*/
             );
         } catch (SQLException e) {
             e.printStackTrace();
