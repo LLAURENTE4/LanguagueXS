@@ -9,11 +9,11 @@
     <h:outputLabel value="Levels List"/>
     <h:dataTable value="#{service.levels}" var="level">
         <h:column>
-            <f:facet name="header">Level ID</f:facet>
+            <f:facet name="header">Level Id</f:facet>
             #{level.id}
         </h:column>
         <h:column>
-            <f:facet name="header">Name</f:facet>
+            <f:facet name="header">Description</f:facet>
             #{level.description}
         </h:column>
 

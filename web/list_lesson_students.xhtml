@@ -6,23 +6,23 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="People List"/>
-    <h:dataTable value="#{service.people}" var="person">
+    <h:outputLabel value="Lesson Students List"/>
+    <h:dataTable value="#{service.lessonStudents}" var="lessonStudent">
         <h:column>
-            <f:facet name="header">Person Id</f:facet>
-            #{person.id}
+            <f:facet name="header">Lesson Id</f:facet>
+            #{lessonStudent.lesson.id}
         </h:column>
         <h:column>
             <f:facet name="header">First Name</f:facet>
-            #{person.firstName}
+            #{lessonStudent.person.firstName}
         </h:column>
         <h:column>
             <f:facet name="header">Last Name</f:facet>
-            #{person.lastName}
+            #{lessonStudent.person.lastName}
         </h:column>
         <h:column>
-            <f:facet name="header">Status</f:facet>
-            #{person.status.description}
+            <f:facet name="header">Registration Date</f:facet>
+            #{lessonStudent.registrationDate}
         </h:column>
     </h:dataTable>
 </f:view>

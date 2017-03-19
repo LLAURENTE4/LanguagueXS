@@ -1,5 +1,6 @@
 package com.languaguexsapp.beans;
 
+import com.languaguexsapp.models.LessonStudent;
 import com.languaguexsapp.models.Level;
 import com.languaguexsapp.models.Person;
 import com.languaguexsapp.services.LanguagexsService;
@@ -40,7 +41,12 @@ public class LanguagexsServiceBean {
         return  service.findAllLevels();
     }
 
+    public  List<LessonStudent> getLessonStudents(){
+        return  service.findAllLessonStudents();
+    }
+
     public String listPeople() { return "success";}
     public String listLevels() { return "success";}
+    public String listLessonStudents() { return "success";}
 
 }

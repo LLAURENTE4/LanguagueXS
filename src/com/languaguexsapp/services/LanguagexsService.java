@@ -42,6 +42,8 @@ public class LanguagexsService {
             if(lessonStudentsEntity == null) {
                 lessonStudentsEntity = new LessonStudentsEntity();
                 lessonStudentsEntity.setConnection(getConnection());
+                lessonStudentsEntity.setLessonsEntity(getLessonsEntity());
+                lessonStudentsEntity.setPeopleEntity(getPeopleEntity());
             }
         }
         return lessonStudentsEntity;
@@ -52,6 +54,8 @@ public class LanguagexsService {
             if(lessonsEntity == null) {
                 lessonsEntity = new LessonsEntity();
                 lessonsEntity.setConnection(getConnection());
+                lessonsEntity.setSkillsEntity(getSkillsEntity());
+                lessonsEntity.setStatusEntity(getStatusEntity());
             }
         }
         return lessonsEntity;
@@ -83,6 +87,9 @@ public class LanguagexsService {
             if(skillsEntity == null) {
                 skillsEntity = new SkillsEntity();
                 skillsEntity.setConnection(getConnection());
+                skillsEntity.setPeopleEntity(getPeopleEntity());
+                skillsEntity.setLanguagesEntity(getLanguagesEntity());
+                skillsEntity.setLevelsEntity(getLevelsEntity());
             }
         }
         return skillsEntity;
