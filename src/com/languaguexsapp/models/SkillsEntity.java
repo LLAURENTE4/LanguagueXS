@@ -15,11 +15,6 @@ public class SkillsEntity extends BaseEntity{
         super("skills");
     }
 
-    public List<Skill> findAll() {
-        String statement = getDefaultStatement() + getTableName();
-        return findByCriteria(statement);
-    }
-
     private List<Skill> findByCriteria(String sql) {
         List<Skill> skills = new ArrayList<>();
         try {
@@ -34,13 +29,6 @@ public class SkillsEntity extends BaseEntity{
         return skills;
     }
 
-    public Skill findById(int id) {
-        String statement = "SELECT * FROM skills WHERE id = " +String.valueOf(id);
-        List<Skill> skill = findByCriteria(statement);
-        return skill != null ? skill.get(0) : null;
-    }
-
-
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
@@ -48,6 +36,17 @@ public class SkillsEntity extends BaseEntity{
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public List<Skill> findAll() {
+        String statement = getDefaultStatement() + getTableName();
+        return findByCriteria(statement);
+    }
+
+    public Skill findById(int id) {
+        String statement = "SELECT * FROM skills WHERE id = " +String.valueOf(id);
+        List<Skill> skill = findByCriteria(statement);
+        return skill != null ? skill.get(0) : null;
     }
 
     public Skill create(int personId,int languageId, int levelId,Double price ){

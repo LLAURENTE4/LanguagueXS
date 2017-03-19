@@ -12,11 +12,6 @@ public class LanguagesEntity  extends BaseEntity{
         super("languages");
     }
 
-    public List<Language> findAll() {
-        String statement = getDefaultStatement() + getTableName();
-        return findByCriteria(statement);
-    }
-
     private List<Language> findByCriteria(String sql) {
         List<Language> languages = new ArrayList<>();
         try {
@@ -31,19 +26,6 @@ public class LanguagesEntity  extends BaseEntity{
         return languages;
     }
 
-    public Language findById(int id) {
-        String statement = "SELECT * FROM languages WHERE id = " +
-                String.valueOf(id);
-        List<Language> languages = findByCriteria(statement);
-        return languages != null ? languages.get(0) : null;
-    }
-
-    public Language findByName(String name) {
-        String statement = "SELECT * FROM languages WHERE description = '" +name + "'" ;
-        List<Language> languages = findByCriteria(statement);
-        return languages != null ? languages.get(0) : null;
-    }
-
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
@@ -53,14 +35,32 @@ public class LanguagesEntity  extends BaseEntity{
         return 0;
     }
 
-    public Language create(String name) {
+    public List<Language> findAll() {
+        String statement = getDefaultStatement() + getTableName();
+        return findByCriteria(statement);
+    }
+
+    public Language findById(int id) {
+        String statement = "SELECT * FROM languages WHERE id = " +
+                String.valueOf(id);
+        List<Language> languages = findByCriteria(statement);
+        return languages != null ? languages.get(0) : null;
+    }
+
+    public Language findByDescription(String description) {
+        String statement = "SELECT * FROM languages WHERE description = '" +description + "'" ;
+        List<Language> languages = findByCriteria(statement);
+        return languages != null ? languages.get(0) : null;
+    }
+
+    public Language create(String description) {
         int id= getGeneralEntity().getIdTable(getTableName());
-        String sql = "INSERT INTO languages(id,description) VALUES("+id+",'" + name + "')";
-        return updateByCriteria(sql) > 0 ? new Language(id, name) : null;
+        String sql = "INSERT INTO languages(id,description) VALUES("+id+",'" + description + "')";
+        return updateByCriteria(sql) > 0 ? new Language(id, description) : null;
     }
 
     public boolean update(Language language) {
-        String sql = "UPDATE languages SET description = '" + language.getName() +
+        String sql = "UPDATE languages SET description = '" + language.getDescription() +
                 "' WHERE id = " + String.valueOf(language.getId());
         return updateByCriteria(sql) > 0;
     }
@@ -74,7 +74,4 @@ public class LanguagesEntity  extends BaseEntity{
         return generalEntity;
     }
 
-    public void setGeneralEntity(GeneralEntity generalEntity) {
-        this.generalEntity = generalEntity;
-    }
 }

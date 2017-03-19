@@ -5,12 +5,12 @@ import java.sql.SQLException;
 
 public class Language {
     private int id;
-    private String name;
+    private String description;
 
 
-    public Language(int id, String name) {
+    public Language(int id, String description) {
         this.id = id;
-        this.name = name;
+        this.description = description;
     }
 
     public Language() {
@@ -24,12 +24,12 @@ public class Language {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
     public static Language build(ResultSet resultSet) {
         try {

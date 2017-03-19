@@ -115,9 +115,9 @@ INSERT INTO lesson_students VALUES (1,3,'2017-03-02',NULL,NULL),(2,4,'2017-03-02
 DROP TABLE IF EXISTS tables;
 
 CREATE TABLE tables(
-	name varchar(150) NOT NULL,
-    id int(11) NOT NULL DEFAULT '0',
-    PRIMARY KEY (name)
+  name varchar(150) NOT NULL,
+  id int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (name)
 );
 
 INSERT INTO tables VALUES('languages',5),('lessons',4),('levels',3),('people',4),('skills',2),('status',1);
@@ -129,25 +129,25 @@ CREATE PROCEDURE sp_getIdTable(
   IN table_name varchar(150),
   OUT table_id int
 )
-BEGIN
-	DECLARE rowcount int default 0;
-    
-	SELECT count(*),max(id)
+  BEGIN
+    DECLARE rowcount int default 0;
+
+    SELECT count(*),max(id)
     INTO rowcount,table_id
     FROM tables
-    WHERE name=table_name;   
-	
-    if rowcount=0 or isnull(rowcount) then    
-		set table_id=1;
-        
-		INSERT INTO tables VALUES(table_name,table_id);
-	
-	else
-		set table_id=table_id+1;
-        
-		UPDATE tables
-			SET id=table_id
-		WHERE name=table_name;
-	end if;
-END$$
+    WHERE name=table_name;
+
+    if rowcount=0 or isnull(rowcount) then
+      set table_id=1;
+
+      INSERT INTO tables VALUES(table_name,table_id);
+
+    else
+      set table_id=table_id+1;
+
+      UPDATE tables
+      SET id=table_id
+      WHERE name=table_name;
+    end if;
+  END$$
 DELIMITER ;

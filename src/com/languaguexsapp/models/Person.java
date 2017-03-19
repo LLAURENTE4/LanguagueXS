@@ -6,21 +6,21 @@ import java.util.Date;
 
 public class Person {
     private int id;
-    private String nameFirst;
-    private String nameLast;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
-    private Date dateRegistration;
-   // private Status status;
+    private Date registrationDate;
+   private Status status;
 
-    public Person(int id, String nameFirst, String nameLast, String email, String password, Date dateRegistration/*, Status status*/) {
+    public Person(int id, String firstName, String lastName, String email, String password, Date registrationDate, Status status) {
         this.id = id;
-        this.nameFirst = nameFirst;
-        this.nameLast = nameLast;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.dateRegistration = dateRegistration;
-   //     this.status = status;
+        this.registrationDate = registrationDate;
+        this.status = status;
     }
 
     public Person() {
@@ -34,20 +34,20 @@ public class Person {
         this.id = id;
     }
 
-    public String getNameFirst() {
-        return nameFirst;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setNameFirst(String nameFirst) {
-        this.nameFirst = nameFirst;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getNameLast() {
-        return nameLast;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setNameLast(String nameLast) {
-        this.nameLast = nameLast;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -66,31 +66,31 @@ public class Person {
         this.password = password;
     }
 
-    public Date getDateRegistration() {
-        return dateRegistration;
+    public Date getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setDateRegistration(Date dateRegistration) {
-        this.dateRegistration = dateRegistration;
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
-    /*public Status getStatus() {
+    public Status getStatus() {
         return status;
     }
 
     public void setStatus(Status status) {
         this.status = status;
-    }*/
+    }
 
-    public static Person build(ResultSet resultSet/*, StatusEntity statusEntity*/) {
+    public static Person build(ResultSet resultSet, StatusEntity statusEntity) {
         try {
             return new Person(  resultSet.getInt("id"),
                                 resultSet.getString("first_name"),
                                 resultSet.getString("last_name"),
                                 resultSet.getString("email"),
                                 resultSet.getString("password"),
-                                resultSet.getDate("registration_date")/*,
-                       //         statusEntity.findById(resultSet.getInt("status_id"))*/
+                                resultSet.getDate("registration_date"),
+                                statusEntity.findById(resultSet.getInt("status_id"))
             );
         } catch (SQLException e) {
             e.printStackTrace();

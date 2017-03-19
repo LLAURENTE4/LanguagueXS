@@ -6,14 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StatusEntity extends BaseEntity{
-    private GeneralEntity generalEntity;
     public StatusEntity() {
         super("status");
-    }
-
-    public List<Status> findAll() {
-        String statement = getDefaultStatement() + getTableName();
-        return findByCriteria(statement);
     }
 
     private List<Status> findByCriteria(String sql) {
@@ -30,51 +24,15 @@ public class StatusEntity extends BaseEntity{
         return statuss;
     }
 
+    public List<Status> findAll() {
+        String statement = getDefaultStatement() + getTableName();
+        return findByCriteria(statement);
+    }
+
     public Status findById(int id) {
         String statement = "SELECT * FROM status WHERE id = " +
                 String.valueOf(id);
         List<Status> statuss = findByCriteria(statement);
         return statuss != null ? statuss.get(0) : null;
-    }
-
-    public Status findByName(String name) {
-        String statement = "SELECT * FROM status WHERE description = '" +
-                name + "'";
-        List<Status> statuss = findByCriteria(statement);
-        return statuss != null ? statuss.get(0) : null;
-    }
-
-    private int updateByCriteria(String sql) {
-        try {
-            return getConnection().createStatement().executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-    public Status create(String name) {
-        int id= getGeneralEntity().getIdTable(getTableName());
-        String sql = "INSERT INTO status(id, description) " +
-                "VALUES(" + String.valueOf(id) + ", '" + name + "')";
-        return updateByCriteria(sql) > 0 ? new Status(id, name) : null;
-    }
-
-    public boolean update(Status status) {
-        String sql = "UPDATE status SET description = '" + status.getName() +
-                "' WHERE id = " + String.valueOf(status.getId());
-        return updateByCriteria(sql) > 0;
-    }
-
-    public boolean delete(int id) {
-        String sql = "DELETE FROM status WHERE id = " + String.valueOf(id);
-        return updateByCriteria(sql) > 0;
-    }
-
-    public GeneralEntity getGeneralEntity() {
-        return generalEntity;
-    }
-
-    public void setGeneralEntity(GeneralEntity generalEntity) {
-        this.generalEntity = generalEntity;
     }
 }

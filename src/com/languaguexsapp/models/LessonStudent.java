@@ -7,16 +7,16 @@ import java.util.Date;
 public class LessonStudent {
     private Lesson lesson;
     private Person person;
-    private Date dateRegistration;
-    private int studentCore;
-    private int teacherCore;
+    private Date registrationDate;
+    private int scoreStudent;
+    private int scoreTeacher;
 
-    public LessonStudent(Lesson lesson, Person person, Date dateRegistration, int studentCore, int teacherCore) {
+    public LessonStudent(Lesson lesson, Person person, Date registrationDate, int scoreStudent, int scoreTeacher) {
         this.lesson = lesson;
         this.person = person;
-        this.dateRegistration = dateRegistration;
-        this.studentCore = studentCore;
-        this.teacherCore = teacherCore;
+        this.registrationDate = registrationDate;
+        this.scoreStudent = scoreStudent;
+        this.scoreTeacher = scoreTeacher;
     }
 
     public LessonStudent() {
@@ -38,28 +38,28 @@ public class LessonStudent {
         this.person = person;
     }
 
-    public Date getDateRegistration() {
-        return dateRegistration;
+    public Date getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setDateRegistration(Date dateRegistration) {
-        this.dateRegistration = dateRegistration;
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
-    public int getStudentCore() {
-        return studentCore;
+    public int getScoreStudent() {
+        return scoreStudent;
     }
 
-    public void setStudentCore(int studentCore) {
-        this.studentCore = studentCore;
+    public void setScoreStudent(int scoreStudent) {
+        this.scoreStudent = scoreStudent;
     }
 
-    public int getTeacherCore() {
-        return teacherCore;
+    public int getScoreTeacher() {
+        return scoreTeacher;
     }
 
-    public void setTeacherCore(int teacherCore) {
-        this.teacherCore = teacherCore;
+    public void setScoreTeacher(int scoreTeacher) {
+        this.scoreTeacher = scoreTeacher;
     }
 
     public static LessonStudent build(ResultSet resultSet, LessonsEntity lessonsEntity,PeopleEntity peopleEntity ) {

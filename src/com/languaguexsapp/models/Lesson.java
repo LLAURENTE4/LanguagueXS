@@ -7,15 +7,15 @@ import java.util.Date;
 public class Lesson {
     private int id;
     private Skill skill;
-    private Date dateStart;
-    private Date dateEnd;
+    private Date startDate;
+    private Date endDate;
     private Status status;
 
-    public Lesson(int id, Skill skill, Date dateStart, Date dateEnd, Status status) {
+    public Lesson(int id, Skill skill, Date startDate, Date endDate, Status status) {
         this.id = id;
         this.skill = skill;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.status = status;
     }
 
@@ -38,20 +38,20 @@ public class Lesson {
         this.skill = skill;
     }
 
-    public Date getDateStart() {
-        return dateStart;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setDateStart(Date dateStart) {
-        this.dateStart = dateStart;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getDateEnd() {
-        return dateEnd;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setDateEnd(Date dateEnd) {
-        this.dateEnd = dateEnd;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public Status getStatus() {

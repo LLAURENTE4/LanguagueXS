@@ -14,11 +14,15 @@
         </h:column>
         <h:column>
             <f:facet name="header">First Name</f:facet>
-            #{person.nameFirst}
+            #{person.firstName}
         </h:column>
         <h:column>
             <f:facet name="header">Last Name</f:facet>
-            #{person.nameLast}
+            #{person.lastName}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Status</f:facet>
+            #{person.status.description}
         </h:column>
     </h:dataTable>
 </f:view>

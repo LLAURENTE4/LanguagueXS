@@ -15,11 +15,6 @@ public class LessonsEntity extends BaseEntity{
         super("lessons");
     }
 
-    public List<Lesson> findAll() {
-        String statement = getDefaultStatement() + getTableName();
-        return findByCriteria(statement);
-    }
-
     private List<Lesson> findByCriteria(String sql) {
         List<Lesson> lessons = new ArrayList<>();
         try {
@@ -34,24 +29,6 @@ public class LessonsEntity extends BaseEntity{
         return lessons;
     }
 
-    public Lesson findById(int id) {
-        String statement = "SELECT * FROM lessons WHERE id = " +String.valueOf(id) ;
-        List<Lesson> lesson = findByCriteria(statement);
-        return lesson != null ? lesson.get(0) : null;
-    }
-
-    public Lesson findByName(String name) {
-        String statement = "SELECT * FROM languages WHERE description = '" +name+"'";
-        List<Lesson> lessons = findByCriteria(statement);
-        return lessons != null ? lessons.get(0) : null;
-    }
-
-    public Lesson findByUserName(String username){
-        String statement = "SELECT * FROM lessons WHERE description = '" +username + "'" + " AND status_id =" + String.valueOf(1);
-        List<Lesson> lessons = findByCriteria(statement);
-        return lessons != null ? lessons.get(0) : null;
-
-    }
     private int updateByCriteria(String sql) {
         try {
             return getConnection().createStatement().executeUpdate(sql);
@@ -61,17 +38,28 @@ public class LessonsEntity extends BaseEntity{
         return 0;
     }
 
-    public Lesson create(int skillId, Date dateStart, Date dateEnd, int statusId) {
+    public List<Lesson> findAll() {
+        String statement = getDefaultStatement() + getTableName();
+        return findByCriteria(statement);
+    }
+
+    public Lesson findById(int id) {
+        String statement = "SELECT * FROM lessons WHERE id = " +String.valueOf(id) ;
+        List<Lesson> lesson = findByCriteria(statement);
+        return lesson != null ? lesson.get(0) : null;
+    }
+
+    public Lesson create(int skillId, Date startDate, Date endDate, int statusId) {
         int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO lessons (id,skill_id,start_date,end_date,status_id) " +
-                "VALUES("+ String.valueOf(id) + "," + skillId + ",'" + String.valueOf(dateStart) + "','" + String.valueOf(dateEnd) + "'," + statusId + ")";
-        return updateByCriteria(sql) > 0 ? new Lesson(id, getSkillsEntity().findById(skillId),dateStart,dateEnd,getStatusEntity().findById(statusId)) : null;
+                "VALUES("+ String.valueOf(id) + "," + skillId + ",'" + String.valueOf(startDate) + "','" + String.valueOf(endDate) + "'," + statusId + ")";
+        return updateByCriteria(sql) > 0 ? new Lesson(id, getSkillsEntity().findById(skillId),startDate,endDate,getStatusEntity().findById(statusId)) : null;
     }
 
     public boolean update(Lesson lesson) {
         String sql = "UPDATE lessons SET skill_id = " + String.valueOf(lesson.getSkill().getId()) +
-                                       ",start_date='"+String.valueOf(lesson.getDateStart())+"'"+
-                                       ",end_date='"+String.valueOf(lesson.getDateEnd())+"'"+
+                                       ",start_date='"+String.valueOf(lesson.getStartDate())+"'"+
+                                       ",end_date='"+String.valueOf(lesson.getEndDate())+"'"+
                                        ",status_id="+String.valueOf(lesson.getStatus().getId())+
                 " WHERE id = " + String.valueOf(lesson.getId());
         return updateByCriteria(sql) > 0;
