@@ -10,11 +10,11 @@
     <h:dataTable value="#{service.languages}" var="language">
         <h:column>
             <f:facet name="header">Teacher</f:facet>
-            #{language.firstname} #{language.lastname}
+            #{language.id}
         </h:column>
         <h:column>
             <f:facet name="header">Language</f:facet>
-            #{language.description}
+            #{language.descriptionsc}
         </h:column>
     </h:dataTable>
 </f:view>
