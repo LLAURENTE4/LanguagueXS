@@ -1,5 +1,6 @@
 package com.languaguexsapp.beans;
 
+import com.languaguexsapp.models.Lesson;
 import com.languaguexsapp.models.LessonStudent;
 import com.languaguexsapp.models.Level;
 import com.languaguexsapp.models.Person;
@@ -20,7 +21,10 @@ import java.util.List;
 @ManagedBean(name = "service", eager = true)
 @SessionScoped
 public class LanguagexsServiceBean {
+
     private LanguagexsService service;
+    private Lesson lesson;
+    private Person person;
 
     public LanguagexsServiceBean() {
         try {
@@ -45,8 +49,19 @@ public class LanguagexsServiceBean {
         return  service.findAllLessonStudents();
     }
 
+    public Person getPerson() {return person;}
+    
+    public String newPerson() {
+        setPerson(new Person());
+        return "success";
+    }
+
     public String listPeople() { return "success";}
     public String listLevels() { return "success";}
     public String listLessonStudents() { return "success";}
+    public String listLanguages() {return "success";}
 
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }

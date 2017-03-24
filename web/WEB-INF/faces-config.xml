@@ -20,5 +20,10 @@
             <from-outcome>success</from-outcome>
             <to-view-id>/list_lesson_students.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{service.listLanguages}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/list_languages.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

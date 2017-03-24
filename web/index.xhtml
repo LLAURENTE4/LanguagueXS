@@ -66,11 +66,11 @@
          <b:navbarLinks>
             <b:navLink value="Home" href="#panel"></b:navLink>
             <b:navLink value="Services" href="#services"></b:navLink>
-            <b:navLink value="Portafolio" href="#portfolio"></b:navLink>
+            <b:navLink value="Portfolio" href="#portfolio"></b:navLink>
             <b:navLink value="About" href="#about"></b:navLink>
             <b:navLink value="Team" href="#team"></b:navLink>
             <b:navLink value="Clients" href="#clients"></b:navLink>
-            <b:navLink value="Login" href="#login"></b:navLink>
+            <b:navLink value="Login" action="#login"></b:navLink>
          </b:navbarLinks>
       </b:navBar>
 
@@ -664,6 +664,9 @@
             <h:commandButton value="ListPeople" action="#{service.listPeople}"/>
             <h:commandButton value="ListLevels" action="#{service.listLevels}"/>
             <h:commandButton value="ListLessonStudents" action="#{service.listLessonStudents}"/>
+            <h:commandButton value="ListLanguages" action="#{service.listLanguages}"/>
+            <h:commandButton value="LoginUser" action="login_user"/>
+            <h:commandButton value="CreateUser" action="login_user"/>
          </h:form>
       </f:view>
 

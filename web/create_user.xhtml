@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Sign Up"/>
+    <h:form>
+        <h:inputText id="First Name" value="#{person.firstname}" label="First Name" required="true"/>
+        <h:inputText id="Last Name" value="#{person.lastname}" label="Last Name" required="true"/>
+        <h:inputText id="email" value="#{person.email}" label="Email" required="true"/>
+        <h:inputText id="password" value="#{person.password}" label="Password" required="true">
+            <f:validateLength minimum="8"/>
+        </h:inputText>
+        <h:commandButton value="Register" action="create_user"/>
+    </h:form>
+</f:view>
+</html>
