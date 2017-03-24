@@ -36,12 +36,6 @@
       <link href="css/agency.css" rel="stylesheet"/>
 
 
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-      <![endif]-->
 
 
    </head>
@@ -52,51 +46,21 @@
 <!-- Navigation -->
 <div id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <!-- <div class="navbar-header page-scroll">
-          <h:commandButton value="button" type="button" class="navbar-toggle"    data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-             <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-          </h:commandButton>
-          <a class="navbar-brand page-scroll" href="#page-top">LanguagueXS</a>
-       </div>-->
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
 
       <b:navBar brand="LanguagueXS" brandHref="#" inverse="true">
          <b:navbarLinks>
             <b:navLink value="Home" href="#panel"></b:navLink>
             <b:navLink value="Services" href="#services"></b:navLink>
-            <b:navLink value="Portfolio" href="#portfolio"></b:navLink>
+            <b:navLink value="Portafolio" href="#portfolio"></b:navLink>
             <b:navLink value="About" href="#about"></b:navLink>
             <b:navLink value="Team" href="#team"></b:navLink>
-            <b:navLink value="Clients" href="#clients"></b:navLink>
-            <b:navLink value="Login" action="#login"></b:navLink>
+            <b:navLink value="Login" href="login_user.xhtml"></b:navLink>
+            <b:navLink value="Register" href="#login"></b:navLink>
          </b:navbarLinks>
       </b:navBar>
 
-      <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-             <li class="hidden">
-                <a href="#page-top"></a>
-             </li>
-             <li>
-                <a class="page-scroll" href="#services">Services</a>
-             </li>
-             <li>
-                <a class="page-scroll" href="#portfolio">Portfolio</a>
-             </li>
-             <li>
-                <a class="page-scroll" href="#about">About</a>
-             </li>
-             <li>
-                <a class="page-scroll" href="#team">Team</a>
-             </li>
-             <li>
-                <a class="page-scroll" href="#login">Login</a>
-             </li>
-          </ul>
-       </div>-->
-      <!-- /.navbar-collapse -->
+
    </div>
    <!-- /.container-fluid -->
 </div>
@@ -664,9 +628,7 @@
             <h:commandButton value="ListPeople" action="#{service.listPeople}"/>
             <h:commandButton value="ListLevels" action="#{service.listLevels}"/>
             <h:commandButton value="ListLessonStudents" action="#{service.listLessonStudents}"/>
-            <h:commandButton value="ListLanguages" action="#{service.listLanguages}"/>
-            <h:commandButton value="LoginUser" action="login_user"/>
-            <h:commandButton value="CreateUser" action="login_user"/>
+             <h:commandButton value="ListLessonStudents" action="#{service.listSkills}"/>
          </h:form>
       </f:view>
 

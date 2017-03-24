@@ -1,7 +1,8 @@
 <component name="libraryTable">
-  <library name="PrimeFaces-5.2" type="jsf-primefaces">
-    <properties version="5.2" />
+  <library name="BootsFaces-OSP-1.0.2-dist-default">
     <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/BootsFaces-OSP-1.0.2-dist-default.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/BootsFaces-OSP-1.0.2-dist.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/primefaces-5.2.jar!/" />
     </CLASSES>
     <JAVADOC />

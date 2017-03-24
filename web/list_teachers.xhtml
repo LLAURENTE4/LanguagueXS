@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<head>
+    <!-- Versión compilada y comprimida del CSS de Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <!-- Tema opcional -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+
+    <!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
+    <h:outputScript src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></h:outputScript>
+    <!--&lt;!&ndash;<meta charset="utf-8"/>&ndash;&gt;
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>LanguagueXS</title>
+
+    &lt;!&ndash; Bootstrap Core CSS &ndash;&gt;
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+
+    &lt;!&ndash; Custom Fonts &ndash;&gt;
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'/>
+
+    &lt;!&ndash; Theme CSS &ndash;&gt;
+    <link href="css/agency.min.css" rel="stylesheet"/>
+    <link href="css/agency.css" rel="stylesheet"/>-->
+</head>
+
+
+<h:body>
+    <f:view>
+        <h:outputLabel value="Skill List"/>
+        <h:dataTable value="#{service.skills}" var="skill">
+            <h:column>
+                <f:facet name="header">first Name</f:facet>
+                #{skill.person.firstName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Lenguage</f:facet>
+                #{skill.language.description}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">level</f:facet>
+                #{skill.level.description}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Precio</f:facet>
+                #{skill.price}
+            </h:column>
+        </h:dataTable>
+    </f:view>
+
+
+
+</h:body>
+
+</html>
