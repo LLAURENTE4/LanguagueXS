@@ -22,5 +22,8 @@
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0 - JSF" level="application_server_libraries" />
     <orderEntry type="library" name="BootsFaces-OSP-1.0.2-dist-default" level="project" />
+    <orderEntry type="library" name="BootsFaces-OSP-1.0.2-dist" level="project" />
+    <orderEntry type="library" name="primefaces-5.2-sources" level="project" />
+    <orderEntry type="library" name="primefaces-5.2" level="project" />
   </component>
 </module>

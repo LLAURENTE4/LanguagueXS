@@ -2,12 +2,8 @@
   <library name="BootsFaces-OSP-1.0.2-dist-default">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/BootsFaces-OSP-1.0.2-dist-default.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/BootsFaces-OSP-1.0.2-dist.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/primefaces-5.2.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/lib/primefaces-5.2-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

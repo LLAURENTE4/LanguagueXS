@@ -7,7 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="LanguagueXS" />
         </element>
-        <element id="directory" name="lib" />
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="BootsFaces-OSP-1.0.2-dist-default" />
+          <element id="library" level="project" name="BootsFaces-OSP-1.0.2-dist" />
+          <element id="library" level="project" name="primefaces-5.2" />
+        </element>
       </element>
     </root>
   </artifact>

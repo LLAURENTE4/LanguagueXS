@@ -52,7 +52,7 @@ public class PeopleEntity extends BaseEntity{
 
     public Person findByEmail(String email) {
         String statement = "SELECT id, first_name, last_name,email,password,registration_date,status_id FROM people " +
-                " WHERE email = " +String.valueOf(email);
+                " WHERE email = '" +String.valueOf(email)+"'";
         List<Person> people = findByCriteria(statement);
         return people != null ? people.get(0) : null;
     }

@@ -22,6 +22,8 @@ import java.util.List;
 @SessionScoped
 public class LanguagexsServiceBean {
     private LanguagexsService service;
+    private Person person;
+    private String message;
 
     public LanguagexsServiceBean() {
         try {
@@ -31,6 +33,7 @@ public class LanguagexsServiceBean {
                     .getConnection();
             service = new LanguagexsService();
             service.setConnection(connection);
+            person=new Person();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
@@ -54,4 +57,35 @@ public class LanguagexsServiceBean {
     public String listLessonStudents() { return "success";}
     public String listSkills() { return "success";}
 
+    public String loginPerson(){
+        Person personaAuxiliary=new Person();
+
+        personaAuxiliary=service.findPersonByEmail(person.getEmail());
+        if( person.getPassword().equals(personaAuxiliary.getPassword())  &&  personaAuxiliary.getStatus().getId() == 1 &&  personaAuxiliary.getId() > 0 ){
+            person=personaAuxiliary;
+            this.message="";
+            return "success";
+        }else{
+            this.message="Incorrect data";
+            return "error";
+        }
+
+
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

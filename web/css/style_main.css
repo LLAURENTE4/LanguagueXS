@@ -1,0 +1,32 @@
+#main{
+    background: url("../images/header-bg.jpg")
+    no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#user{
+    background-color: whitesmoke;
+}
+
+.cont{
+    background: rgba(0,0,0,.5);
+    border-radius: 20px;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    left: 20%;
+    padding: 30px;
+    color: white;
+}
+.cont2{
+    background: rgba(0,0,0,.5);
+    border-radius: 20px;
+    top: 30%;
+    right: 20%;
+    left: 20%;
+    padding: 30px;
+    color: white;
+}

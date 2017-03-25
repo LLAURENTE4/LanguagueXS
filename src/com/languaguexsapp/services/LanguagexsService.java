@@ -139,6 +139,10 @@ public class LanguagexsService {
         return getPeopleEntity().findAll();
     }
 
+    public Person findPersonByEmail(String email) {
+        return getPeopleEntity().findByEmail(email);
+    }
+
     public Person findPersonById(int id) {
         return getPeopleEntity().findById(id);
     }

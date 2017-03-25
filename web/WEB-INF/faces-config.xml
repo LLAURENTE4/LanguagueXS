@@ -6,24 +6,27 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{service.listPeople}</from-action>
+            <from-action>#{service.loginPerson}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/list_people.xhtml</to-view-id>
+            <to-view-id>/person_main.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{service.listLevels}</from-action>
+            <from-action>#{service.loginPerson}</from-action>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/login_person.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{service.loginPerson}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/list_levels.xhtml</to-view-id>
+            <to-view-id>/person_main.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{service.listLessonStudents}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/list_lesson_students.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-action>#{service.listSkills}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/list_teachers.xhtml</to-view-id>
+            <from-action>#{service.loginPerson}</from-action>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/login_person.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
