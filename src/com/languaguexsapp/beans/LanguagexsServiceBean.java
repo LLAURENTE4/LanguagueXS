@@ -69,8 +69,6 @@ public class LanguagexsServiceBean {
             this.message="Incorrect data";
             return "error";
         }
-
-
     }
 
     public Person getPerson() {
