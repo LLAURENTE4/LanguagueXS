@@ -9,10 +9,10 @@
 <f:view>
     <h:outputLabel value="Sign In"/>
     <h:form>
-        <h:inputText id="email" value="#{person.email}" label="Email" required="true"/>
-        <h:inputText id="password" value="#{person.password}" label="Password" required="true"/>
+        <h:inputText id="email" label="Email" required="true"/>
+        <h:inputText id="password"  label="Password" required="true"/>
         <h:commandButton value="Login" action="index"/>
-        <h:commandButton value="Create Account" action="create_user"/>
+        <h:commandButton value="Create Account" action="create_user" />
     </h:form>
 </f:view>
 

@@ -1,9 +1,6 @@
 package com.languaguexsapp.beans;
 
-import com.languaguexsapp.models.LessonStudent;
-import com.languaguexsapp.models.Level;
-import com.languaguexsapp.models.Person;
-import com.languaguexsapp.models.Skill;
+import com.languaguexsapp.models.*;
 import com.languaguexsapp.services.LanguagexsService;
 
 import javax.faces.bean.ManagedBean;
@@ -48,12 +45,14 @@ public class LanguagexsServiceBean {
     public  List<LessonStudent> getLessonStudents(){
         return  service.findAllLessonStudents();
     }
-
+    public  List<Language> getLanguages(){
+        return  service.findAllLanguages();
+    }
     public String listPeople() { return "success";}
     public String listLevels() { return "success";}
     public String listLessonStudents() { return "success";}
     public String listSkills() { return "success";}
     public String login() { return "success";}
-
+    public String listLanguages() {return "success";}
 
 }
