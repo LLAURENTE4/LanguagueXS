@@ -19,8 +19,7 @@ public class Skill {
         this.price = price;
     }
 
-    public Skill() {
-    }
+    public Skill() {}
 
 
     public int getId() {
@@ -68,7 +67,7 @@ public class Skill {
             return new Skill(
                                 resultSet.getInt("id"),
                                 peopleEntity.findById( resultSet.getInt("person_id")),
-                                languagesEntity.findById( resultSet.getInt("languague_id")),
+                                languagesEntity.findById( resultSet.getInt("language_id")),
                                 levelsEntity.findById( resultSet.getInt("level_id")),
                                 resultSet.getDouble("price")
                             );

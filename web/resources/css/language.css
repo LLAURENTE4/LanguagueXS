@@ -1,0 +1,46 @@
+#aa{
+    color: seagreen;
+}
+body{
+    background-color: #e7e7e7;
+}
+
+#work{
+    color: orange;
+    height: 200px;
+    width: 100px;
+    background-color: red;
+    border-radius: 5px;
+}
+
+.panel-header{
+    color: blue;
+    background-color: red;
+        border-color: black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 3px;
+    -webkit-border-vertical-spacing: 15px;
+    border-collapse:separate;
+    border-spacing: 25px 10px;
+    text-align: center;
+
+
+}
+.panel-footer{
+    border-spacing: 3em;
+    color: #31708f;
+}
+
+#panel{
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    right: 50px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+    box-shadow: 0 1px 1px rgba(0, 0, 119, 1);
+
+}

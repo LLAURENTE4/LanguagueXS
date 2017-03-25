@@ -13,6 +13,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,9 +50,15 @@ public class LanguagexsServiceBean {
         return  service.findAllLessonStudents();
     }
 
+    public  String addLesson(int skillId , Date startDate , Date endDate, int statusId ) {
+        return service.addLesson(skillId,startDate,endDate,statusId);
+    }
+
+
     public String listPeople() { return "success";}
     public String listLevels() { return "success";}
     public String listLessonStudents() { return "success";}
     public String listSkills() { return "success";}
+    public String Lesson(){return "success";}
 
 }

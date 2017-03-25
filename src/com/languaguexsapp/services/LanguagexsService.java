@@ -2,11 +2,8 @@ package com.languaguexsapp.services;
 
 import com.languaguexsapp.models.*;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 public class LanguagexsService {
@@ -18,6 +15,7 @@ public class LanguagexsService {
     private PeopleEntity peopleEntity;
     private SkillsEntity skillsEntity;
     private StatusEntity statusEntity;
+    private GeneralEntity generalEntity;
 
     public Connection getConnection() {
         return connection;
@@ -167,6 +165,18 @@ public class LanguagexsService {
         }else{
             return "Incorrecto";
         }
+
+    }
+
+    public int findGeneralByID(String name){
+
+        return generalEntity.getIdTable(name);
+    }
+
+    public  String addLesson(int skillId , Date startDate , Date endDate, int statusId){
+        int id =findGeneralByID(lessonsEntity.getTableName()) ;
+        lessonsEntity.create(skillId,startDate,endDate,statusId);
+        return "success";
 
     }
 
