@@ -49,6 +49,12 @@ public class LanguagexsServiceBean {
     public  List<LessonStudent> getLessonStudents(){
         return  service.findAllLessonStudents();
     }
+    public  List<Language> getLanguages(){
+        return  service.findAllLanguages();
+    }
+
+    public  List<Lesson> getLessons(){return  service.findAllLessons();}
+
 
     public  String addLesson(int skillId , Date startDate , Date endDate, int statusId ) {
         return service.addLesson(skillId,startDate,endDate,statusId);
@@ -61,4 +67,7 @@ public class LanguagexsServiceBean {
     public String listSkills() { return "success";}
     public String Lesson(){return "success";}
 
+    public String login() { return "success";}
+    public String listLanguages() {return "success";}
+    public String listLessons() {return "success";}
 }

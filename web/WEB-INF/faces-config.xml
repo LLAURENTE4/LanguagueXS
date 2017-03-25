@@ -6,6 +6,11 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
+            <from-action>#{service.login}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/login_user.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-action>#{service.listPeople}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/list_people.xhtml</to-view-id>
@@ -26,6 +31,16 @@
             <to-view-id>/list_courses.xhtml</to-view-id>
 
 
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{service.listLanguages}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/list_languages.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{service.listLessons}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/list_lessons.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
