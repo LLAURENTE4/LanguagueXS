@@ -27,7 +27,7 @@ public class LanguagexsServiceBean {
         try {
             InitialContext ctx = new InitialContext();
             Connection connection = ((DataSource) ctx
-                    .lookup("jdbc/MySQLDataSource_LanguageXS"))
+                    .lookup("jdbc/MySQLDataSource"))
                     .getConnection();
             service = new LanguagexsService();
             service.setConnection(connection);
@@ -53,5 +53,7 @@ public class LanguagexsServiceBean {
     public String listLevels() { return "success";}
     public String listLessonStudents() { return "success";}
     public String listSkills() { return "success";}
+    public String login() { return "success";}
+
 
 }
