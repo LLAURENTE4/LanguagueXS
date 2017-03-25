@@ -1,9 +1,6 @@
 package com.languaguexsapp.beans;
 
-import com.languaguexsapp.models.LessonStudent;
-import com.languaguexsapp.models.Level;
-import com.languaguexsapp.models.Person;
-import com.languaguexsapp.models.Skill;
+import com.languaguexsapp.models.*;
 import com.languaguexsapp.services.LanguagexsService;
 
 import javax.faces.bean.ManagedBean;
