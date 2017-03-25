@@ -48,11 +48,15 @@ public class LanguagexsServiceBean {
     public  List<Language> getLanguages(){
         return  service.findAllLanguages();
     }
+
+    public  List<Lesson> getLessons(){return  service.findAllLessons();}
+
+
     public String listPeople() { return "success";}
     public String listLevels() { return "success";}
     public String listLessonStudents() { return "success";}
     public String listSkills() { return "success";}
     public String login() { return "success";}
     public String listLanguages() {return "success";}
-
+    public String listLessons() {return "success";}
 }
