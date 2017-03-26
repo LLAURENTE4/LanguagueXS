@@ -49,6 +49,12 @@ public class LessonsEntity extends BaseEntity{
         return lesson != null ? lesson.get(0) : null;
     }
 
+    public List<Lesson> findAllBySkillId(int skillId) {
+        String statement = "SELECT * FROM lessons WHERE skill_id = " +String.valueOf(skillId) ;
+        List<Lesson> lessons = findByCriteria(statement);
+        return lessons;
+    }
+
     public Lesson create(int skillId, Date startDate, Date endDate, int statusId) {
         int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO lessons (id,skill_id,start_date,end_date,status_id) " +

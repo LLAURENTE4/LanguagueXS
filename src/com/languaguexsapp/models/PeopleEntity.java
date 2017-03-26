@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
+import java.util.Date;
 import java.util.List;
 
 public class PeopleEntity extends BaseEntity{
@@ -60,18 +61,18 @@ public class PeopleEntity extends BaseEntity{
     public Person create(String first_name, String last_name, String email, String password, int status_id) {
         int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO people(id, first_name, last_name,email,password,registration_date,status_id) " +
-                "VALUES(" + String.valueOf( id) + ", '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ password   +"','"+String.valueOf(getGeneralEntity().getDateCurrent())+"'" +
+                "VALUES(" + String.valueOf( id) + ", '" + first_name + "', '"+ last_name + "','"+ email   +"','"+ password   +"','"+String.valueOf(getGeneralEntity().getCurrentDate())+"'" +
                 ","+ String.valueOf( status_id )  +")";
-        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,password, getGeneralEntity().getDateCurrent(), getStatusEntity().findById(status_id)) : null;
+        return updateByCriteria(sql) > 0 ? new Person(id, first_name, last_name,email,password, getGeneralEntity().getCurrentDate(), getStatusEntity().findById(status_id)) : null;
     }
 
     public boolean update(Person person) {
         String sql = "UPDATE people SET first_name = '" + person.getFirstName() + "',"+
-                                      " last_name= '" + person.getLastName() + "',"+
-                                      " email='" + person.getEmail() + "',"+
-                                      " password='" + person.getPassword() + "',"+
-                                      " status_id="+String.valueOf(person.getStatus() )+
-                    " WHERE id = " + String.valueOf(person.getId());
+                " last_name= '" + person.getLastName() + "',"+
+                " email='" + person.getEmail() + "',"+
+                " password='" + person.getPassword() + "',"+
+                " status_id="+String.valueOf(person.getStatus() )+
+                " WHERE id = " + String.valueOf(person.getId());
         return updateByCriteria(sql) > 0;
     }
 
@@ -88,8 +89,11 @@ public class PeopleEntity extends BaseEntity{
         this.statusEntity = statesEntity;
     }
 
-    private GeneralEntity getGeneralEntity() {
+    public GeneralEntity getGeneralEntity() {
         return generalEntity;
     }
 
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
+    }
 }

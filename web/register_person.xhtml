@@ -16,8 +16,40 @@
                     <b:column medium-screen="4"/>
                     <b:column medium-screen="4">
                         <br/>
-                        <div align="center"><b><h:outputLabel value="LOGIN"/></b></div>
+                        <div align="center"><b><h:outputLabel value="PERSON REGISTER"/></b></div>
                         <br/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column medium-screen="3"/>
+                    <b:column medium-screen="2">
+                        <b><h:outputText value="FirstName:"/></b>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputText id="FirstName" placeholder="first name" value="#{service.person.firstName}" required="true" requiredMessage="First name is required">
+                            <f:facet name="prepend">
+                                <b:icon name="glyphicon glyphicon-pencil" />
+                            </f:facet>
+                        </b:inputText>
+                    </b:column>
+                    <b:column medium-screen="2">
+                        <h:message for="FirstName" style="color:red"/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column medium-screen="3"/>
+                    <b:column medium-screen="2">
+                        <b><h:outputText value="LastName:"/></b>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:inputText id="LastName" placeholder="last name" value="#{service.person.lastName}" required="true" requiredMessage="Last name is required">
+                            <f:facet name="prepend">
+                                <b:icon name="glyphicon glyphicon-pencil" />
+                            </f:facet>
+                        </b:inputText>
+                    </b:column>
+                    <b:column medium-screen="2">
+                        <h:message for="LastName" style="color:red"/>
                     </b:column>
                 </b:row>
                 <b:row>
@@ -46,6 +78,7 @@
                             <f:facet name="prepend">
                                 <b:iconAwesome name="key" />
                             </f:facet>
+                            <f:validateLength minimum="6"/>
                         </b:inputSecret>
                     </b:column>
                     <b:column medium-screen="2">
@@ -58,7 +91,7 @@
                         <h:outputLabel value="#{service.message}"/>
                     </b:column>
                     <b:column medium-screen="2">
-                        <b:commandButton type="submit" value="Login" look="primary" style="width:100%" action="#{service.loginPerson}" />
+                        <b:commandButton type="submit" value="Register" look="primary" style="width:100%" action="#{service.registerPerson}" />
                     </b:column>
                 </b:row>
             </h:form>

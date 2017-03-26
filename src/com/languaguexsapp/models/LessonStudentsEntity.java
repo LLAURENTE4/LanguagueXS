@@ -50,8 +50,8 @@ public class LessonStudentsEntity  extends BaseEntity{
 
     public LessonStudent create(int lessonId,int personId, int scoreStudent, int scoreTeacher  ){
         String sql = "INSERT INTO lesson_students(lesson_id,person_id, registration_date) " +
-                "VALUES(" + String.valueOf(lessonId) + "," + String.valueOf( personId) + ","+ String.valueOf( getGeneralEntity().getDateCurrent()) +")";
-        return updateByCriteria(sql) > 0 ? new LessonStudent(getLessonsEntity().findById(lessonId),getPeopleEntity().findById(personId),getGeneralEntity().getDateCurrent(),scoreStudent,scoreTeacher) : null;
+                "VALUES(" + String.valueOf(lessonId) + "," + String.valueOf( personId) + ","+ String.valueOf( getGeneralEntity().getCurrentDate()) +")";
+        return updateByCriteria(sql) > 0 ? new LessonStudent(getLessonsEntity().findById(lessonId),getPeopleEntity().findById(personId),getGeneralEntity().getCurrentDate(),scoreStudent,scoreTeacher) : null;
     }
 
     public boolean update(LessonStudent lessonStudent) {

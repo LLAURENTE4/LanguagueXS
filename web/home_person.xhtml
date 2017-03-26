@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+    <title>Project Name</title>
+    <meta name="author" content="The Author"></meta>
+</h:head>
+<!-- Header -->
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+    <b:navBar brand="LanguageXS" brandHref="#" inverse="true" fixed="top" >
+        <b:navbarLinks>
+            <b:navLink value="" href="#"></b:navLink>
+            <b:dropMenu value="Teacher">
+                <b:navLink value="Create Skill" href="#"></b:navLink>
+                <b:navLink value="Create Lesson" href="#"></b:navLink>
+                <b:navLink value="Student Score" href="#"></b:navLink>
+            </b:dropMenu>
+            <b:dropMenu value="Student">
+                <b:navLink value="Subscription in lesson" href="#"></b:navLink>
+                <b:navLink value="Teacher Score" href="#"></b:navLink>
+            </b:dropMenu>
+        </b:navbarLinks>
+        <h:form styleClass="navbar-form navbar-right">
+            <b:image value="images/people/login_default.jpg"  tooltip="Update Information" width="40x" height="40x"/>
+            #{' '}
+            <b:commandButton action="#{service.closeSession}" value="" look="default" icon="glyphicon glyphicon-off" iconAlign="right" icon-size="1x"/>
+        </h:form>
+    </b:navBar>
+
+    <!-- Body -->
+    <b:container>
+        <h:form>
+            <b:column class="content">
+                <hr/>
+                <hr/>
+                <h2>Welcome #{service.person.firstName}  #{service.person.lastName}</h2>
+                <p>In LanguageXS you will be able to create the courses to teach and also to enroll to the courses that are available.</p>
+                <hr/>
+                <hr/>
+
+                <ui:include src="list_lesson_skills.xhtml"/>
+            </b:column>
+        </h:form>
+    </b:container>
+
+    <!-- Footer -->
+    <b:navBar brand="Welcome #{service.person.firstName}  #{service.person.lastName}" brandHref="#" inverse="true"  position="bottom" sticky="true" static="true"/>
+</h:body>
+</html>

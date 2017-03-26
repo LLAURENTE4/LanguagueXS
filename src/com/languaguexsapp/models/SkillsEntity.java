@@ -49,6 +49,12 @@ public class SkillsEntity extends BaseEntity{
         return skill != null ? skill.get(0) : null;
     }
 
+    public List<Skill> findAllByPersonId(int personId) {
+        String statement = "SELECT * FROM skills WHERE person_id = " +String.valueOf(personId);
+        List<Skill> skills = findByCriteria(statement);
+        return skills;
+    }
+
     public Skill create(int personId,int languageId, int levelId,Double price ){
         int id= getGeneralEntity().getIdTable(getTableName());
         String sql = "INSERT INTO skill(id,person_id, language_id,level_id, price) " +

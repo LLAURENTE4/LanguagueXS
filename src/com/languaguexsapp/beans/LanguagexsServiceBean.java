@@ -1,9 +1,6 @@
 package com.languaguexsapp.beans;
 
-import com.languaguexsapp.models.LessonStudent;
-import com.languaguexsapp.models.Level;
-import com.languaguexsapp.models.Person;
-import com.languaguexsapp.models.Skill;
+import com.languaguexsapp.models.*;
 import com.languaguexsapp.services.LanguagexsService;
 
 import javax.faces.bean.ManagedBean;
@@ -57,6 +54,9 @@ public class LanguagexsServiceBean {
     public String listLessonStudents() { return "success";}
     public String listSkills() { return "success";}
 
+    public List<Lesson> getLessonSkillsById(){
+        return service.findAllLessonSkillsById(person.getId());
+    }
     public String loginPerson(){
         Person personaAuxiliary=new Person();
 
@@ -69,6 +69,26 @@ public class LanguagexsServiceBean {
             this.message="Incorrect data";
             return "error";
         }
+    }
+
+    public String registerPerson(){
+        Person personaAuxiliary = new Person();
+
+        personaAuxiliary=service.addPerson(person);
+        if( personaAuxiliary.getId() > 0 ){
+            person=personaAuxiliary;
+            this.message="";
+            return "success";
+        }else{
+            this.message="Incorrect data";
+            return "error";
+        }
+    }
+
+    public String closeSession(){
+        person=null;
+        person=new Person();
+        return "success";
     }
 
     public Person getPerson() {

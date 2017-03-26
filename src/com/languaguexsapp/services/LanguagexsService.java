@@ -3,7 +3,7 @@ package com.languaguexsapp.services;
 import com.languaguexsapp.models.*;
 
 import java.sql.Connection;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LanguagexsService {
@@ -75,6 +75,7 @@ public class LanguagexsService {
                 peopleEntity = new PeopleEntity();
                 peopleEntity.setConnection(getConnection());
                 peopleEntity.setStatusEntity(getStatusEntity());
+                peopleEntity.setGeneralEntity(getGeneralEntity());
             }
         }
         return peopleEntity;
@@ -101,6 +102,16 @@ public class LanguagexsService {
             }
         }
         return statusEntity;
+    }
+
+    public GeneralEntity getGeneralEntity() {
+        if(connection != null) {
+            if(generalEntity == null) {
+                generalEntity = new GeneralEntity();
+                generalEntity.setConnection(getConnection());
+            }
+        }
+        return generalEntity;
     }
 
     public List<Language> findAllLanguages() {
@@ -159,31 +170,30 @@ public class LanguagexsService {
         return getStatusEntity().findAll();
     }
 
+    public List<Lesson> findAllLessonSkillsById(int personId){
+        List<Skill> skills = getSkillsEntity().findAllByPersonId(personId);
+
+        List<Lesson> lessons = new ArrayList<>();
+
+        for(Skill skill:skills) {
+            List<Lesson> lessons_auxil=getLessonsEntity().findAllBySkillId(skill.getId());
+
+            for(Lesson lesson:lessons_auxil){
+                lessons.add(lesson);
+            }
+        }
+
+        return lessons;
+    }
+
     public Status findStatusById(int id) {
         return getStatusEntity().findById(id);
     }
 
-    public String loginPerson(String email,String password){
-        Person person=getPeopleEntity().findByEmail(email);
-
-        if( password.equals(person.getPassword())  &&  person.getStatus().getId() == 0 &&  person.getId() > 0 ){
-            return "Correcto";
-        }else{
-            return "Incorrecto";
-        }
-
+    public Person addPerson(Person person){
+        return getPeopleEntity().create(person.getFirstName(),person.getLastName(),person.getEmail(),person.getPassword(),1);
     }
 
-    public int findGeneralByID(String name){
 
-        return generalEntity.getIdTable(name);
-    }
-
-    public  String addLesson(int skillId , Date startDate , Date endDate, int statusId){
-        int id =findGeneralByID(lessonsEntity.getTableName()) ;
-        lessonsEntity.create(skillId,startDate,endDate,statusId);
-        return "success";
-
-    }
 
 }

@@ -1,32 +1,40 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-    <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{service.loginPerson}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/person_main.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-action>#{service.loginPerson}</from-action>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
     <navigation-rule>
         <from-view-id>/login_person.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{service.loginPerson}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/person_main.xhtml</to-view-id>
+            <to-view-id>/home_person.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{service.loginPerson}</from-action>
             <from-outcome>error</from-outcome>
             <to-view-id>/login_person.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/register_person.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{service.registerPerson}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/home_person.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{service.registerPerson}</from-action>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/register_person.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/home_person.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{service.closeSession}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
