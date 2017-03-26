@@ -21,16 +21,19 @@ public class LanguagexsServiceBean {
     private LanguagexsService service;
     private Person person;
     private String message;
+    private  LessonStudent lessonStudent;
 
     public LanguagexsServiceBean() {
         try {
             InitialContext ctx = new InitialContext();
             Connection connection = ((DataSource) ctx
-                    .lookup("jdbc/MySQLDataSource_LanguageXS"))
+                    // .lookup("jdbc/MySQLDataSource_LanguageXS"))
+                    .lookup("jdbc/MySQLDataSource"))
                     .getConnection();
             service = new LanguagexsService();
             service.setConnection(connection);
             person=new Person();
+            lessonStudent= new LessonStudent();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
@@ -47,6 +50,13 @@ public class LanguagexsServiceBean {
 
     public  List<LessonStudent> getLessonStudents(){
         return  service.findAllLessonStudents();
+    }
+
+    public  LessonStudent getLessonStudentsByPerson(){
+        Person personaAuxiliary=new Person();
+        personaAuxiliary=service.findPersonByEmail(person.getEmail());
+      return service.findLessonStudentByPerson(personaAuxiliary.getId());
+
     }
 
     public String listPeople() { return "success";}

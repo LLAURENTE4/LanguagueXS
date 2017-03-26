@@ -11,7 +11,7 @@
 
 <f:view>
     <h:outputLabel value="Lesson Students List"/>
-    <h:dataTable value="#{service.lessonStudents}" var="lessonStudent">
+    <h:dataTable value="#{service.lessonStudentsByPerson}" var="lessonStudent">
         <h:column>
             <f:facet name="header">Lesson Id</f:facet>
             #{lessonStudent.lesson.id}
