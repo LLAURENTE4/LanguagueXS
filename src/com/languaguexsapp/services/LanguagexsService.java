@@ -115,10 +115,12 @@ public class LanguagexsService {
 
     public List<LessonStudent> findAllLessonStudents(){return getLessonStudentsEntity().findAll();}
 
-    public LessonStudent findLessonStudentById(int idLesson,int idPerson) {
+    public  LessonStudent findLessonStudentById(int idLesson,int idPerson) {
         return getLessonStudentsEntity().findById(idLesson,idPerson);
     }
-
+    public LessonStudent findLessonStudentByPerson(int idPerson) {
+        return getLessonStudentsEntity().findByPerson(idPerson);
+    }
     public List<Lesson> findAllLessons() {
         return getLessonsEntity().findAll();
     }
