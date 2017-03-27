@@ -55,7 +55,7 @@ public class LanguagesEntity  extends BaseEntity{
 
     public Language create(String description) {
         int id= getGeneralEntity().getIdTable(getTableName());
-        String sql = "INSERT INTO languages(id,description) VALUES("+id+",'" + description + "')";
+        String sql = "INSERT INTO languages(id,description) VALUES("+String.valueOf(id)+",'" + description + "')";
         return updateByCriteria(sql) > 0 ? new Language(id, description) : null;
     }
 
@@ -74,4 +74,7 @@ public class LanguagesEntity  extends BaseEntity{
         return generalEntity;
     }
 
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
+    }
 }

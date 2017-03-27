@@ -21,7 +21,8 @@ public class LanguagexsServiceBean {
     private LanguagexsService service;
     private Person person;
     private String message;
-    private  LessonStudent lessonStudent;
+    private String pageHome;
+    private Language language;
 
     public LanguagexsServiceBean() {
         try {
@@ -32,7 +33,8 @@ public class LanguagexsServiceBean {
             service = new LanguagexsService();
             service.setConnection(connection);
             person=new Person();
-            lessonStudent= new LessonStudent();
+            language=new Language();
+            pageHome="home_default.xhtml";
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
@@ -79,7 +81,6 @@ public class LanguagexsServiceBean {
 
     public String registerPerson(){
         Person personaAuxiliary = new Person();
-
         personaAuxiliary=service.addPerson(person);
         if( personaAuxiliary.getId() > 0 ){
             person=personaAuxiliary;
@@ -89,6 +90,21 @@ public class LanguagexsServiceBean {
             this.message="Incorrect data";
             return "error";
         }
+    }
+
+    public String registerLanguage(){
+        Language languageAuxiliary=new Language();
+        languageAuxiliary=service.addLanguage(language);
+        if( languageAuxiliary.getId() > 0 ){
+            this.message="";
+            setPageHome("home_default.xhtml");
+            return "success";
+        }else{
+            this.message="Incorrect data";
+            setPageHome("register_language.xhtml");
+            return "error";
+        }
+
     }
 
     public String closeSession(){
@@ -111,5 +127,21 @@ public class LanguagexsServiceBean {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getPageHome() {
+        return pageHome;
+    }
+
+    public void setPageHome(String pageHome) {
+        this.pageHome = pageHome;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 }

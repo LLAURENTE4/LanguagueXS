@@ -30,6 +30,7 @@ public class LanguagexsService {
             if(languagesEntity == null) {
                 languagesEntity = new LanguagesEntity();
                 languagesEntity.setConnection(getConnection());
+                languagesEntity.setGeneralEntity(getGeneralEntity());
             }
         }
         return languagesEntity;
@@ -107,7 +108,7 @@ public class LanguagexsService {
     public GeneralEntity getGeneralEntity() {
         if(connection != null) {
             if(generalEntity == null) {
-                generalEntity = new GeneralEntity();
+                generalEntity =new GeneralEntity();
                 generalEntity.setConnection(getConnection());
             }
         }
@@ -196,6 +197,7 @@ public class LanguagexsService {
         return getPeopleEntity().create(person.getFirstName(),person.getLastName(),person.getEmail(),person.getPassword(),1);
     }
 
-
-
+    public Language addLanguage(Language language){
+        return getLanguagesEntity().create(language.getDescription());
+    }
 }

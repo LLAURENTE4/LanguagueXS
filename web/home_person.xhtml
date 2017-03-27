@@ -11,9 +11,11 @@
 </h:head>
 <!-- Header -->
 <h:body style="padding-top: 50px; padding-bottom: 20px;">
+
     <b:navBar brand="LanguageXS" brandHref="#" inverse="true" fixed="top" >
+        <h:form>
         <b:navbarLinks>
-            <b:navLink value="" href="#"></b:navLink>
+            <b:navLink value="Home" update="@form @(.content)"  onclick="ajax:service.setPageHome('home_default.xhtml')"/>
             <b:dropMenu value="Teacher">
                 <b:navLink value="Create Skill" href="#"></b:navLink>
                 <b:navLink value="Create Lesson" href="#"></b:navLink>
@@ -24,10 +26,11 @@
                 <b:navLink value="Teacher Score" href="#"></b:navLink>
             </b:dropMenu>
             <b:dropMenu value="Maintenance">
-                <b:navLink value="Language" href="#"></b:navLink>
-                <b:navLink value="Level" href="#"></b:navLink>
+                <b:navLink value="Language" update="@form @(.content)" onclick="ajax:service.setPageHome('register_language.xhtml')"/>
+                <b:navLink value="Level" href="#"/>
             </b:dropMenu>
         </b:navbarLinks>
+        </h:form>
         <h:form styleClass="navbar-form navbar-right">
             <b:image value="images/people/login_default.jpg"  tooltip="Update Information" width="40x" height="40x"/>
             #{' '}
@@ -39,15 +42,7 @@
     <b:container>
         <h:form>
             <b:column class="content">
-                <hr/>
-                <hr/>
-                <h2>Welcome #{service.person.firstName}  #{service.person.lastName}</h2>
-                <p>In LanguageXS you will be able to create the courses to teach and also to enroll to the courses that are available.</p>
-                <hr/>
-                <hr/>
-                <ui:include src="list_lesson_skills.xhtml"/>
-                <hr/>
-                <ui:include src="list_lesson_students.xhtml"/>
+                <ui:include src="#{service.pageHome}"/>
             </b:column>
         </h:form>
     </b:container>
