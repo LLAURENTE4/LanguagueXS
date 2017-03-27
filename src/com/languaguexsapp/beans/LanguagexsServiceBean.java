@@ -52,7 +52,7 @@ public class LanguagexsServiceBean {
         return  service.findAllLessonStudents();
     }
 
-    public  LessonStudent getLessonStudentsByPerson(){
+    public  List<LessonStudent> getLessonStudentsByPerson(){
         Person personaAuxiliary=new Person();
         personaAuxiliary=service.findPersonByEmail(person.getEmail());
       return service.findLessonStudentByPerson(personaAuxiliary.getId());

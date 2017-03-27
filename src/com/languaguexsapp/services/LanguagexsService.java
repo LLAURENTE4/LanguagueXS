@@ -129,7 +129,7 @@ public class LanguagexsService {
     public  LessonStudent findLessonStudentById(int idLesson,int idPerson) {
         return getLessonStudentsEntity().findById(idLesson,idPerson);
     }
-    public LessonStudent findLessonStudentByPerson(int idPerson) {
+    public List< LessonStudent> findLessonStudentByPerson(int idPerson) {
         return getLessonStudentsEntity().findByPerson(idPerson);
     }
     public List<Lesson> findAllLessons() {
