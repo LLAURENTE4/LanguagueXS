@@ -4,30 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:b="http://bootsfaces.net/ui">
 
 
 
 
 <f:view>
+
+
     <h:outputLabel value="Lesson Students List"/>
-    <h:dataTable value="#{service.lessonStudentsByPerson}" var="lessonStudent">
-        <h:column>
-            <f:facet name="header">Lesson Id</f:facet>
-            #{lessonStudent.lesson.id}
-        </h:column>
-        <h:column>
-            <f:facet name="header">First Name</f:facet>
-            #{lessonStudent.person.firstName}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Last Name</f:facet>
-            #{lessonStudent.person.lastName}
-        </h:column>
-        <h:column>
-            <f:facet name="header">Registration Date</f:facet>
-            #{lessonStudent.registrationDate}
-        </h:column>
-    </h:dataTable>
+    <b:dataTable value="#{service.lessonStudentsByPerson}" var="lessonStudent">
+        <b:dataTableColumn value="#{lessonStudent.lesson.id}" label="Lesson Id" />
+        <b:dataTableColumn value="#{lessonStudent.person.firstName}" label="First Name" />
+        <b:dataTableColumn value="#{lessonStudent.person.lastName}" label="Last Name" />
+        <b:dataTableColumn value="#{lessonStudent.registrationDate}" label="Registration Date" />
+
+    </b:dataTable>
 </f:view>
 </html>
