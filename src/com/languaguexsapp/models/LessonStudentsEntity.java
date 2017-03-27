@@ -47,10 +47,10 @@ public class LessonStudentsEntity  extends BaseEntity{
         List<LessonStudent> lessonStudents = findByCriteria(statement);
         return lessonStudents != null ? lessonStudents.get(0) : null;
     }
-
-    public List<LessonStudent> findByPerson(int personId) {
+    public List<LessonStudent> findAllLessonsByPersonId(int personId) {
         String statement = "SELECT * FROM lesson_students WHERE  person_id="+String.valueOf(personId);
-        return findByCriteria(statement);
+        List<LessonStudent> lessonStudents = findByCriteria(statement);
+        return lessonStudents;
     }
     public LessonStudent create(int lessonId,int personId, int scoreStudent, int scoreTeacher  ){
         String sql = "INSERT INTO lesson_students(lesson_id,person_id, registration_date) " +

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="990cf2e6-4d27-4914-8b91-b1fbc71675e8" name="Default" comment="Registro de persona&#10;Vista principal de persona&#10;Lista de lecciones de la persona&#10;Correccion del menu">
+    <list default="true" id="990cf2e6-4d27-4914-8b91-b1fbc71675e8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/languaguexsapp/beans/LanguagexsServiceBean.java" afterPath="$PROJECT_DIR$/src/com/languaguexsapp/beans/LanguagexsServiceBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/languaguexsapp/models/LessonStudentsEntity.java" afterPath="$PROJECT_DIR$/src/com/languaguexsapp/models/LessonStudentsEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/languaguexsapp/services/LanguagexsService.java" afterPath="$PROJECT_DIR$/src/com/languaguexsapp/services/LanguagexsService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/home_person.xhtml" afterPath="$PROJECT_DIR$/web/home_person.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/list_lesson_skills.xhtml" afterPath="$PROJECT_DIR$/web/list_lesson_skills.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/list_lesson_students.xhtml" afterPath="$PROJECT_DIR$/web/list_lesson_students.xhtml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,6 +73,72 @@
       <PATH_ELEMENT>
         <option name="myItemId" />
         <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="bd_languagexs@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="bd_languagexs" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="skills" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="bd_languagexs@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="bd_languagexs" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="lessons" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="bd_languagexs@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="bd_languagexs" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="lesson_students" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
   </component>
@@ -165,7 +236,6 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/PeopleEntity.java" />
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/GeneralEntity.java" />
-        <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/LessonStudentsEntity.java" />
         <option value="$PROJECT_DIR$/web/css/style_main.css" />
         <option value="$PROJECT_DIR$/web/home_person2.xhtml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
@@ -174,10 +244,11 @@
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/SkillsEntity.java" />
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/LessonsEntity.java" />
         <option value="$PROJECT_DIR$/web/home_person.xhtml" />
+        <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/LessonStudentsEntity.java" />
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/services/LanguagexsService.java" />
-        <option value="$PROJECT_DIR$/web/list_lesson_students.xhtml" />
-        <option value="$PROJECT_DIR$/web/list_lesson_skills.xhtml" />
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/beans/LanguagexsServiceBean.java" />
+        <option value="$PROJECT_DIR$/web/list_lesson_skills.xhtml" />
+        <option value="$PROJECT_DIR$/web/list_lesson_students.xhtml" />
       </list>
     </option>
   </component>
@@ -196,7 +267,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1924" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -238,122 +310,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="languaguexsapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="languaguexsapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LanguagueXS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="languaguexsapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beans" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -914,7 +870,7 @@
       <workItem from="1490465621063" duration="11365000" />
       <workItem from="1490478696298" duration="413000" />
       <workItem from="1490535603686" duration="24577000" />
-      <workItem from="1490586627520" duration="1446000" />
+      <workItem from="1490586627520" duration="4977000" />
     </task>
     <task id="LOCAL-00001" summary="Agregando JSF">
       <created>1489729292274</created>
@@ -965,11 +921,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490568486272</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Correccion de conexion a la bd">
+      <created>1490588117468</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1490588117468</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100110000" />
+    <option name="totallyTimeSpent" value="103641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -981,7 +944,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1924" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -992,7 +955,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29774678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29584223" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1004,10 +967,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40691194" sideWeight="0.47585836" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31772575" sideWeight="0.47585836" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20010729" sideWeight="0.49417636" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1988273" sideWeight="0.49417636" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17324094" sideWeight="0.5058236" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17324094" sideWeight="0.5058236" order="2" side_tool="true" content_ui="tabs" />
@@ -1068,7 +1031,8 @@
     <MESSAGE value="correccion de menu" />
     <MESSAGE value="Login y menu main de user" />
     <MESSAGE value="Registro de persona&#10;Vista principal de persona&#10;Lista de lecciones de la persona&#10;Correccion del menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registro de persona&#10;Vista principal de persona&#10;Lista de lecciones de la persona&#10;Correccion del menu" />
+    <MESSAGE value="Correccion de conexion a la bd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion de conexion a la bd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1081,13 +1045,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/vendor/bootstrap/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="269" column="21" lean-forward="false" selection-start-line="269" selection-start-column="21" selection-end-line="269" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/vendor/font-awesome/css/font-awesome.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -1167,14 +1124,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/create_user.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/models/LessonStudentsEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="56" column="56" lean-forward="true" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/BootsFaces-OSP-1.0.2-dist-default.jar!/net/bootsfaces/component/icon/Icon.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1229,34 +1178,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://DATABASE/2d6616fa-4507-4b8e-8240-03cef8f7565f">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>2d6616fa-4507-4b8e-8240-03cef8f7565f</OriginalElement>
-          <nodes>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.status</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lesson_students</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.skills</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.people</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.languages</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.table_auxil</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.levels</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lessons</node>
-            <node x="" y="">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.tables</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.7717149220489977" x="479.0" y="439.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/models/Lesson.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1273,10 +1194,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/home_person.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="36" column="38" lean-forward="true" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+    <entry file="dbDummy://dbtable:/a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/bd_languagexs.people">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1290,34 +1216,11 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/bd_languagexs.people">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/bd_languagexs.lessons">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/bd_languagexs.skills">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1345,18 +1248,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/list_lesson_students.xhtml">
+    <entry file="dbSrc:///a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/schema/bd_languagexs/routine/sp_getIdTable.(varchar(150)).sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/models/PeopleEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="14" />
+          <folding>
+            <element signature="e#3290#3291#0" expanded="false" />
+            <element signature="e#3325#3326#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/models/GeneralEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="59" lean-forward="false" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+          <folding>
+            <marker date="1490536456548" expanded="true" signature="435:470" ph="SELECT now()... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/2d6616fa-4507-4b8e-8240-03cef8f7565f">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>2d6616fa-4507-4b8e-8240-03cef8f7565f</OriginalElement>
+          <nodes>
+            <node x="177.88636363636365" y="0.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.status</node>
+            <node x="178.38636363636363" y="738.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lesson_students</node>
+            <node x="119.86363636363637" y="358.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.skills</node>
+            <node x="324.5" y="124.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.people</node>
+            <node x="44.5" y="179.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.languages</node>
+            <node x="184.5" y="179.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.levels</node>
+            <node x="52.886363636363626" y="548.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lessons</node>
+            <node x="589.5" y="0.0">2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.tables</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lessons" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.skills">
+              <point x="45.0" y="-70.0" />
+              <point x="187.88636363636363" y="523.0" />
+              <point x="209.86363636363637" y="523.0" />
+              <point x="0.0" y="70.0" />
+            </edge>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.skills" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.people">
+              <point x="60.0" y="-70.0" />
+              <point x="269.8636363636364" y="333.0" />
+              <point x="379.5" y="333.0" />
+              <point x="-55.0" y="92.0" />
+            </edge>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.skills" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.levels">
+              <point x="0.0" y="-70.0" />
+              <point x="209.86363636363637" y="333.0" />
+              <point x="244.5" y="333.0" />
+              <point x="0.0" y="37.0" />
+            </edge>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.people" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.status">
+              <point x="0.0" y="-92.0" />
+              <point x="434.5" y="99.0" />
+              <point x="267.8863636363636" y="99.0" />
+              <point x="29.99999999999997" y="37.0" />
+            </edge>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.skills" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.languages">
+              <point x="-60.0" y="-70.0" />
+              <point x="149.86363636363637" y="333.0" />
+              <point x="104.5" y="333.0" />
+              <point x="0.0" y="37.0" />
+            </edge>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lessons" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.status">
+              <point x="-45.0" y="-70.0" />
+              <point x="97.88636363636363" y="523.0" />
+              <point x="34.0" y="523.0" />
+              <point x="34.0" y="99.0" />
+              <point x="207.88636363636365" y="99.0" />
+              <point x="-30.0" y="37.0" />
+            </edge>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lesson_students" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.people">
+              <point x="54.75" y="-70.0" />
+              <point x="342.6363636363636" y="713.0" />
+              <point x="489.5" y="713.0" />
+              <point x="55.0" y="92.0" />
+            </edge>
+            <edge source="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lesson_students" target="2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lessons">
+              <point x="-54.75" y="-70.0" />
+              <point x="233.13636363636363" y="713.0" />
+              <point x="142.88636363636363" y="713.0" />
+              <point x="0.0" y="70.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.9236080178173719" x="240.15175169657948" y="572.850494333253" />
+          <SelectedNodes>
+            <node>2d6616fa-4507-4b8e-8240-03cef8f7565f.TABLE:bd_languagexs.lessons</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/models/LessonStudentsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="49" column="55" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/services/LanguagexsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="131" column="55" lean-forward="false" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/beans/LanguagexsServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="53" />
+          <folding>
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1678#1679#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/list_lesson_skills.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        <state relative-caret-position="289">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="17" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1374,50 +1404,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbSrc:///a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/schema/bd_languagexs/routine/sp_getIdTable.(varchar(150)).sql">
-      <provider selected="true" editor-type-id="text-editor">
+    <entry file="dbDummy://dbtable:/a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/bd_languagexs.lesson_students">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/beans/LanguagexsServiceBean.java">
+    <entry file="file://$PROJECT_DIR$/web/home_person.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="29" column="60" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="60" />
+        <state relative-caret-position="377">
+          <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/models/PeopleEntity.java">
+    <entry file="file://$PROJECT_DIR$/web/list_lesson_students.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="e#3290#3291#0" expanded="true" />
-            <element signature="e#3325#3326#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/services/LanguagexsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="dbDummy://dbtable:/a91a4353/2d6616fa-4507-4b8e-8240-03cef8f7565f/bd_languagexs.skills">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/languaguexsapp/models/GeneralEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="20" column="59" lean-forward="false" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-          <folding>
-            <marker date="1490536456548" expanded="true" signature="435:470" ph="SELECT now()... " />
-          </folding>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
