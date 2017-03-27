@@ -27,8 +27,7 @@ public class LanguagexsServiceBean {
         try {
             InitialContext ctx = new InitialContext();
             Connection connection = ((DataSource) ctx
-                    // .lookup("jdbc/MySQLDataSource_LanguageXS"))
-                    .lookup("jdbc/MySQLDataSource"))
+                    .lookup("jdbc/MySQLDataSource_LanguageXS"))
                     .getConnection();
             service = new LanguagexsService();
             service.setConnection(connection);
