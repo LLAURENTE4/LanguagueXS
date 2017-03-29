@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:body id="main">
+    <f:view>
+        <b:container layout="fluid">
+            <h:form id="Skill" styleClass="cont" prependId="false">
+                <b:row>
+                    <b:column medium-screen="4"/>
+                    <b:column medium-screen="4">
+                        <br/>
+                        <div align="center"><b><h:outputLabel value="New Skill"/></b></div>
+                        <br/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column medium-screen="3"/>
+                    <b:column medium-screen="2">
+                        <b><h:outputText value="Language Name:"/></b>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:dropMenu value="Languages">
+                            <b:navLink value="Language 1" action="#"></b:navLink>
+                            <b:navLink value="Language 2" action="#"></b:navLink>
+                            <b:navLink value="Language 3" action="#"></b:navLink>
+                            <!--for each a los lenguajes que ofrece las personas-->
+                        </b:dropMenu>
+                    </b:column>
+                </b:row>
+                <b:row>
+                    <b:column medium-screen="3"/>
+                    <b:column medium-screen="2">
+                        <b><h:outputText value="Level of Lesson:"/></b>
+                    </b:column>
+                    <b:column medium-screen="4">
+                        <b:dropMenu value="Levels">
+                            <b:navLink value="Level 1" action="#"></b:navLink>
+                            <b:navLink value="Level 2" action="#"></b:navLink>
+                            <b:navLink value="Level 3" action="#"></b:navLink>
+                            <!--for each a los leveels que puede ofrecer la persona-->
+                        </b:dropMenu>
+                    </b:column>
+                </b:row>
+                <b:column medium-screen="4">
+                    <b:inputText id="Price" placeholder="price" value="#{service.skills." required="true" requiredMessage="Price is required">
+                        <f:facet name="prepend">
+                            <b:icon name="glyphicon glyphicon-pencil" />
+                        </f:facet>
+                    </b:inputText>
+                </b:column>
+                <b:row>
+                    <b:column medium-screen="2">
+                        <b:commandButton type="Create" value="" look="primary" style="width:100%" action="#{service" />
+                    </b:column>
+                </b:row>
+            </h:form>
+        </b:container>
+    </f:view>
+</h:body>
+</html>
+
