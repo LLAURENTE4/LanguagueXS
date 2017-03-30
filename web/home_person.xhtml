@@ -17,7 +17,7 @@
         <b:navbarLinks>
             <b:navLink value="Home" update="@form @(.content)"  onclick="ajax:service.setPageHome('home_default.xhtml')"/>
             <b:dropMenu value="Teacher">
-                <b:navLink value="Create Skill" href="#"></b:navLink>
+                <b:navLink value="Create Skill" update="@form @(.content)" onclick="ajax:service.setPageHome('register_skill.xhtml')"/>
                 <b:navLink value="Create Lesson" href="#"></b:navLink>
                 <b:navLink value="Student Score" href="#"></b:navLink>
             </b:dropMenu>

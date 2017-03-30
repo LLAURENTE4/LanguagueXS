@@ -9,7 +9,7 @@ public class LevelsEntity extends BaseEntity{
     private GeneralEntity generalEntity;
 
     public LevelsEntity() {
-        super("languages");
+        super("levels");
     }
 
     private List<Level> findByCriteria(String sql) {

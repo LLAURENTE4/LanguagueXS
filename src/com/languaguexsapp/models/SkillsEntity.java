@@ -57,7 +57,7 @@ public class SkillsEntity extends BaseEntity{
 
     public Skill create(int personId,int languageId, int levelId,Double price ){
         int id= getGeneralEntity().getIdTable(getTableName());
-        String sql = "INSERT INTO skill(id,person_id, language_id,level_id, price) " +
+        String sql = "INSERT INTO skills(id,person_id, language_id,level_id, price) " +
                 "VALUES(" + String.valueOf(id) + "," + String.valueOf( personId) + ","+ String.valueOf( languageId) +","+String.valueOf( levelId)
                 +","+ String.valueOf( price) +")";
         return updateByCriteria(sql) > 0 ? new Skill(id,getPeopleEntity().findById(personId),getLanguagesEntity().findById( languageId),

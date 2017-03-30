@@ -23,6 +23,7 @@ public class LanguagexsServiceBean {
     private String message;
     private String pageHome;
     private Language language;
+    private Skill skill;
 
     public LanguagexsServiceBean() {
         try {
@@ -34,6 +35,7 @@ public class LanguagexsServiceBean {
             service.setConnection(connection);
             person=new Person();
             language=new Language();
+            skill=new Skill();
             pageHome="home_default.xhtml";
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
@@ -48,6 +50,8 @@ public class LanguagexsServiceBean {
     public  List<Skill> getSkills(){
         return  service.findAllSkills();
     }
+
+    public List<Language> getLanguages(){return service.findAllLanguages();}
 
     public  List<LessonStudent> getLessonStudents(){
         return  service.findAllLessonStudents();
@@ -65,6 +69,7 @@ public class LanguagexsServiceBean {
     public List<Lesson> getLessonSkillsById(){
         return service.findAllLessonSkillsById(person.getId());
     }
+
     public String loginPerson(){
         Person personaAuxiliary=new Person();
 
@@ -91,7 +96,19 @@ public class LanguagexsServiceBean {
             return "error";
         }
     }
-
+    public String registerSkill(){
+        Skill SkillAuxiliary = new Skill();
+        SkillAuxiliary=service.addSkill(skill);
+        if( SkillAuxiliary.getId() > 0 ){
+            this.message="";
+            setPageHome("home_default.xhtml");
+            return "success";
+        }else{
+            this.message="Incorrect data";
+            setPageHome("register_language.xhtml");
+            return "error";
+        }
+    }
     public String registerLanguage(){
         Language languageAuxiliary=new Language();
         languageAuxiliary=service.addLanguage(language);
@@ -140,7 +157,9 @@ public class LanguagexsServiceBean {
     public Language getLanguage() {
         return language;
     }
-
+    public Skill getSkill() {
+        return skill;
+    }
     public void setLanguage(Language language) {
         this.language = language;
     }
