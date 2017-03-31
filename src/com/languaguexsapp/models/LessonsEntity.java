@@ -2,6 +2,7 @@ package com.languaguexsapp.models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,8 +58,14 @@ public class LessonsEntity extends BaseEntity{
 
     public Lesson create(int skillId, Date startDate, Date endDate, int statusId) {
         int id= getGeneralEntity().getIdTable(getTableName());
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String startDateText = dateFormat.format(startDate);
+        String endDateText = dateFormat.format(endDate);
+
+
         String sql = "INSERT INTO lessons (id,skill_id,start_date,end_date,status_id) " +
-                "VALUES("+ String.valueOf(id) + "," + skillId + ",'" + String.valueOf(startDate) + "','" + String.valueOf(endDate) + "'," + statusId + ")";
+                "VALUES("+ String.valueOf(id) + "," + skillId + ",'"+startDateText+"','"+endDateText+"'," + statusId + ")";
         return updateByCriteria(sql) > 0 ? new Lesson(id, getSkillsEntity().findById(skillId),startDate,endDate,getStatusEntity().findById(statusId)) : null;
     }
 

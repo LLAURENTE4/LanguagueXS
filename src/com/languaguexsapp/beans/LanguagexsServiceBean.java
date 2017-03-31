@@ -5,8 +5,11 @@ import com.languaguexsapp.services.LanguagexsService;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -21,9 +24,10 @@ public class LanguagexsServiceBean {
     private LanguagexsService service;
     private Person person;
     private String message;
-    private String pageHome;
     private Language language;
+    private Level level;
     private Skill skill;
+    private Lesson lesson;
 
     public LanguagexsServiceBean() {
         try {
@@ -36,7 +40,8 @@ public class LanguagexsServiceBean {
             person=new Person();
             language=new Language();
             skill=new Skill();
-            pageHome="home_default.xhtml";
+            level=new Level();
+            lesson=new Lesson();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
@@ -44,12 +49,17 @@ public class LanguagexsServiceBean {
 
     public List<Person> getPeople() { return service.findAllPeople(); }
 
-    public  List<Level> getLevels(){
+    public List<Level> getLevels(){
         return  service.findAllLevels();
     }
-    public  List<Skill> getSkills(){
+    public List<Skill> getSkills(){
         return  service.findAllSkills();
     }
+    public List<Skill> getSkillsByPersonId(){
+        return  service.findAllSkillsByPersonId(person.getId());
+    }
+
+    public List<Lesson> getLessons(){ return service.findAllLessons();}
 
     public List<Language> getLanguages(){return service.findAllLanguages();}
 
@@ -96,40 +106,79 @@ public class LanguagexsServiceBean {
             return "error";
         }
     }
+
     public String registerSkill(){
-        Skill SkillAuxiliary = new Skill();
-        SkillAuxiliary=service.addSkill(skill);
-        if( SkillAuxiliary.getId() > 0 ){
+        skill.setPerson(person);
+        skill.setLanguage(language);
+        skill.setLevel(level);
+        Skill skillAuxiliary = new Skill();
+        skillAuxiliary=service.addSkill(skill);
+        if( skillAuxiliary.getId() > 0 ){
+            skill=null;
+            skill=new Skill();
+            language=null;
+            language=new Language();
+            level=null;
+            level=new Level();
             this.message="";
-            setPageHome("home_default.xhtml");
             return "success";
         }else{
             this.message="Incorrect data";
-            setPageHome("register_language.xhtml");
             return "error";
         }
     }
+
+    public String registerLesson(){
+        lesson.setSkill(skill);
+        Lesson lessonAuxiliary = new Lesson();
+        lessonAuxiliary=service.addLesson(lesson);
+        if( lessonAuxiliary.getId() > 0 ){
+            skill=null;
+            skill=new Skill();
+            lesson=null;
+            lesson=new Lesson();
+            this.message="";
+            return "success";
+        }else{
+            this.message="Incorrect data";
+            return "error";
+        }
+    }
+
     public String registerLanguage(){
         Language languageAuxiliary=new Language();
         languageAuxiliary=service.addLanguage(language);
         if( languageAuxiliary.getId() > 0 ){
+            language=null;
+            language=new Language();
             this.message="";
-            setPageHome("home_default.xhtml");
             return "success";
         }else{
             this.message="Incorrect data";
-            setPageHome("register_language.xhtml");
             return "error";
         }
-
     }
 
-    public String closeSession(){
-        person=null;
-        person=new Person();
+    /*Menu*/
+    public String homeDefault() {
         return "success";
     }
 
+    public String addLanguage() {
+        return "success";
+    }
+
+    public String closeSession(){
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = context.getExternalContext();
+        Object session = externalContext.getSession(false);
+        HttpSession httpSession = (HttpSession) session;
+        httpSession.invalidate();
+        return "success";
+    }
+
+
+    /*Current data*/
     public Person getPerson() {
         return person;
     }
@@ -146,21 +195,31 @@ public class LanguagexsServiceBean {
         this.message = message;
     }
 
-    public String getPageHome() {
-        return pageHome;
-    }
-
-    public void setPageHome(String pageHome) {
-        this.pageHome = pageHome;
-    }
-
     public Language getLanguage() {
         return language;
     }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
     public Skill getSkill() {
         return skill;
     }
-    public void setLanguage(Language language) {
-        this.language = language;
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
     }
 }

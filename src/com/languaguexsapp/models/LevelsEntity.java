@@ -74,4 +74,7 @@ public class LevelsEntity extends BaseEntity{
         return generalEntity;
     }
 
+    public void setGeneralEntity(GeneralEntity generalEntity) {
+        this.generalEntity = generalEntity;
+    }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <ui:composition>
+
+        <b:navBar brand="LanguageXS" brandHref="#" inverse="true" fixed="top" >
+            <h:form>
+                <b:navbarLinks>
+                    <b:navCommandLink value="Home" action="home_default"/>
+                    <b:dropMenu value="Teacher">
+                        <b:navCommandLink value="Create Skill" action="register_skill"/>
+                        <b:navCommandLink value="Create Lesson" action="register_lesson"/>
+                        <b:navLink value="Student Score" href="#"/>
+                    </b:dropMenu>
+                    <b:dropMenu value="Student">
+                        <b:navLink value="Subscription in lesson" href="#"/>
+                        <b:navLink value="Teacher Score" href="#"/>
+                    </b:dropMenu>
+                    <b:dropMenu value="Maintenance">
+                        <b:navCommandLink value="Language" action="register_language" />
+                        <b:navLink value="Level" href="#"/>
+                    </b:dropMenu>
+                </b:navbarLinks>
+            </h:form>
+            <h:form styleClass="navbar-form navbar-right">
+                <b:image value="images/people/login_default.jpg"  tooltip="Update Information" width="38x" height="38x"/>
+                #{' '}
+
+                <b:commandButton action="index" actionListener="#{service.closeSession}" value="" look="default" icon="glyphicon glyphicon-off" iconAlign="right" icon-size="1x" tooltip="Sign out"/>
+            </h:form>
+        </b:navBar>
+    </ui:composition>
+</html>

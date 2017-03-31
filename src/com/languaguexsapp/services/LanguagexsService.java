@@ -55,6 +55,7 @@ public class LanguagexsService {
                 lessonsEntity.setConnection(getConnection());
                 lessonsEntity.setSkillsEntity(getSkillsEntity());
                 lessonsEntity.setStatusEntity(getStatusEntity());
+                lessonsEntity.setGeneralEntity(getGeneralEntity());
             }
         }
         return lessonsEntity;
@@ -65,6 +66,7 @@ public class LanguagexsService {
             if(levelsEntity == null) {
                 levelsEntity = new LevelsEntity();
                 levelsEntity.setConnection(getConnection());
+                levelsEntity.setGeneralEntity(getGeneralEntity());
             }
         }
         return levelsEntity;
@@ -90,6 +92,7 @@ public class LanguagexsService {
                 skillsEntity.setPeopleEntity(getPeopleEntity());
                 skillsEntity.setLanguagesEntity(getLanguagesEntity());
                 skillsEntity.setLevelsEntity(getLevelsEntity());
+                skillsEntity.setGeneralEntity(getGeneralEntity());
             }
         }
         return skillsEntity;
@@ -161,6 +164,10 @@ public class LanguagexsService {
         return getPeopleEntity().findById(id);
     }
 
+    public List<Skill> findAllSkillsByPersonId(int personId) {
+        return getSkillsEntity().findAllByPersonId(personId);
+    }
+
     public List<Skill> findAllSkills() {
         return getSkillsEntity().findAll();
     }
@@ -200,7 +207,12 @@ public class LanguagexsService {
     public Language addLanguage(Language language){
         return getLanguagesEntity().create(language.getDescription());
     }
+
     public Skill addSkill(Skill skill){
         return getSkillsEntity().create(skill.getPerson().getId(),skill.getLanguage().getId(),skill.getLevel().getId(),skill.getPrice());
+    }
+
+    public Lesson addLesson(Lesson lesson){
+        return getLessonsEntity().create(lesson.getSkill().getId(),lesson.getStartDate(),lesson.getEndDate(),1);
     }
 }
