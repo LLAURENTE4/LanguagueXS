@@ -80,16 +80,23 @@ public class LanguagexsServiceBean {
         return service.findAllLessonSkillsById(person.getId());
     }
 
-    public String loginPerson(){
-        Person personaAuxiliary=new Person();
+    public String loginPerson() {
+        Person personaAuxiliary = new Person();
 
-        personaAuxiliary=service.findPersonByEmail(person.getEmail());
-        if( person.getPassword().equals(personaAuxiliary.getPassword())  &&  personaAuxiliary.getStatus().getId() == 1 &&  personaAuxiliary.getId() > 0 ){
-            person=personaAuxiliary;
-            this.message="";
-            return "success";
-        }else{
-            this.message="Incorrect data";
+        personaAuxiliary = service.findPersonByEmail(person.getEmail());
+        // if( person.getPassword().equals(personaAuxiliary.getPassword()) ){
+        if (personaAuxiliary.getEmail() != null) {
+            if (personaAuxiliary.getPassword().equals(person.getPassword())) {
+                person = personaAuxiliary;
+                this.message = "";
+                return "success";
+            } else {
+                this.message = "Incorrect data";
+                return "error";
+
+            }
+        } else {
+            this.message = "Usuario o contraseña no existen";
             return "error";
         }
     }
