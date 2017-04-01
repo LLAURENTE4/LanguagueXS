@@ -45,7 +45,7 @@ public class LessonStudentsEntity  extends BaseEntity{
     public LessonStudent findById(int lessonId,int personId) {
         String statement = "SELECT * FROM lesson_students WHERE lesson_id = " +String.valueOf(lessonId)+" and person_id="+String.valueOf(personId);
         List<LessonStudent> lessonStudents = findByCriteria(statement);
-        return lessonStudents != null ? lessonStudents.get(0) : null;
+        return lessonStudents.size()>0 ? lessonStudents.get(0) : null;
     }
     public List<LessonStudent> findAllLessonsByPersonId(int personId) {
         String statement = "SELECT * FROM lesson_students WHERE  person_id="+String.valueOf(personId);
@@ -54,7 +54,7 @@ public class LessonStudentsEntity  extends BaseEntity{
     }
     public LessonStudent create(int lessonId,int personId, int scoreStudent, int scoreTeacher  ){
         String sql = "INSERT INTO lesson_students(lesson_id,person_id, registration_date) " +
-                "VALUES(" + String.valueOf(lessonId) + "," + String.valueOf( personId) + ","+ String.valueOf( getGeneralEntity().getCurrentDate()) +")";
+                "VALUES(" + String.valueOf(lessonId) + "," + String.valueOf( personId) + ",'"+ String.valueOf( getGeneralEntity().getCurrentDate()) +"')";
         return updateByCriteria(sql) > 0 ? new LessonStudent(getLessonsEntity().findById(lessonId),getPeopleEntity().findById(personId),getGeneralEntity().getCurrentDate(),scoreStudent,scoreTeacher) : null;
     }
 

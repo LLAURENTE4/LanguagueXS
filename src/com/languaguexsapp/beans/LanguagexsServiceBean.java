@@ -28,6 +28,7 @@ public class LanguagexsServiceBean {
     private Level level;
     private Skill skill;
     private Lesson lesson;
+    private LessonStudent lessonStudent;
 
     public LanguagexsServiceBean() {
         try {
@@ -42,6 +43,7 @@ public class LanguagexsServiceBean {
             skill=new Skill();
             level=new Level();
             lesson=new Lesson();
+            lessonStudent=new LessonStudent();
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
@@ -60,6 +62,8 @@ public class LanguagexsServiceBean {
     }
 
     public List<Lesson> getLessons(){ return service.findAllLessons();}
+
+    public List<Lesson> getLessonsBySkillId(){ return service.findAllLessonsBySkillId(skill.getId());}
 
     public List<Language> getLanguages(){return service.findAllLanguages();}
 
@@ -136,6 +140,34 @@ public class LanguagexsServiceBean {
         }else{
             this.message="Incorrect data";
             return "error";
+        }
+    }
+
+    public String registerLessonStudent(){
+        lessonStudent.setPerson(person);
+        lessonStudent.setLesson(lesson);
+
+        LessonStudent lessonStudentAuxiliary = new LessonStudent();
+        lessonStudentAuxiliary=service.findLessonStudentById(lessonStudent);
+
+        if( lessonStudentAuxiliary!=null){
+            this.message = "Lesson Registered";
+            return "error";
+        }else {
+            lessonStudentAuxiliary = service.addLessonStudent(lessonStudent);
+            if (lessonStudentAuxiliary.getPerson().getId() > 0) {
+                lessonStudent = null;
+                lessonStudent = new LessonStudent();
+                lesson = null;
+                lesson = new Lesson();
+                skill = null;
+                skill = new Skill();
+                this.message = "";
+                return "success";
+            } else {
+                this.message = "Incorrect data";
+                return "error";
+            }
         }
     }
 
@@ -246,5 +278,13 @@ public class LanguagexsServiceBean {
 
     public void setLesson(Lesson lesson) {
         this.lesson = lesson;
+    }
+
+    public LessonStudent getLessonStudent() {
+        return lessonStudent;
+    }
+
+    public void setLessonStudent(LessonStudent lessonStudent) {
+        this.lessonStudent = lessonStudent;
     }
 }

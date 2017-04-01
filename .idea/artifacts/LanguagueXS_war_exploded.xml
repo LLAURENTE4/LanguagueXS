@@ -11,6 +11,7 @@
           <element id="library" level="project" name="BootsFaces-OSP-1.0.2-dist-default" />
           <element id="library" level="project" name="BootsFaces-OSP-1.0.2-dist" />
           <element id="library" level="project" name="primefaces-5.2" />
+          <element id="library" level="application" name="primefaces-5.21" />
         </element>
       </element>
     </root>

@@ -43,6 +43,7 @@ public class LanguagexsService {
                 lessonStudentsEntity.setConnection(getConnection());
                 lessonStudentsEntity.setLessonsEntity(getLessonsEntity());
                 lessonStudentsEntity.setPeopleEntity(getPeopleEntity());
+                lessonStudentsEntity.setGeneralEntity(getGeneralEntity());
             }
         }
         return lessonStudentsEntity;
@@ -122,20 +123,20 @@ public class LanguagexsService {
         return getLanguagesEntity().findAll();
     }
 
-
-
     public Language findLanguageById(int id) {
         return getLanguagesEntity().findById(id);
     }
 
     public List<LessonStudent> findAllLessonStudents(){return getLessonStudentsEntity().findAll();}
 
-    public  LessonStudent findLessonStudentById(int idLesson,int idPerson) {
-        return getLessonStudentsEntity().findById(idLesson,idPerson);
+    public  LessonStudent findLessonStudentById(LessonStudent lessonStudent) {
+        return getLessonStudentsEntity().findById(lessonStudent.getLesson().getId(),lessonStudent.getPerson().getId());
     }
+
     public List<LessonStudent> findAllLessonsByPersonId(int personId) {
         return getLessonStudentsEntity().findAllLessonsByPersonId(personId);
     }
+
     public List<Lesson> findAllLessons() {
         return getLessonsEntity().findAll();
     }
@@ -180,6 +181,10 @@ public class LanguagexsService {
         return getStatusEntity().findAll();
     }
 
+    public List<Lesson> findAllLessonsBySkillId(int skillId) {
+        return getLessonsEntity().findAllBySkillId(skillId);
+    }
+
     public List<Lesson> findAllLessonSkillsById(int personId){
         List<Skill> skills = getSkillsEntity().findAllByPersonId(personId);
 
@@ -218,5 +223,9 @@ public class LanguagexsService {
 
     public Lesson addLesson(Lesson lesson){
         return getLessonsEntity().create(lesson.getSkill().getId(),lesson.getStartDate(),lesson.getEndDate(),1);
+    }
+
+    public LessonStudent addLessonStudent(LessonStudent lessonStudent){
+        return getLessonStudentsEntity().create(lessonStudent.getLesson().getId(),lessonStudent.getPerson().getId(),0,0);
     }
 }
