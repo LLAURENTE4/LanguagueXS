@@ -80,25 +80,29 @@ public class LanguagexsServiceBean {
         return service.findAllLessonSkillsById(person.getId());
     }
 
-    public String loginPerson() {
-        Person personaAuxiliary = new Person();
+    public String loginPerson(){
+        Person personaAuxiliary=new Person();
+        personaAuxiliary=service.findPersonByEmail(person.getEmail());
 
-        personaAuxiliary = service.findPersonByEmail(person.getEmail());
-        // if( person.getPassword().equals(personaAuxiliary.getPassword()) ){
-        if (personaAuxiliary.getEmail() != null) {
-            if (personaAuxiliary.getPassword().equals(person.getPassword())) {
-                person = personaAuxiliary;
-                this.message = "";
-                return "success";
-            } else {
-                this.message = "Incorrect data";
-                return "error";
-
-            }
-        } else {
-            this.message = "Usuario o contraseña no existen";
+        if(personaAuxiliary == null){
+            this.message="Unregistered Email";
             return "error";
         }
+
+        if(personaAuxiliary.getStatus().getId() != 1){
+            this.message="Inactive user";
+            return "error";
+        }
+
+        if( person.getPassword().equals(personaAuxiliary.getPassword()) ){
+            person=personaAuxiliary;
+            this.message="";
+            return "success";
+        }else{
+            this.message="Incorrect password";
+            return "error";
+        }
+
     }
 
     public String registerPerson(){
