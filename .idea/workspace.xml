@@ -7,13 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="990cf2e6-4d27-4914-8b91-b1fbc71675e8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/WEB-INF/classes/com/languaguexsapp/services/LanguagexsService.class" afterPath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/WEB-INF/classes/com/languaguexsapp/services/LanguagexsService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LanguagueXS/com/languaguexsapp/services/LanguagexsService.class" afterPath="$PROJECT_DIR$/out/production/LanguagueXS/com/languaguexsapp/services/LanguagexsService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/applayout/menu.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/applayout/menu.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/home_default.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/home_default.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/list_lesson_skills.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/list_lesson_skills.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/list_lessons.xhtml" afterPath="$PROJECT_DIR$/out/artifacts/LanguagueXS_war_exploded/list_lessons.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/list_studentsScore.xhtml" afterPath="$PROJECT_DIR$/web/list_studentsScore.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/list_teachersScore.xhtml" afterPath="$PROJECT_DIR$/web/list_teachersScore.xhtml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -234,8 +230,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/Person.java" />
-        <option value="$PROJECT_DIR$/src/com/languaguexsapp/models/Status.java" />
         <option value="$PROJECT_DIR$/Bd_MySQL_LanguageXS_Insert.sql" />
         <option value="$PROJECT_DIR$/web/list_people.xhtml" />
         <option value="$PROJECT_DIR$/web/list_levels.xhtml" />
@@ -285,6 +279,8 @@
         <option value="$PROJECT_DIR$/web/applayout/menu.xhtml" />
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/beans/LanguagexsServiceBean.java" />
         <option value="$PROJECT_DIR$/src/com/languaguexsapp/services/LanguagexsService.java" />
+        <option value="$PROJECT_DIR$/web/list_teachersScore.xhtml" />
+        <option value="$PROJECT_DIR$/web/list_studentsScore.xhtml" />
       </list>
     </option>
   </component>
@@ -1145,11 +1141,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491064378422</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Se agrega opcion de registrase en un aleccion">
+      <created>1491065334830</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1491065334830</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179009000" />
+    <option name="totallyTimeSpent" value="179892000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1293,13 +1296,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/list_languages.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/list_lesson_skills.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1596,13 +1592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/list_teachersScore.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="58" lean-forward="false" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/applayout/menu.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1636,6 +1625,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/list_studentsScore.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="29" column="133" lean-forward="false" selection-start-line="29" selection-start-column="133" selection-end-line="29" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/list_teachersScore.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>

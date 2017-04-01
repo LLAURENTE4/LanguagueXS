@@ -26,7 +26,7 @@
 
                 <h:column value="#{lessonStudent.lesson.id}" label="Lesson Id" >
 
-                    <img src="images/courses/#{lessonStudent.lesson.skill.language.description}.jpg" alt="..." width="100px" height="50px" />
+                    <img src="images/courses/#{lessonStudent.lesson.skill.language.description}.jpg" alt="..." width="80px" height="40px" />
 
 
                 </h:column>
@@ -37,7 +37,7 @@
                 <h:column value="#{lessonStudent.person.firstName} #{lessonStudent.person.lastName}" label="Student FullName" />
                 <h:column label="Score Teacher" >
 
-                    <p:rating value="#{lessonStudent.scoreTeacher}" stars="10" cancel="false" onRate="alert('You rated ' + value)" />
+                    <p:rating value="#{lessonStudent.scoreTeacher}" stars="10" cancel="false"  />
 
                 </h:column>
 
