@@ -75,6 +75,11 @@ public class LanguagexsServiceBean {
       return service.findAllLessonsByPersonId(person.getId());
     }
 
+    public  List<LessonStudent> getLessonStudentsByLessonId(){
+        return service.findAllLessonStudentsByID(person.getId());
+    }
+
+
     public String listPeople() { return "success";}
     public String listLevels() { return "success";}
     public String listLessonStudents() { return "success";}

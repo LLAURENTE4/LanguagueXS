@@ -169,6 +169,23 @@ public class LanguagexsService {
         return getSkillsEntity().findAllByPersonId(personId);
     }
 
+    public  List<LessonStudent> findAllLessonStudentsByID (int personId){
+
+        List<Lesson> lessons = findAllLessonSkillsById(personId);
+
+        List<LessonStudent> lessonStudents = new ArrayList<>();
+
+        for(Lesson lesson:lessons) {
+            List<LessonStudent> lessonsStudent_auxil=getLessonStudentsEntity().findAllLessonsByLessonId(lesson.getId());
+            for(LessonStudent lessonStudent:lessonsStudent_auxil){
+                lessonStudents.add(lessonStudent);
+            }
+        }
+        return lessonStudents;
+    }
+
+
+
     public List<Skill> findAllSkills() {
         return getSkillsEntity().findAll();
     }
