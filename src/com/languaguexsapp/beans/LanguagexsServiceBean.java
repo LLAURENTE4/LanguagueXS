@@ -170,6 +170,20 @@ public class LanguagexsServiceBean {
         }
     }
 
+    public String registerLevel(){
+        Level levelAuxiliary=new Level();
+        levelAuxiliary=service.addLevel(level);
+        if( levelAuxiliary.getId() > 0 ){
+            level=null;
+            level=new Level();
+            this.message="";
+            return "success";
+        }else{
+            this.message="Incorrect data";
+            return "error";
+        }
+    }
+
     /*Menu*/
     public String homeDefault() {
         return "success";

@@ -208,6 +208,10 @@ public class LanguagexsService {
         return getLanguagesEntity().create(language.getDescription());
     }
 
+    public Level addLevel(Level level){
+        return getLevelsEntity().create(level.getDescription());
+    }
+
     public Skill addSkill(Skill skill){
         return getSkillsEntity().create(skill.getPerson().getId(),skill.getLanguage().getId(),skill.getLevel().getId(),skill.getPrice());
     }
