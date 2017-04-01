@@ -15,9 +15,14 @@
                 <p>In LanguageXS you will be able to create the courses to teach and also to enroll to the courses that are available.</p>
                 <hr/>
                 <hr/>
-                <ui:include src="list_lesson_skills.xhtml"/>
-                <hr/>
-                <ui:include src="list_lessons.xhtml"/>
+                <b:tabView activeIndex="1">
+                    <b:tab title="Lessons to teach">
+                        <ui:include src="list_lesson_skills.xhtml"/>
+                    </b:tab>
+                    <b:tab title="Enrolled Lesson">
+                        <ui:include src="list_lessons.xhtml"/>
+                    </b:tab>
+                </b:tabView>
             </b:column>
         </h:form>
     </ui:define>
