@@ -7,13 +7,13 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:b="http://bootsfaces.net/ui">
 <f:view>
     <h:outputLabel value="Enrolled Lessons"/>
-    <b:dataTable value="#{service.lessonStudentsById}" var="lessonStudent">
+    <b:dataTable value="#{service.lessonStudentsByLessonId}" var="lessonStudent">
         <b:dataTableColumn value="#{lessonStudent.lesson.id}" label="Lesson Id" />
         <b:dataTableColumn value="#{lessonStudent.lesson.skill.language.description}" label="Language" />
         <b:dataTableColumn value="#{lessonStudent.lesson.skill.level.description}" label="Level" />
-        <b:dataTableColumn value="#{lessonStudent.lesson.skill.price}" label="Price" />
-        <b:dataTableColumn value="#{lessonStudent.lesson.startDate}" label="Start Date" />
-        <b:dataTableColumn value="#{lessonStudent.lesson.endDate}" label="End Date" />
+        <b:dataTableColumn value="#{lessonStudent.scoreTeacher}" label="Score Teacher" />
+        <b:dataTableColumn value="#{lessonStudent.scoreStudent}" label="Score Student" />
+
     </b:dataTable>
 </f:view>
 </html>
