@@ -88,6 +88,9 @@ public class LanguagexsServiceBean {
     public List<Lesson> getLessonSkillsById(){
         return service.findAllLessonSkillsById(person.getId());
     }
+    public List<Lesson> getLanguagesSkillById(){
+        return service.findAllLanguagesSkillsById(person.getId());
+    }
 
     public String loginPerson(){
         Person personaAuxiliary=new Person();
