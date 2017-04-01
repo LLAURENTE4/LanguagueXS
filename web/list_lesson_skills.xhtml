@@ -7,7 +7,14 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:b="http://bootsfaces.net/ui">
 <f:view>
-    <b:dataTable value="#{service.lessonSkillsById}" var="lessonSkills">
+    <b:dataTable value="#{service.lessonSkillsById}" var="lessonSkills"
+                 id="bcarPool3"
+                 fixedHeader="true"
+                 scroll-size="400px"
+                 scroll-x="false"
+                 responsive="true"
+                 lang="it"
+                 searching="false">
         <b:dataTableColumn value="#{lessonSkills.id}" label="Lesson Id" />
         <b:dataTableColumn value="#{lessonSkills.skill.language.description}" label="Language" />
         <b:dataTableColumn value="#{lessonSkills.skill.level.description}" label="Level" />
