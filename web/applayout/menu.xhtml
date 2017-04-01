@@ -15,12 +15,12 @@
                     <b:dropMenu value="Teacher">
                         <b:navCommandLink value="Create Skill" action="register_skill"/>
                         <b:navCommandLink value="Create Lesson" action="register_lesson"/>
-                        <b:navLink value="Student Score" href="#"/>
+                        <b:navCommandLink value="Student Score" action="list_studentsScore"/>
                         <b:navCommandLink value="List Skills" action="list_skills"/>
                     </b:dropMenu>
                     <b:dropMenu value="Student">
                         <b:navLink value="Subscription in lesson" href="#"/>
-                        <b:navLink value="Teacher Score" href="#"/>
+                        <b:navCommandLink value="Student Score" action="list_teachersScore"/>
                     </b:dropMenu>
                     <b:dropMenu value="Maintenance">
                         <b:navCommandLink value="Language" action="register_language" />

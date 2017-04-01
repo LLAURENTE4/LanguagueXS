@@ -2,6 +2,7 @@ package com.languaguexsapp.beans;
 
 import com.languaguexsapp.models.*;
 import com.languaguexsapp.services.LanguagexsService;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -28,6 +29,9 @@ public class LanguagexsServiceBean {
     private Level level;
     private Skill skill;
     private Lesson lesson;
+    private LessonStudent lessonStudent;
+
+
 
     public LanguagexsServiceBean() {
         try {
@@ -67,9 +71,18 @@ public class LanguagexsServiceBean {
         return  service.findAllLessonStudents();
     }
 
+
     public  List<LessonStudent> getLessonStudentsById(){
-      return service.findAllLessonsByPersonId(person.getId());
+        return service.findAllLessonsByPersonId(person.getId());
     }
+
+    public  List<LessonStudent> getLessonStudentsByLessonId(){
+        return service.findAllLessonStudentsByID(person.getId());
+    }
+
+
+
+
 
     public String listPeople() { return "success";}
     public String listLevels() { return "success";}

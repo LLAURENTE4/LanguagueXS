@@ -47,6 +47,14 @@ public class LessonStudentsEntity  extends BaseEntity{
         List<LessonStudent> lessonStudents = findByCriteria(statement);
         return lessonStudents != null ? lessonStudents.get(0) : null;
     }
+
+    public List<LessonStudent> findAllLessonsByLessonId(int lessonId) {
+        String statement = "SELECT * FROM lesson_students WHERE lesson_id="+String.valueOf(lessonId);
+        List<LessonStudent> lessonStudents = findByCriteria(statement);
+        return lessonStudents;
+    }
+
+
     public List<LessonStudent> findAllLessonsByPersonId(int personId) {
         String statement = "SELECT * FROM lesson_students WHERE  person_id="+String.valueOf(personId);
         List<LessonStudent> lessonStudents = findByCriteria(statement);

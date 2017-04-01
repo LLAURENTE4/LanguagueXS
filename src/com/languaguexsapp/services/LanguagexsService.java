@@ -133,6 +133,8 @@ public class LanguagexsService {
     public  LessonStudent findLessonStudentById(int idLesson,int idPerson) {
         return getLessonStudentsEntity().findById(idLesson,idPerson);
     }
+
+
     public List<LessonStudent> findAllLessonsByPersonId(int personId) {
         return getLessonStudentsEntity().findAllLessonsByPersonId(personId);
     }
@@ -179,6 +181,23 @@ public class LanguagexsService {
     public List<Status> findAllStatus() {
         return getStatusEntity().findAll();
     }
+
+    public  List<LessonStudent> findAllLessonStudentsByID (int personId){
+
+        List<Lesson> lessons = findAllLessonSkillsById(personId);
+
+        List<LessonStudent> lessonStudents = new ArrayList<>();
+
+        for(Lesson lesson:lessons) {
+            List<LessonStudent> lessonsStudent_auxil=getLessonStudentsEntity().findAllLessonsByLessonId(lesson.getId());
+            for(LessonStudent lessonStudent:lessonsStudent_auxil){
+                lessonStudents.add(lessonStudent);
+            }
+        }
+        return lessonStudents;
+    }
+
+
 
     public List<Lesson> findAllLessonSkillsById(int personId){
         List<Skill> skills = getSkillsEntity().findAllByPersonId(personId);
